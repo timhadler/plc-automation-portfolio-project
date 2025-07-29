@@ -1,0 +1,24 @@
+# PLC Project Files (too large/binary)
+*.ACD
+*.L5X
+*.mer
+*.SLC
+*.RSP
+
+# But keep specific versions in project-backups/
+!plc-code/project-backups/**/*.ACD
+!plc-code/project-backups/**/*.mer
+
+# Compiled Arduino code
+*.hex
+*.bin
+.pio/
+
+# Temporary files
+*.tmp
+*.bak
+~$*
+
+# IDE files
+.vscode/
+*.suo
