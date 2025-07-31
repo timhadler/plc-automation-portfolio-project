@@ -64,7 +64,35 @@ Scale: 100
 
 
 
-\### Notes
 
-\-
+
+\## \[2] – 1/08/25
+
+\### Added
+
+* Diffuser sensor at pusher entry to trigger the pusher instead of vision sensor
+
+&nbsp;	- Reason: More reliable than using a timer alongside the vision sensor
+
+&nbsp;	- Mapped diffuser sensor output to coil 6 in Modbus
+
+
+
+\### Changed
+
+* Raised the height of the vision sensor by adding a larger frame to attach it to
+
+&nbsp;	- Reason: Increases the field of view of the sensor. Original layout was occasionally missing readings
+
+* Moved the pusher and chute further away from the vision sensor
+
+&nbsp;	- Reason: Declutters the entry area
+
+
+
+\### Author
+
+\- T. Hadler
+
+
 
