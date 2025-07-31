@@ -1,0 +1,16 @@
+# CODESYS Change Log – PLC Automation Project
+
+## [v1] – 31/07/25
+### Added
+- Initial commit: Basic structure of PLC project created.
+- OB1 (Main): Created with call to MotorControl FB and FaultHandler FB.
+- FB1 (MotorControl): Handles motor start/stop logic with interlock.
+- FB2 (FaultHandler): Basic fault detection and alarm set logic.
+- Global DB (DB1): Shared tags for motor status, commands, and faults.
+
+### Author
+- T. Hadler
+
+### Notes
+- 
+
