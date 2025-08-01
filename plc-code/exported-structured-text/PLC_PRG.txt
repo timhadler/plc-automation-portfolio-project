@@ -1,0 +1,16 @@
+PROGRAM PLC_PRG
+VAR
+	Stage1 : Stage1_PartDetection;
+END_VAR
+
+Stage1(
+	iVisionSensorBit0 := GV_IO.iBaseVisionSensorBit0,
+	iVisionSensorBit1 := GV_IO.iBaseVisionSensorBit1,
+	iVisionSensorBit2 := GV_IO.iBaseVisionSensorBit2,
+	iVisionSensorBit3 := GV_IO.iBaseVisionSensorBit3,
+	iPusherBackLimit := GV_IO.iBasePusherBackLimit,
+	iPusherFrontLimit := GV_IO.iBasePusherFrontLimit,
+	iPusherEntrySensor := GV_IO.iBaseDiffuseSensor);
+	
+GV_IO.oBasePusher := Stage1.oPusher;
+GV_IO.oStageOneConveyor := Stage1.oConveyor;

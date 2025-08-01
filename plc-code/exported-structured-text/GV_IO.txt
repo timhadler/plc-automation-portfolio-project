@@ -1,0 +1,13 @@
+VAR_GLOBAL
+	iBaseVisionSensorBit0: BOOL;
+	iBaseVisionSensorBit1: BOOL;
+	iBaseVisionSensorBit2: BOOL;
+	iBaseVisionSensorBit3: BOOL;
+	iBasePusherBackLimit: BOOL;
+	iBasePusherFrontLimit: BOOL;
+	iBaseDiffuseSensor: BOOL;
+	
+	oStageOneConveyor: BOOL;
+	oBasePusher: BOOL;
+	oBaseEmiiter: BOOL;
+END_VAR

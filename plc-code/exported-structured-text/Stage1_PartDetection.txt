@@ -1,0 +1,80 @@
+// FB Controller for the First Stage of the production process (item detection, rejection, and conveyor control)
+// Responsibilities:
+// - Monitor sensor inputs (Vision sensor, actuator limit switches)
+// - Control outputs  (conveyor motor, actuator)
+// - Reject metal raw materials by pushing them off the conveyor, while accepting green and blue materials
+// - Manage internal state transisitions using a state machine
+// States:
+// * Currently in continuous RUNNING mode for development testing *
+// - IDLE: Enter RUNNING state
+// - RUNNING: Conveyor on, reject metal raw materials using vision sensor and actuator
+FUNCTION_BLOCK Stage1_PartDetection
+VAR_INPUT
+	iVisionSensorBit0 : BOOL;		// LSB, Vision Sensor output
+	iVisionSensorBit1 : BOOL;
+	iVisionSensorBit2 : BOOL;
+	iVisionSensorBit3 : BOOL;		// MSB
+	iPusherBackLimit : BOOL;		// Back (reset) position actuator limit switch (NO)
+	iPusherFrontLimit : BOOL;		// Front (extended) position actuator limit switch (NO)
+	iPusherEntrySensor : BOOL;		// True when object is detected at the entrance of the pusher
+END_VAR
+VAR_OUTPUT
+	oConveyor : BOOL;				// Turn on conveyor motor when TRUE
+	oPusher : BOOL;					// Extend pusher arm when TRUE
+END_VAR
+
+VAR
+	ConveyorOn : BOOL;				// Conveyor on signal
+	CurrState : STATE := IDLE;		// Set intial state
+	
+	// Controllers
+	Pusher : FB_PusherController;
+	Conveyor : FB_ConveyorController;
+	VisionSensor : FB_VisionSensorAD;
+	
+	Reject : BOOL;					// Used to reject unwanted parts
+	test: bool;
+END_VAR
+
+
+Conveyor(iRun := ConveyorOn);
+oConveyor := Conveyor.oRun;
+Pusher(iFrontLimit := iPusherFrontLimit, iBackLimit := iPusherBackLimit);
+oPusher := Pusher.oPush;
+VisionSensor(iBit0 := iVisionSensorBit0, iBit1 := iVisionSensorBit1, iBit2 := iVisionSensorBit2, iBit3 := iVisionSensorBit3);
+
+CASE CurrState OF
+	IDLE : 
+		// Transition straight into RUNNING, no start trigger yet
+		CurrState := RUNNING;
+	RUNNING :  
+		ConveyorOn := TRUE;
+		// Continuous RUNNING stay for now
+		// Process Vision Sensor Output
+		THIS^.ProcessObjectDetection();
+END_CASE
+
+
+// Processes sensor output
+// When an object is detected, determines whether it should be accepted or rejected
+// If part is to be accepted, sets the accepted bit, otherwise pushes the part off the conveyor
+METHOD ProcessObjectDetection : BOOL
+VAR
+	Object: STRING;
+END_VAR
+
+// If object should be rejected, wait for it to be at the entrance of pusher before executing
+IF Reject AND iPusherEntrySensor THEN
+	Pusher.Execute();
+	Reject := FALSE;
+	test := FALSE;
+END_IF
+
+IF VisionSensor.isObjectDetected THEN
+	Object := VisionSensor.ObjectDetected;
+	// Check if object should be rejected
+	IF Object = 'metal raw material' OR Object = 'unknown' THEN
+		Reject := TRUE;
+		test := TRUE;
+	END_IF
+END_IF
