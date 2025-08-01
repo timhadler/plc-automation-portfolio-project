@@ -1,0 +1,42 @@
+// FB Controller to decode sensor output from the vision sensor in FactoryIO
+// Sensor must be configured to 'All Digital' mode to output 4 bit sequences
+FUNCTION_BLOCK FB_VisionSensorAD
+VAR_INPUT
+	iBit0 : BOOL;	// LSB, 4 sensor output bits from vision sensor 
+	iBit1 : BOOL;
+	iBit2 : BOOL;
+	iBit3 : BOOL;	// MSB
+END_VAR
+VAR_OUTPUT
+	isObjectDetected : BOOL;	// TRUE when the sensor detects something
+	ObjectDetected : STRING;	// The object being detected
+END_VAR
+VAR
+	ObjectCode : BYTE;			// Reconstructed bitwise code
+END_VAR
+
+
+// Reconstruct the object code
+ObjectCode := BitsToByte(Bit0 := iBit0, Bit1 := iBit1, Bit2 := iBit2, Bit3 := iBit3);
+
+// Decode the result
+CASE ObjectCode OF
+	0 : ObjectDetected := 'none';
+	1 : ObjectDetected := 'blue raw material';
+	2 : ObjectDetected := 'blue product lid';
+	3 : ObjectDetected := 'blue product base';
+	4 : ObjectDetected := 'green raw material';
+	5 : ObjectDetected:= 'green product lid';
+	6 : ObjectDetected := 'green product base';
+	7 : ObjectDetected := 'metal raw material';
+	8 : ObjectDetected:= 'metal product lid';
+	9 : ObjectDetected := 'metal product base';
+ELSE
+	ObjectDetected := 'unknown';	
+END_CASE
+
+IF ObjectDetected = 'none' THEN
+	isObjectDetected := FALSE;
+ELSE
+	isObjectDetected := TRUE;
+END_IF
