@@ -1,0 +1,24 @@
+// Converts upto 8 bits into a single byte data type
+FUNCTION BitsToByte : BYTE
+VAR_INPUT
+	Bit0: BOOL := 0;	// LSB
+	Bit1: BOOL := 0;
+	Bit2: BOOL := 0;
+	Bit3: BOOL := 0;
+	Bit4: BOOL := 0;
+	Bit5: BOOL := 0;
+	Bit6: BOOL := 0;
+	Bit7: BOOL := 0;	// MSB
+END_VAR
+
+
+// Reconstruct byte useing bitwise shifting
+BitsToByte := 
+    SHL(TO_BYTE(Bit7), 7) OR
+    SHL(TO_BYTE(Bit6), 6) OR
+    SHL(TO_BYTE(Bit5), 5) OR
+    SHL(TO_BYTE(Bit4), 4) OR
+    SHL(TO_BYTE(Bit3), 3) OR
+    SHL(TO_BYTE(Bit2), 2) OR
+    SHL(TO_BYTE(Bit1), 1) OR
+    TO_BYTE(Bit0);
