@@ -1,0 +1,13 @@
+// FB controller to operate the FactoryIO conveyors
+FUNCTION_BLOCK FB_ConveyorController	
+VAR_INPUT
+	iRun : BOOL;	// Run the conveyor
+END_VAR
+VAR_OUTPUT
+	oRun : BOOL;	// Turn on the motor
+END_VAR
+VAR
+END_VAR
+
+
+oRun := iRun;
