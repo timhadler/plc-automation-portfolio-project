@@ -1,0 +1,31 @@
+// FB Controller to control the FactoryIO pneumatic arm pusher
+// METHOD: Execute() - Initiates a push. Arm fully extends then retraces back to reset position. 
+FUNCTION_BLOCK FB_PusherController
+VAR_INPUT
+	iFrontLimit : BOOL;		// Front (extended) position limit switch (NO)
+	iBackLimit : BOOL;		// Back (reset) position limit switch (NO)
+END_VAR
+VAR_OUTPUT
+	oPush : BOOL;			// Extend arm (when TRUE)
+END_VAR
+VAR
+	isPushing : BOOL;		// Latch to track push operation
+END_VAR
+
+
+IF isPushing THEN
+	oPush := TRUE;		// Turn push motor on
+	
+	IF iFrontLimit THEN // Stop pushing if arm is fully extended
+		oPush := FALSE;
+		isPushing := FALSE;
+	END_IF
+ELSE
+	oPush := FALSE;		// Turn push motor off
+END_IF
+
+
+METHOD Execute : BOOL
+IF NOT isPushing AND iBackLimit THEN	// Only push if arm is in reset position
+	isPushing := TRUE;
+END_IF
