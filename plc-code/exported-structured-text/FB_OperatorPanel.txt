@@ -1,0 +1,17 @@
+FUNCTION_BLOCK FB_OperatorPanel
+VAR_INPUT
+	StartButton : BOOL;
+	StopButton : BOOL;
+	ResetButton : BOOL;
+	eStopButton : BOOL := TRUE;
+END_VAR
+VAR_OUTPUT
+	ProcessOn : BOOL;
+	StartButtonLight : BOOL;
+	StopButtonLight : BOOL;
+	ResetButtonLight : BOOL;
+END_VAR
+VAR
+	EmergencyStop : BOOL;
+END_VAR
+
