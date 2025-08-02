@@ -1,6 +1,6 @@
 # CODESYS Change Log – PLC Automation Project
 
-## \[v1.0] – 31/07/25
+## \[v1.0.0] – 31/07/25
 
 Compatable with FactoryIO scene: ContainerManufacturing.facoryio v1.0 (see changelog)
 
@@ -21,7 +21,7 @@ Compatable with FactoryIO scene: ContainerManufacturing.facoryio v1.0 (see chang
 
 
 
-## \[v1.1] – 2/08/2025
+## \[v1.0.1] – 2/08/2025
 
 Compatable with FactoryIO scene: ContainerManufacturing.facoryio v1.1 (see changelog)
 
