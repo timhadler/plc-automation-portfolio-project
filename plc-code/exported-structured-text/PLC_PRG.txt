@@ -1,9 +1,12 @@
 PROGRAM PLC_PRG
 VAR
 	Stage1 : Stage1_PartDetection;
+	Operator : FB_OperatorPanel;
 END_VAR
 
+// Map IO to Function Blocks
 Stage1(
+	iStart := Operator.ProcessOn,
 	iVisionSensorBit0 := GV_IO.iBaseVisionSensorBit0,
 	iVisionSensorBit1 := GV_IO.iBaseVisionSensorBit1,
 	iVisionSensorBit2 := GV_IO.iBaseVisionSensorBit2,
@@ -14,3 +17,14 @@ Stage1(
 	
 GV_IO.oBasePusher := Stage1.oPusher;
 GV_IO.oStageOneConveyor := Stage1.oConveyor;
+
+Operator(
+	StartButton := GV_IO.iStartButton, 
+	StopButton := GV_IO.iStopButton,
+	ResetButton := GV_IO.iResetButton,
+	eStopButton := GV_IO.iEmergencyStopButton);
+	
+GV_IO.oProcessOnLight := Operator.ProcessOn;
+GV_IO.oStopButtonLight := Operator.ProcessOn;
+GV_IO.oResetButtonLight := Operator.ResetButtonLight;
+GV_IO.oStartButtonLight := Operator.StartButtonLight;
