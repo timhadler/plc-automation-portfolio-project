@@ -1,8 +1,10 @@
 # CODESYS Change Log – PLC Automation Project
 
+For details about FactoryIO Scene see FactoryIO\_Scenelog.md
+
 ## \[v1.0.0] – 31/07/25
 
-Compatable with FactoryIO scene: ContainerManufacturing.facoryio v1.0 (see changelog)
+FactoryIO scene: v1.0
 
 ### Added
 
@@ -23,9 +25,35 @@ Compatable with FactoryIO scene: ContainerManufacturing.facoryio v1.0 (see chang
 
 ## \[v1.0.1] – 2/08/2025
 
-Compatable with FactoryIO scene: ContainerManufacturing.facoryio v1.1 (see changelog)
+FactoryIO scene: v1.1
 
 ### Changed
 
 * Control logic now relies on a diffuser sensor to initiate the Pusher to reject materials
   -- Reason: More reliable than using a timer
+
+
+
+## \[v1.1.0] – 02/08/25
+
+FactoryIO scene: v1.2
+
+### Added
+
+* 'FB\_OperatorPanel' Ladder Logic POU controlling operator input (Start, Stop, Reset, Emergency Stop)
+* Output signals for button lights
+
+
+
+### Changed
+
+* Stage 1 state machine transitions using Operator Start/Stop triggers (including eStop)
+
+
+
+### Notes
+
+* Safety interlocking for individual FBs not implemented yet
+
+
+

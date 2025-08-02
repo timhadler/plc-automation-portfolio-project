@@ -8,12 +8,19 @@
 
 * Initial setup - Stage one (Part detection)
 * Belt conveyor (4m)
-* Emitter at one end, configured to emit all types of raw materials
+* Emitter at one end
 * A frame made from 3 walkway pillars right in front of emitter
-* Vision sensor attached to frame, pointing down on conveyor, config to all digital output
+* Vision sensor attached to frame, pointing down on conveyor
 * Pneumatic pusher attached to side of conveyor, in front of sensor, pushes across the conveyor
 * Conveyor chute opposite pusher to carry pushed parts off the conveyor
 * Remover at the base of the chute remove parts
+
+
+
+\### Configuration
+
+* Vision sensor: All Digital output
+* Emitter: Output all types of raw material parts
 
 
 
@@ -57,15 +64,15 @@ Scale: 100
 
 
 
+---
 
 
 
-
-\## \[v1.1] – 1/08/25
+\## \[v1.1] – 01/08/25
 
 \### Added
 
-* Diffuser sensor at pusher entry to trigger the pusher instead of vision sensor
+* Diffuser Sensor 0 at pusher entry to trigger the pusher instead of vision sensor
 
  	- Reason: More reliable than using a timer alongside the vision sensor
 
@@ -85,7 +92,45 @@ Scale: 100
 
 \#### IO Mapping
 
-&nbsp;	- Mapped diffuser sensor output to coil 6 in Modbus
+* Diffuser Sensor 0 output to coil 6 in Modbus
+
+
+
+---
+
+
+
+\## \[v1.2] – 02/08/25
+
+\### Added
+
+* Electric switch board
+* Start, Stop, Reset, and Emergency Stop 0 buttons
+* Process On light indicator
+
+
+
+\### Changed
+
+* Removed Emitter from IO
+* &nbsp;	- Reason: Couldn't get PLC logic to control Emitter state
+
+
+
+\#### IO Mapping
+
+* Emergency Stop: Coil 7
+* Reset Button: Coil 8
+* Start Button: Coil 9
+* Stop Button: Coil 10
+* Reset Button (light): Input 0
+* Start Button (light): Input 3
+* Stop Button (light): Input 4
+* Process On light: Input 5
+
+
+
+---
 
 
 
