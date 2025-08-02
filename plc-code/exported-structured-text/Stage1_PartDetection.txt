@@ -5,11 +5,11 @@
 // - Reject metal raw materials by pushing them off the conveyor, while accepting green and blue materials
 // - Manage internal state transisitions using a state machine
 // States:
-// * Currently in continuous RUNNING mode for development testing *
-// - IDLE: Enter RUNNING state
+// - IDLE: Enter RUNNING state if start trigger is TRUE
 // - RUNNING: Conveyor on, reject metal raw materials using vision sensor and actuator
 FUNCTION_BLOCK Stage1_PartDetection
 VAR_INPUT
+	iStart : BOOL;					// Start trigger
 	iVisionSensorBit0 : BOOL;		// LSB, Vision Sensor output
 	iVisionSensorBit1 : BOOL;
 	iVisionSensorBit2 : BOOL;
@@ -25,7 +25,7 @@ END_VAR
 
 VAR
 	ConveyorOn : BOOL;				// Conveyor on signal
-	CurrState : STATE := IDLE;		// Set intial state
+	State : STATE := IDLE;		// Set intial state
 	
 	// Controllers
 	Pusher : FB_PusherController;
@@ -43,13 +43,18 @@ Pusher(iFrontLimit := iPusherFrontLimit, iBackLimit := iPusherBackLimit);
 oPusher := Pusher.oPush;
 VisionSensor(iBit0 := iVisionSensorBit0, iBit1 := iVisionSensorBit1, iBit2 := iVisionSensorBit2, iBit3 := iVisionSensorBit3);
 
-CASE CurrState OF
+CASE State OF
 	IDLE : 
-		// Transition straight into RUNNING, no start trigger yet
-		CurrState := RUNNING;
+		ConveyorOn := FALSE;
+		IF iStart THEN
+			State := RUNNING;
+		END_IF
 	RUNNING :  
+		IF NOT iStart THEN
+			State := IDLE;
+		END_IF
 		ConveyorOn := TRUE;
-		// Continuous RUNNING stay for now
+		
 		// Process Vision Sensor Output
 		THIS^.ProcessObjectDetection();
 END_CASE
