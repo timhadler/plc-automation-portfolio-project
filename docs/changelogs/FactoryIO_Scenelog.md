@@ -1,7 +1,6 @@
 \# FactoryIO Scene Change Log – PLC Automation Project
 
 
-
 \## \[v1.0] – 31/07/25
 
 \### Added
@@ -15,14 +14,10 @@
 * Conveyor chute opposite pusher to carry pushed parts off the conveyor
 * Remover at the base of the chute remove parts
 
-
-
 \### Configuration
 
 * Vision sensor: All Digital output
 * Emitter: Output all types of raw material parts
-
-
 
 \### IO Mapping (Modbus TCP Client, as in FacoryIO)
 
@@ -32,15 +27,11 @@ Coils
 * Pusher back limit switch -> coil 4
 * Pusher front limit switch -> coil 5
 
-
-
 Inputs
 
 * Emitter -> Input0
 * Pusher -> Input1
 * Belt Conveyor -> input2
-
-
 
 TCP Config
 
@@ -62,11 +53,7 @@ Scale: 100
 
 0 offset
 
-
-
 ---
-
-
 
 \## \[v1.1] – 01/08/25
 
@@ -75,8 +62,6 @@ Scale: 100
 * Diffuser Sensor 0 at pusher entry to trigger the pusher instead of vision sensor
 
  	- Reason: More reliable than using a timer alongside the vision sensor
-
-
 
 \### Changed
 
@@ -88,34 +73,24 @@ Scale: 100
 
  	- Reason: Declutters the entry area
 
-
-
 \#### IO Mapping
 
 * Diffuser Sensor 0 output to coil 6 in Modbus
 
-
-
 ---
-
-
 
 \## \[v1.2] – 02/08/25
 
 \### Added
 
 * Electric switch board
-* Start, Stop, Reset, and Emergency Stop 0 buttons
+* Start, Stop, Reset, and Emergency Stop buttons
 * Process On light indicator
-
-
 
 \### Changed
 
 * Removed Emitter from IO
-* &nbsp;	- Reason: Couldn't get PLC logic to control Emitter state
-
-
+	- Reason: Couldn't get CODESYS to control Emitter state
 
 \#### IO Mapping
 
@@ -128,9 +103,26 @@ Scale: 100
 * Stop Button (light): Input 4
 * Process On light: Input 5
 
-
-
 ---
 
+\## \[v2.0] – 03/08/25
 
+\### Added
 
+* Stage 2
+* CNC Machining centre
+* Diffuser sensor at the entrance of machining centre
+
+\#### IO Mapping
+
+* Machining center (is busy): coil 11
+* Machining center (has error): coil 12
+* Diffuse sensor 1: coil 13
+* Machining center (Opened): coil 14
+* Machining center (Progress): Holding register 0
+* Machining center (Start): Input 6
+* Machining center (Stop): Input 7
+* Machining center (Reset): Input 8
+* Machining center (Produce lids): Input 9
+
+---
