@@ -26,3 +26,19 @@ This timeline documents key events, decisions, and design changes during the dev
 \*\* Operator Controls \*\*
 
 * Added operator control panel functionality - Start, Stop, Emergency Stop, Reset
+* Decided that an inventory buffer will be added downstream of Stage 1, before Stage 2 to handle part overflow
+
+---
+
+\## 03/08/25
+
+\*\* Stage 2 \*\*
+
+* Decided to remove inventory buffer from the design, and use state based logic to control Stage 1. Stage 2 COMPLETE state sets 'ready for part' flag, which triggers Stage 1 to RUNNING. 
+	- Reason: Demonstrates different stages communicating to transition states as needed. 
+* Added Stage 2 (Machining Center) to FactoryIO lscene
+* Implemented control logic to automate Stage 1 and 2. Stage 2 'tells' Stage 1 when to provide material.
+
+
+
+
