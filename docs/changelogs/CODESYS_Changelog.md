@@ -61,7 +61,7 @@ Status: Complete
 
 ## \[v1.2.0]
 
-FactoryIO Scene: v1.3
+FactoryIO Scene: v2.0
 Status: Completed
 
 ### Added
