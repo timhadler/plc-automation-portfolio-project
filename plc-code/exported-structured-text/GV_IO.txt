@@ -1,27 +1,72 @@
 {attribute 'qualified_only'}
 VAR_GLOBAL
+	// INPUTS
+	// Vision Sensor
 	iBaseVisionSensorBit0: BOOL;
 	iBaseVisionSensorBit1: BOOL;
 	iBaseVisionSensorBit2: BOOL;
 	iBaseVisionSensorBit3: BOOL;
+	
+	// Pusher
 	iBasePusherBackLimit: BOOL;
 	iBasePusherFrontLimit: BOOL;
+	
+	// Diffuser Sensors
 	iBaseDiffuseSensor: BOOL;
+	iLidAtPositioner: BOOL;
+	iBaseAtPositioner : BOOL;
+	iContainerAtExit: BOOL;
+	
+	// Positioners
+	iLidPositionerLimit : BOOL;
+	iBasePositionerLimit : BOOL;
+	iLidPositionerClamped : BOOL;
+	iBasePositionerClamped : BOOL;
+	
+	// Pick & Place Station
+	iPaPPartDetected : BOOL;
+	iPaPMovingX : BOOL;
+	iPaPMovingZ : BOOL;
+	
+	// Operator Buttons
 	iEmergencyStopButton: BOOL;
 	iResetButton: BOOL;
 	iStartButton: BOOL;
 	iStopButton: BOOL;
+	
+	// Machining Center Sensors
 	iMC_Busy: BOOL;
 	iMC_Opened: BOOL;
 	iMC_Error: BOOL;
 	iMC_Progress: WORD;
 	
+	// OUTPUTS
+	// Conveyors
 	oStageOneConveyor: BOOL;
+	oLidConveyor : BOOL;
+	oBaseConveyor : BOOL;
+	
+	// Pusher
 	oBasePusher: BOOL;
-	oResetButtonLight: BOOL; 
+	
+	// Positioners
+	oLidPositionerClamp : BOOL;
+	oBasePositionerClamp : BOOL;
+	oLidPositionerRaise : BOOL;
+	oBasePositionerRaise : BOOL;
+	
+	// Pick & Place
+	oPaPX : BOOL;
+	oPaPZ : BOOL;
+	oPaPGrab : BOOL;
+	
+	// Operator Panel lights
+	oResetButtonLight: BOOL;
 	oStartButtonLight: BOOL;
 	oStopButtonLight: BOOL;
 	oProcessOnLight: BOOL;
+	
+	// Machining Center
 	oMC_Start: BOOL;
 	oMC_Stop: BOOL;
 	oMC_Reset: BOOL;
