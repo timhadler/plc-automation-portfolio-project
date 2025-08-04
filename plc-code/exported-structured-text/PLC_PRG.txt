@@ -1,12 +1,27 @@
 PROGRAM PLC_PRG
 VAR
-	Stage1 : Stage1_PartDetection;
 	Operator : FB_OperatorPanel;
+	Stage1 : Stage1_PartDetection;
+	Stage2 : Stage2_MC;
 END_VAR
 
 // Map IO to Function Blocks
+// Operator panel
+Operator(
+	StartButton := GV_IO.iStartButton, 
+	StopButton := GV_IO.iStopButton,
+	ResetButton := GV_IO.iResetButton,
+	eStopButton := GV_IO.iEmergencyStopButton);
+	
+GV_IO.oProcessOnLight := Operator.ProcessOn;
+GV_IO.oStopButtonLight := Operator.ProcessOn;
+GV_IO.oResetButtonLight := Operator.ResetButtonLight;
+GV_IO.oStartButtonLight := Operator.StartButtonLight;
+
+GV_Flags.SystemEnable := Operator.ProcessOn;
+
+// Stage 1
 Stage1(
-	iStart := Operator.ProcessOn,
 	iVisionSensorBit0 := GV_IO.iBaseVisionSensorBit0,
 	iVisionSensorBit1 := GV_IO.iBaseVisionSensorBit1,
 	iVisionSensorBit2 := GV_IO.iBaseVisionSensorBit2,
@@ -18,13 +33,12 @@ Stage1(
 GV_IO.oBasePusher := Stage1.oPusher;
 GV_IO.oStageOneConveyor := Stage1.oConveyor;
 
-Operator(
-	StartButton := GV_IO.iStartButton, 
-	StopButton := GV_IO.iStopButton,
-	ResetButton := GV_IO.iResetButton,
-	eStopButton := GV_IO.iEmergencyStopButton);
-	
-GV_IO.oProcessOnLight := Operator.ProcessOn;
-GV_IO.oStopButtonLight := Operator.ProcessOn;
-GV_IO.oResetButtonLight := Operator.ResetButtonLight;
-GV_IO.oStartButtonLight := Operator.StartButtonLight;
+// Stage 2
+Stage2(iBusy := GV_IO.iMC_Busy);
+GV_IO.oMC_ProduceLids := Stage2.oProduceLids;
+GV_IO.oMC_Reset := Stage2.oReset;
+GV_IO.oMC_Start := Stage2.oStart;
+GV_IO.oMC_Stop := Stage2.oStop;
+
+// Pass Ready flag to Stage 1
+Stage1(iStage2Ready := Stage2.oReadyForPart);
