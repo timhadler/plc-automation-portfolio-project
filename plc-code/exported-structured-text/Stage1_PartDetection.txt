@@ -9,7 +9,7 @@
 // - RUNNING: Conveyor on, reject metal raw materials using vision sensor and actuator
 FUNCTION_BLOCK Stage1_PartDetection
 VAR_INPUT
-	iStart : BOOL;					// Start trigger
+	iStage2Ready : BOOL;					// Ready signal from Stage 2
 	iVisionSensorBit0 : BOOL;		// LSB, Vision Sensor output
 	iVisionSensorBit1 : BOOL;
 	iVisionSensorBit2 : BOOL;
@@ -24,16 +24,15 @@ VAR_OUTPUT
 END_VAR
 
 VAR
+	SystemOn: BOOL;					// Local system enabled flag
 	ConveyorOn : BOOL;				// Conveyor on signal
-	State : STATE := IDLE;		// Set intial state
-	
+	State : STATE := IDLE;			// Set intial state
+	Reject : BOOL;					// Used to reject unwanted parts
+
 	// Controllers
 	Pusher : FB_PusherController;
 	Conveyor : FB_ConveyorController;
 	VisionSensor : FB_VisionSensorAD;
-	
-	Reject : BOOL;					// Used to reject unwanted parts
-	test: bool;
 END_VAR
 
 
@@ -43,20 +42,22 @@ Pusher(iFrontLimit := iPusherFrontLimit, iBackLimit := iPusherBackLimit);
 oPusher := Pusher.oPush;
 VisionSensor(iBit0 := iVisionSensorBit0, iBit1 := iVisionSensorBit1, iBit2 := iVisionSensorBit2, iBit3 := iVisionSensorBit3);
 
+SystemOn := GV_Flags.SystemEnable;
+
 CASE State OF
 	IDLE : 
 		ConveyorOn := FALSE;
-		IF iStart THEN
+		IF SystemOn AND iStage2Ready THEN
 			State := RUNNING;
 		END_IF
 	RUNNING :  
-		IF NOT iStart THEN
-			State := IDLE;
-		END_IF
 		ConveyorOn := TRUE;
-		
 		// Process Vision Sensor Output
 		THIS^.ProcessObjectDetection();
+		
+		IF NOT SystemOn OR NOT iStage2Ready THEN
+			State := IDLE;
+		END_IF
 END_CASE
 
 
