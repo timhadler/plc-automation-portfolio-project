@@ -1,3 +1,4 @@
+{attribute 'qualified_only'}
 VAR_GLOBAL
 	iBaseVisionSensorBit0: BOOL;
 	iBaseVisionSensorBit1: BOOL;
@@ -6,8 +7,23 @@ VAR_GLOBAL
 	iBasePusherBackLimit: BOOL;
 	iBasePusherFrontLimit: BOOL;
 	iBaseDiffuseSensor: BOOL;
+	iEmergencyStopButton: BOOL;
+	iResetButton: BOOL;
+	iStartButton: BOOL;
+	iStopButton: BOOL;
+	iMC_Busy: BOOL;
+	iMC_Opened: BOOL;
+	iMC_Error: BOOL;
+	iMC_Progress: WORD;
 	
 	oStageOneConveyor: BOOL;
 	oBasePusher: BOOL;
-	oBaseEmiiter: BOOL;
+	oResetButtonLight: BOOL; 
+	oStartButtonLight: BOOL;
+	oStopButtonLight: BOOL;
+	oProcessOnLight: BOOL;
+	oMC_Start: BOOL;
+	oMC_Stop: BOOL;
+	oMC_Reset: BOOL;
+	oMC_ProduceLids: BOOL;
 END_VAR
