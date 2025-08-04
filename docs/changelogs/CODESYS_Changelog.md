@@ -1,13 +1,21 @@
 # CODESYS Change Log – PLC Automation Project
 
-For details about FactoryIO Scene see FactoryIO\_Scenelog.md
+For details about FactoryIO Scene changes, see FactoryIO_Scenelog.md
+
+Versioning follows the format: vA.B.C
+
+A = Major project phase (e.g., PLC - Simulation Integration, HMI/SCADA Integration)
+
+B = Major feature changes (e.g, adding stations/features)
+
+C = Minor changes (e.g, bug fixes, code-only changes, sensor change/reconfigure)
 
 ---
 
 ## \[v1.0.0] – 31/07/25
 
-FactoryIO scene: v1.0
-Status: Complete
+**FactoryIO Scene**: v1.0
+**Status**: Complete
 
 ### Added
 
@@ -15,8 +23,6 @@ Status: Complete
 * 'BitsToByte' Function, 'FB\_ConveyorController', 'FB\_PusherController', 'FB\_VisionSensorAD' Function Blocks
 * Stage 1 State machine implemented (IDLE, RUNNING)
 * Metal and unknown parts are rejected based on vision sensor bits
-
----
 
 ### Notes
 
@@ -28,8 +34,8 @@ Status: Complete
 
 ## \[v1.0.1] – 2/08/2025
 
-FactoryIO scene: v1.1
-Status: Complete
+**FactoryIO Scene**: v1.1
+**Status**: Complete
 
 ### Changed
 
@@ -40,8 +46,8 @@ Status: Complete
 
 ## \[v1.1.0] – 02/08/25
 
-FactoryIO scene: v1.2
-Status: Complete
+**FactoryIO Scene**: v1.2
+**Status**: Complete
 
 ### Added
 
@@ -59,10 +65,10 @@ Status: Complete
 
 ---
 
-## \[v1.2.0]
+## \[v1.2.0] - 03/08/25
 
-FactoryIO Scene: v2.0
-Status: Completed
+**FactoryIO Scene**: v2.0
+**Status**: Completed
 
 ### Added
 * 'Stage2_MC' Machining Center Controller operates the machining center using internal state machine (IDLE, WAITING, RUNNING, COMPLETE)
@@ -74,5 +80,4 @@ Status: Completed
 * Stage 1 now transitions between IDLE and RUNNING when Stage 2 is ready for material (local 'ReadyForMaterial' flag). Supplies material as needed (not continuous anymore)
 	-- Reason: Prevents part overflow of Stage 2. Demonstrates inter-stage communication to transition states. 
 
-
-
+---

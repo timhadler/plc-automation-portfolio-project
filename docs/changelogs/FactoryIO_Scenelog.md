@@ -1,7 +1,14 @@
 \# FactoryIO Scene Change Log – PLC Automation Project
 
 
+
+---
+
+
+
 \## \[v1.0] – 31/07/25
+
+
 
 \### Added
 
@@ -14,12 +21,16 @@
 * Conveyor chute opposite pusher to carry pushed parts off the conveyor
 * Remover at the base of the chute remove parts
 
+
+
 \### Configuration
 
 * Vision sensor: All Digital output
 * Emitter: Output all types of raw material parts
 
-\### IO Mapping (Modbus TCP Client, as in FacoryIO)
+
+
+\### IO Mapping
 
 Coils
 
@@ -27,41 +38,31 @@ Coils
 * Pusher back limit switch -> coil 4
 * Pusher front limit switch -> coil 5
 
+
+
 Inputs
 
 * Emitter -> Input0
 * Pusher -> Input1
 * Belt Conveyor -> input2
 
-TCP Config
 
-localhost
-
-port 502
-
-slaveID: 0
-
-Read digital: inputs
-
-Read register: input registers
-
-Scale: 100
-
-6 Digital inputs
-
-3 digital outputs
-
-0 offset
 
 ---
 
+
+
 \## \[v1.1] – 01/08/25
+
+
 
 \### Added
 
 * Diffuser Sensor 0 at pusher entry to trigger the pusher instead of vision sensor
 
  	- Reason: More reliable than using a timer alongside the vision sensor
+
+
 
 \### Changed
 
@@ -73,13 +74,21 @@ Scale: 100
 
  	- Reason: Declutters the entry area
 
+
+
 \#### IO Mapping
 
-* Diffuser Sensor 0 output to coil 6 in Modbus
+* Diffuser Sensor 0 output -> coil 6
+
+
 
 ---
 
+
+
 \## \[v1.2] – 02/08/25
+
+
 
 \### Added
 
@@ -87,25 +96,41 @@ Scale: 100
 * Start, Stop, Reset, and Emergency Stop buttons
 * Process On light indicator
 
+
+
 \### Changed
 
 * Removed Emitter from IO
-	- Reason: Couldn't get CODESYS to control Emitter state
+
+  * Reason: Couldn't get CODESYS to control Emitter state
+
+
 
 \#### IO Mapping
 
-* Emergency Stop: Coil 7
-* Reset Button: Coil 8
-* Start Button: Coil 9
-* Stop Button: Coil 10
-* Reset Button (light): Input 0
-* Start Button (light): Input 3
-* Stop Button (light): Input 4
-* Process On light: Input 5
+Coils
+
+* Emergency Stop -> Coil 7
+* Reset Button -> Coil 8
+* Start Button -> Coil 9
+* Stop Button -> Coil 10
+
+Inputs
+
+* Reset Button (light) -> Input 0
+* Start Button (light) -> Input 3
+* Stop Button (light) -> Input 4
+* Process On light -> Input 5
+
+
 
 ---
 
+
+
 \## \[v2.0] – 03/08/25
+
+
 
 \### Added
 
@@ -113,16 +138,24 @@ Scale: 100
 * CNC Machining centre
 * Diffuser sensor at the entrance of machining centre
 
+
+
 \#### IO Mapping
 
-* Machining center (is busy): coil 11
-* Machining center (has error): coil 12
-* Diffuse sensor 1: coil 13
-* Machining center (Opened): coil 14
-* Machining center (Progress): Holding register 0
-* Machining center (Start): Input 6
-* Machining center (Stop): Input 7
-* Machining center (Reset): Input 8
-* Machining center (Produce lids): Input 9
+Coils
+
+* Machining center (is busy) -> coil 11
+* Machining center (has error) -> coil 12
+* Diffuse sensor 1 -> coil 13
+* Machining center (Opened) -> coil 14
+* Machining center (Progress) -> Holding register 0
+
+Inputs
+
+* Machining center (Start) -> Input 6
+* Machining center (Stop) -> Input 7
+* Machining center (Reset) -> Input 8
+* Machining center (Produce lids) -> Input 9
 
 ---
+
