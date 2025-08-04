@@ -1,10 +1,6 @@
 \# Project Timeline - PLC Automation Portfolio Project
 
-
-
 This timeline documents key events, decisions, and design changes during the development of the PLC Automation Project
-
-
 
 ---
 
@@ -17,7 +13,12 @@ This timeline documents key events, decisions, and design changes during the dev
 
 ---
 
-// Fill in stuff I did earlier
+\## 31/07/25
+
+\*\* Stage 1  \*\*
+
+* Added initial version of Stage 1 Controller
+* Added controllers for Conveyer, Vision Sensor, Pusher
 
 ---
 
@@ -25,6 +26,7 @@ This timeline documents key events, decisions, and design changes during the dev
 
 \*\* Operator Controls \*\*
 
+* Improved part rejection by replacing timer with diffuser sensor
 * Added operator control panel functionality - Start, Stop, Emergency Stop, Reset
 * Decided that an inventory buffer will be added downstream of Stage 1, before Stage 2 to handle part overflow
 
