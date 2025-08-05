@@ -1,4 +1,4 @@
-\# FactoryIO Scene Change Log – PLC Automation Project
+# FactoryIO Scene Change Log – PLC Automation Project
 
 ---
 
@@ -13,7 +13,7 @@
 * Vision sensor attached to frame, pointing down on conveyor
 * Pneumatic pusher attached to side of conveyor, in front of sensor, pushes across the conveyor
 * Conveyor chute opposite pusher to carry pushed parts off the conveyor
-* Remover at the base of the chute remove parts
+* Remover at the base of the chute removes parts
 
 ### Configuration
 

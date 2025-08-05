@@ -84,3 +84,9 @@ C = Minor changes (e.g, bug fixes, code-only changes, sensor change/reconfigure)
 
 ---
 
+## \[v1.2.1] - 05/08/25
+** FactoryIO Scene:** v2.0
+** Status:** In Progress
+
+## Changed
+* Updated 'Stage1_PartDetection' and 'Stage2_MC' comments
