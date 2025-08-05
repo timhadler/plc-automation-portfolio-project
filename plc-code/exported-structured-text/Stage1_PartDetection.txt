@@ -1,15 +1,14 @@
 // FB Controller for the First Stage of the production process (item detection, rejection, and conveyor control)
-// Responsibilities:
 // - Monitor sensor inputs (Vision sensor, actuator limit switches)
-// - Control outputs  (conveyor motor, actuator)
-// - Reject metal raw materials by pushing them off the conveyor, while accepting green and blue materials
+// - Control outputs  (conveyor motor, pusher actuator)
+// - Reject metal raw materials by pushing them off the conveyor, while accepting blue materials
 // - Manage internal state transisitions using a state machine
 // States:
-// - IDLE: Enter RUNNING state if start trigger is TRUE
-// - RUNNING: Conveyor on, reject metal raw materials using vision sensor and actuator
+// - IDLE: Enter RUNNING state if start trigger is TRUE and Stage 2 is ready for material
+// - RUNNING: Conveyor on, reject metal raw materials, Enter IDLE if Stage 2 not ready for material
 FUNCTION_BLOCK Stage1_PartDetection
 VAR_INPUT
-	iStage2Ready : BOOL;					// Ready signal from Stage 2
+	iStage2Ready : BOOL;			// Ready signal from Stage 2
 	iVisionSensorBit0 : BOOL;		// LSB, Vision Sensor output
 	iVisionSensorBit1 : BOOL;
 	iVisionSensorBit2 : BOOL;
@@ -36,12 +35,14 @@ VAR
 END_VAR
 
 
+// Instantiate Controller FBs
 Conveyor(iRun := ConveyorOn);
 oConveyor := Conveyor.oRun;
 Pusher(iFrontLimit := iPusherFrontLimit, iBackLimit := iPusherBackLimit);
 oPusher := Pusher.oPush;
 VisionSensor(iBit0 := iVisionSensorBit0, iBit1 := iVisionSensorBit1, iBit2 := iVisionSensorBit2, iBit3 := iVisionSensorBit3);
 
+// Check if system is enabled
 SystemOn := GV_Flags.SystemEnable;
 
 CASE State OF

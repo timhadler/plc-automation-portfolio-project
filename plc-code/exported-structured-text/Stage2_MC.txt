@@ -1,15 +1,20 @@
-// Machining Center Controller
+// FB Controller for Stage 2 (Machining Center - MC)
 // - Machines raw materials into product bases
 // - Manage internal state transisitions using a state machine
-// - Sets local 'readyForRawMaterial' flag to signal upstream to provide raw material
+// - Sets local 'readyForPart' flag to signal upstream to provide raw material
+// States:
+// - IDLE: Enter WAITING if system is enabled
+// - WAITING: Send start signal to the MC, if MC is busy reset 'ReadyForPart' flag and enter RUNNING
+// - RUNNING: Enter COMPLETE when MC stops being busy
+// - COMPLETE: Set 'ReadyForPart" flag, enter WAITING if system is still on, else IDLE
 FUNCTION_BLOCK Stage2_MC
 VAR_INPUT	
 	iBusy : BOOL;					// MC is currently processing
 END_VAR
 VAR_OUTPUT
-	oStart: BOOL;
-	oStop: BOOL;
-	oReset: BOOL;
+	oStart: BOOL;					// Start signal for MC, starts machining when part is detected at entry
+	oStop: BOOL;					// MC Stop signal
+	oReset: BOOL;					// MC Reset signal
 	oProduceLids: BOOL;				// TRUE: MC produces lids, FALSE: MC produces bases
 	oReadyForPart: BOOL := TRUE; 	// Local flag signals Stage One to provide raw material
 END_VAR
@@ -19,6 +24,7 @@ VAR
 END_VAR
 
 
+// Check system is enabled
 SystemOn := GV_Flags.SystemEnable;
 
 CASE State OF
