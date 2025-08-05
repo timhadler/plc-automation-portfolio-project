@@ -9,44 +9,68 @@
 // - COMPLETE: Set 'ReadyForPart" flag, enter WAITING if system is still on, else IDLE
 FUNCTION_BLOCK Stage2_MC
 VAR_INPUT	
-	iBusy : BOOL;					// MC is currently processing
+	iBusy : BOOL;					// Machining Station is currently processing
+	iOpened : BOOL;					// CNC door open
+	iError : BOOL;					// Non-raw material detected at station entrance
+	iProgress : WORD;				// CNC progress (0 - 100)
 END_VAR
 VAR_OUTPUT
 	oStart: BOOL;					// Start signal for MC, starts machining when part is detected at entry
 	oStop: BOOL;					// MC Stop signal
 	oReset: BOOL;					// MC Reset signal
 	oProduceLids: BOOL;				// TRUE: MC produces lids, FALSE: MC produces bases
-	oReadyForPart: BOOL := TRUE; 	// Local flag signals Stage One to provide raw material
 END_VAR
 VAR
 	SystemOn : BOOL;				// Local SystemEnable flag
 	State : STATE := IDLE;			// Initiate to IDLE
+	isReadyForPart: BOOL := TRUE; 	// Local flag signals Stage One to provide raw material
+	
+	MC_Controller : FB_MachineCenter;
 END_VAR
 
+
+// Instantiate Machining Center
+MC_Controller(
+	iBusy := iBusy, 
+	iOpened := iOpened, 
+	iError := iError, 
+	iProgress := iProgress);
+	oStart := MC_Controller.oStart;
+	oStop := MC_Controller.oStop;
+	oReset := MC_Controller.oReset;
+	oProduceLids := MC_Controller.oProduceLids;
+	
+MC_Controller.ProduceLids := FALSE;
 
 // Check system is enabled
 SystemOn := GV_Flags.SystemEnable;
 
 CASE State OF
 	IDLE :
+		MC_Controller.Enabled := FALSE;
 		IF SystemOn THEN
 			State := WAITING;
 		END_IF
 	WAITING:
-		oStart := TRUE;
-		IF iBusy THEN
-			oReadyForPart := FALSE;
+		MC_Controller.Enabled := TRUE;
+		IF MC_Controller.IsBusy THEN
+			isReadyForPart := FALSE;
 			State := RUNNING;
 		END_IF
 	RUNNING:
-		IF NOT iBusy THEN
+		IF NOT MC_Controller.IsBusy THEN
 			State := COMPLETE;
 		END_IF
 	COMPLETE:
-		oReadyForPart := TRUE;
+		isReadyForPart := TRUE;
 		IF SystemOn THEN
 			State := WAITING;
 		ELSE
 			State := IDLE;
 		END_IF
 END_CASE
+
+
+PROPERTY ReadyForPart : BOOL
+GET
+ReadyForPart := isReadyForPart;
