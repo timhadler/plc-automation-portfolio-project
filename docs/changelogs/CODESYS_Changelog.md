@@ -86,7 +86,22 @@ C = Minor changes (e.g, bug fixes, code-only changes, sensor change/reconfigure)
 
 ## \[v1.2.1] - 05/08/25
 ** FactoryIO Scene:** v2.0
-** Status:** In Progress
+** Status:** Complete
 
 ## Changed
 * Updated 'Stage1_PartDetection' and 'Stage2_MC' comments
+
+---
+
+## \[v1.2.2] - 05/08/25
+** FactoryIO Scene:** v2.0
+** Status:** In Progress
+
+## Added
+* 'FB_MachineCenter' Controller with Enabled, IsBusy, Progress, ProduceLids, Error Properties
+
+## Changed
+* Implemented FB controller for Machine Center instead of directly in 'Stage2_MC'
+  -- Reason: Modularises Machine Center control, clear I/O flow
+* 'ReadyForPart' Property is used to pass flag to Stage 1 (instead of local FB output)
+  -- Reason: Seperates external hardware outputs from internal software flags for FB
