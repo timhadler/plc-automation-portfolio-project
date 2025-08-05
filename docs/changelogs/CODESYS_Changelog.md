@@ -77,31 +77,44 @@ C = Minor changes (e.g, bug fixes, code-only changes, sensor change/reconfigure)
 
 ### Changed
 
-* Stages start signal is now a global 'SystemEnable' flag set by 'FB\_OperatorPanel'
+* Stages start signal is now a global 'SystemEnable' flag set by 'FB\_OperatorPanel'  
   -- Reason: Easier to access to enable multiple FB controllers
-* Stage 1 now transitions between IDLE and RUNNING when Stage 2 is ready for material (local 'ReadyForMaterial' flag). Supplies material as needed (not continuous anymore)
+* Stage 1 now transitions between IDLE and RUNNING when Stage 2 is ready for material (local 'ReadyForMaterial' flag). Supplies material as needed (not continuous anymore)  
   -- Reason: Prevents part overflow of Stage 2. Demonstrates inter-stage communication to transition states.
 
 ---
 
 ## \[v1.2.1] - 05/08/25
-** FactoryIO Scene:** v2.0
-** Status:** Complete
+**FactoryIO Scene:** v2.0  
+** tatus:** Complete
 
-## Changed
+### Changed
 * Updated 'Stage1_PartDetection' and 'Stage2_MC' comments
 
 ---
 
 ## \[v1.2.2] - 05/08/25
-** FactoryIO Scene:** v2.0
-** Status:** In Progress
+**FactoryIO Scene:** v2.0  
+**Status:** Completed
 
-## Added
+### Added
 * 'FB_MachineCenter' Controller with Enabled, IsBusy, Progress, ProduceLids, Error Properties
 
-## Changed
-* Implemented FB controller for Machine Center instead of directly in 'Stage2_MC'
-  -- Reason: Modularises Machine Center control, clear I/O flow
-* 'ReadyForPart' Property is used to pass flag to Stage 1 (instead of local FB output)
-  -- Reason: Seperates external hardware outputs from internal software flags for FB
+### Changed
+* Implemented FB controller for Machine Center instead of directly in 'Stage2_MC'  
+ -- Reason: Modularises Machine Center control, clear I/O flow
+* 'ReadyForPart' Property is used to pass flag to Stage 1 (instead of local FB output)  
+ -- Reason: Seperates external hardware outputs from internal software flags for FB
+
+---
+
+## \[v1.2.3] - 05/08/25
+**FactorIO Scene:** v2.0  
+**Status:** Completed
+
+### Added
+* 'FB_Positioner' Controller for FactoryIO clamp positioners with methods; Clamp, Release, Lift, Lower (preparation for adding Stage 3 later)
+
+### Notes
+* Current FactoryIO Scene does not have positioners
+* Functionality tested on a test scene with test variables (clamp, raise etc) being writen to in online mode
