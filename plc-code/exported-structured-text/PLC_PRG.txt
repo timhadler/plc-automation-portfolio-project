@@ -20,7 +20,7 @@ GV_IO.oStartButtonLight := Operator.StartButtonLight;
 
 GV_Flags.SystemEnable := Operator.ProcessOn;
 
-// Stage 1
+// Stage 1 - Part Detection and Processing
 Stage1(
 	iVisionSensorBit0 := GV_IO.iBaseVisionSensorBit0,
 	iVisionSensorBit1 := GV_IO.iBaseVisionSensorBit1,
@@ -33,12 +33,17 @@ Stage1(
 GV_IO.oBasePusher := Stage1.oPusher;
 GV_IO.oStageOneConveyor := Stage1.oConveyor;
 
-// Stage 2
-Stage2(iBusy := GV_IO.iMC_Busy);
+// Stage 2 - Machining Center
+Stage2(
+	iBusy := GV_IO.iMC_Busy,
+	iOpened := GV_IO.iMC_Opened, 
+	iError := GV_IO.iMC_Error, 
+	iProgress := GV_IO.iMC_Progress);
+	
 GV_IO.oMC_ProduceLids := Stage2.oProduceLids;
 GV_IO.oMC_Reset := Stage2.oReset;
 GV_IO.oMC_Start := Stage2.oStart;
 GV_IO.oMC_Stop := Stage2.oStop;
 
 // Pass Ready flag to Stage 1
-Stage1(iStage2Ready := Stage2.oReadyForPart);
+Stage1(iStage2Ready := Stage2.ReadyForPart);
