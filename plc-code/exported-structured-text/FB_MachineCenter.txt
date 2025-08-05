@@ -1,0 +1,59 @@
+// FB Controller for the FactoryIO Machining Station
+// Robotic arm transports raw material to CNC machine when material is detected and oStart is TRUE
+// Part detection is handled internally by FactoryIO
+// iError is set when a non-material part is detected at entrance
+FUNCTION_BLOCK FB_MachineCenter
+VAR_INPUT
+	iBusy : BOOL;				// TRUE when the station is processing raw material
+	iOpened : BOOL;				// True when CNC machine door is open
+	iError : BOOL;				// True when a non-material part is detected at entry
+	iProgress : WORD;			// CNC machining progress (0 - 100)
+END_VAR
+VAR_OUTPUT
+	oStart: BOOL;				// Start signal for MC, starts machining when part is detected at entry
+	oStop: BOOL;				// MC Stop signal
+	oReset: BOOL;				// MC Reset signal
+	oProduceLids: BOOL;			// TRUE: MC produces lids, FALSE: MC produces bases
+END_VAR
+VAR
+	On : BOOL;					// Enable/Disable Machining Station
+	Production : BOOL;			// TRUE: Lids, FALSE: Bases
+	Busy: BOOL;
+	CNCProgress : BOOL;
+	IsError : BOOL;
+	IsDoorOpened : BOOL;
+END_VAR
+
+
+// Map variables to outputs
+oStart := On;
+oProduceLids := Production;
+
+
+PROPERTY IsBusy : BOOL
+GET
+IsBusy := iBusy;
+
+PROPERTY DoorOpened : BOOL
+GET
+DoorOpened := iOpened;
+
+PROPERTY Error : BOOL
+GET
+Error := iError;
+
+PROPERTY Progress : WORD
+GET
+Progress := iProgress;
+
+PROPERTY Enabled : BOOL
+GET
+Enabled := On;
+SET
+On := Enabled;
+
+PROPERTY ProduceLids : BOOL
+GET
+ProduceLids := Production;
+SET
+Production := ProduceLids;
