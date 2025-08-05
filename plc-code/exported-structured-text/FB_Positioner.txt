@@ -1,0 +1,53 @@
+// Controller for FactorIOs Clamp Positioner
+FUNCTION_BLOCK FB_Positioner
+VAR_INPUT
+	VerticleLimit : BOOL;	// True when positioner is at reset or fully extended position
+	iClamped : BOOL;		// True when clamping
+END_VAR
+VAR_OUTPUT
+	oClamp : BOOL;			// TRUE: activate clamp
+	oRaise : BOOL;			// TRUE: Raises the positioner off the conveyor
+END_VAR
+VAR
+	// Set by method calls
+	RaiseRequest : BOOL;
+	LowerRequest : BOOL;
+	ClampRequest : BOOL;
+	ReleaseRequest : BOOL;
+END_VAR
+
+
+// Inlcude IF NOT iClamped when adding safety interlocks
+IF ClampRequest AND NOT LowerRequest THEN
+	ClampRequest := FALSE;
+	oClamp := TRUE;
+ELSIF ReleaseRequest THEN
+	ReleaseRequest := FALSE;
+	oClamp := FALSE;
+END_IF
+
+IF RaiseRequest  AND NOT LowerRequest THEN
+	RaiseRequest := FALSE;
+	oRaise := TRUE;
+ELSIF LowerRequest THEN
+	LowerRequest := FALSE;
+	oRaise := FALSE;
+END_IF
+
+
+// Lifts the positioner
+// Allows for a part on a conveyor to pass through
+METHOD Lift : BOOL
+RaiseRequest := TRUE;
+
+// Lowers the positioner to the starting position
+METHOD Lower : BOOL
+LowerRequest := TRUE;
+
+// Activates the Positioners clamp
+METHOD Clamp : BOOL
+ClampRequest := TRUE;
+
+// Deactivates the positioners clamp
+METHOD Release : BOOL
+ReleaseRequest := true;
