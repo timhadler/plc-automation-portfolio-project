@@ -46,17 +46,18 @@ This timeline documents key events, decisions, and design changes during the dev
 
 ## 04/08/25
 
-** Stage 3 **
+**Stage 3**
 
 * Added Stage 3 (Assembler) to FactoryIO scene
 * Mapped Added IO to Modbus (Server and Client)
 
 ---
 
-## 06/08/25
+## 05/08/25
 
-** Code Cleanup and restructure **
+**Code Cleanup and restructure**
 
-* Decided to resturcuture existing FBs to isolate external (hardware) I/O from software I/O - Use FB Properties instead
-* Added FB Controller for Machine Center (changed from controlling the station directly in Stage 2 FB)
+* Decided to resturcuture existing FBs to isolate external (hardware) I/O from software I/O - Use FB Properties for Software I/O instead
+* Added FB Controller for Machine Center (changed from controlling the station directly in Stage 2 FB). Isolated External I/O from Internal I/O.
+* Added FB Controller for Positioners 
 * Isolated 'ReadyForPart' flag from Machine Center FB output by makinig it a FB Property
