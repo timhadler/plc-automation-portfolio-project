@@ -1,0 +1,76 @@
+FUNCTION_BLOCK FB_CircularQueue_Command
+VAR_OUTPUT
+    bFull  : BOOL;
+    bEmpty : BOOL := TRUE;	// Initialize to True
+    iCount : INT;
+END_VAR
+
+VAR
+	MaxSize : INT := 10; 					// Max size of queue (default 10)
+    aQueue : ARRAY[0..10] OF E_Command;		// Size must match MaxSize
+    iHead  : INT := 0; 						// Points to first valid element
+    iTail  : INT := 0; 						// Points to next free spot
+END_VAR
+
+// Adds a command to the queue
+METHOD Enqueue : BOOL
+VAR_INPUT
+    cmd : E_Command;
+END_VAR
+VAR
+    nextTail : INT;
+END_VAR
+
+nextTail := (iTail + 1) MOD MaxSize;
+
+IF nextTail = iHead THEN
+    // Queue is full
+    Enqueue := FALSE;
+ELSE
+    aQueue[iTail] := cmd;
+    iTail := nextTail;
+    Enqueue := TRUE;
+END_IF
+
+bFull := ((iTail + 1) MOD MaxSize = iHead);
+bEmpty := (iTail = iHead);
+iCount := (iTail - iHead + MaxSize) MOD MaxSize;
+
+
+// Dequeue an item from the queue
+// Returns the item
+METHOD Dequeue : E_Command
+VAR
+	cmd : E_Command;
+END_VAR
+
+IF iTail = iHead THEN
+    // Queue is empty
+    Dequeue := E_Command.eNone;
+ELSE
+    Dequeue := aQueue[iHead];
+    iHead := (iHead + 1) MOD MaxSize;
+END_IF
+
+bFull := ((iTail + 1) MOD MaxSize = iHead);
+iCount := (iTail - iHead + MaxSize) MOD MaxSize;
+bEmpty := (iTail = iHead);
+
+
+// Clears the queue
+// Resets iHead and iTail, bFull and iCount
+METHOD Clear : BOOL
+iHead := 0;
+iTail := 0;
+bFull := FALSE;
+bEmpty := TRUE;
+iCount := 0;
+
+
+// Returns the first item of the queue without removing it
+METHOD Peek : E_Command
+IF iTail = iHead THEN
+    Peek := E_Command.eNone;
+ELSE
+    Peek := aQueue[iHead];
+END_IF
