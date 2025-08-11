@@ -117,4 +117,22 @@ C = Minor changes (e.g, bug fixes, code-only changes, sensor change/reconfigure)
 
 ### Notes
 * Current FactoryIO Scene does not have positioners
-* Functionality tested on a test scene with test variables (clamp, raise etc) being writen to in online mode
+* Tested on a test scene with test variables (clamp, raise etc)
+
+---
+
+## \[v1.2.4] - 11/08/25
+**FactorIO Scene:** v2.0  
+**Status:** Complete
+
+### Added
+* 'E_Command' Enum type for Pick and Place Station commands
+* 'FB_CircularQueue_Command' Implements circular queue with methods; Enqueue, Dequeue, Clear, Peek. To managing commands for the Pick and Place
+* 'FB_TwoAxisPaP' Contoller for FactoryIOs 2-axis Pick and Place - implements circular queue to manage sequenced commands  
+  -- Methods: PickUp, PutDown, MoveXPos, MoveXNeg, ProcessCommand, IsMoving  
+  -- Implements state machine to wait for station to stop moving before executing the next one. Only one command executed at a time. 
+
+### Notes
+* Have not added the Stage 3 function block yet. Tested new FBs using test script and scene. 
+
+---

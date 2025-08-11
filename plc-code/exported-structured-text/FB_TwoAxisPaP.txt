@@ -1,0 +1,97 @@
+// Controller for FactoryIOs Two-Axis Pick and Place Station (Digital Configuration)
+// - Two positions for each direction; 0: Reset (Starting) position, 1: Extended Position
+FUNCTION_BLOCK FB_TwoAxisPaP
+VAR_INPUT
+	iPartDetected : BOOL;		// True when part is at the gripper
+	iMovingX : BOOL;			// Is moving in the X direction
+	iMovingZ : BOOL;			// Is moving in teh Z direction
+END_VAR
+VAR_OUTPUT
+	oX : BOOL;					// Extend in the X direction
+	oZ : BOOL;					// Extend in the Z direction
+	oGrab : BOOL;				// Inititate grab
+	bBusy : BOOL;
+END_VAR
+VAR
+	currentCommand : E_Command;
+	CommandQueue : FB_CircularQueue_Command;
+    state : INT := 0;
+END_VAR
+
+
+CASE state OF
+    0: // Idle
+        IF NOT CommandQueue.bEmpty THEN
+            currentCommand := CommandQueue.Dequeue();
+            state := 1;
+            bBusy := TRUE;
+			
+			ProcessCommand(currentCommand);
+		ELSE
+			bBusy := FALSE;
+        END_IF
+
+    1: // Waiting for motion to start (no movement for grab commands)
+        IF IsMoving(currentCommand) OR currentCommand = E_Command.eGrab OR currentCommand = E_Command.eRelease THEN
+            state := 2;
+        END_IF
+
+    2: // Wait for motion to finish
+        IF NOT IsMoving(currentCommand) OR currentCommand = E_Command.eGrab OR currentCommand = E_Command.eRelease THEN
+            state := 0;
+            currentCommand := E_Command.eNone;
+        END_IF
+END_CASE
+
+
+METHOD PickUp : BOOL
+VAR
+    localStep : INT := 0; // Can also be a retained FB variable
+END_VAR
+CommandQueue.Enqueue(E_Command.eMoveZDown);
+CommandQueue.Enqueue(E_Command.eGrab);
+CommandQueue.Enqueue(E_Command.eMoveZUp);
+
+METHOD PutDown : BOOL
+VAR_INPUT
+END_VAR
+CommandQueue.Enqueue(E_Command.eMoveZDown);
+CommandQueue.Enqueue(E_Command.eRelease);
+CommandQueue.Enqueue(E_Command.eMoveZUp);
+
+// Returns TRUE if Assmebler is moving based on the command given
+METHOD IsMoving : BOOL
+VAR_INPUT
+	cmd : E_Command;
+END_VAR
+IF iMovingX OR iMovingZ THEN
+	IsMoving := TRUE;
+else
+	IsMoving := FALSE;
+END_IF
+
+// Moves the assmebler arm to the reset position (x-direction)
+METHOD MoveXNeg : BOOL
+CommandQueue.Enqueue(E_Command.eMoveXNeg);
+
+// Moves the assmebler arm to the extended position (x-direction)
+METHOD MoveXPos : BOOL
+CommandQueue.Enqueue(E_Command.eMoveXPos);
+
+METHOD ProcessCommand : BOOL
+VAR_INPUT
+	cmd : E_Command;
+END_VAR
+// Turn on the relevent output motors
+CASE cmd OF
+	E_Command.eMoveXPos: oX := TRUE;
+	E_Command.eMoveXNeg: oX := FALSE;
+
+	E_Command.eMoveZDown: oZ := TRUE;
+	E_Command.eMoveZUp: oZ := FALSE;
+
+	E_Command.eGrab: oGrab := TRUE;
+	E_Command.eRelease: oGrab := FALSE;
+
+	E_Command.eNone: // Do nothing
+END_CASE
