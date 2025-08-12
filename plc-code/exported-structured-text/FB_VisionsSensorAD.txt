@@ -8,8 +8,8 @@ VAR_INPUT
 	iBit3 : BOOL;	// MSB
 END_VAR
 VAR_OUTPUT
-	isObjectDetected : BOOL;	// TRUE when the sensor detects something
-	ObjectDetected : STRING;	// The object being detected
+	bObjectDetected : BOOL;		// TRUE when the sensor detects something
+	sObjectDetected : STRING;	// The object being detected
 END_VAR
 VAR
 	ObjectCode : BYTE;			// Reconstructed bitwise code
@@ -21,22 +21,22 @@ ObjectCode := BitsToByte(Bit0 := iBit0, Bit1 := iBit1, Bit2 := iBit2, Bit3 := iB
 
 // Decode the result
 CASE ObjectCode OF
-	0 : ObjectDetected := 'none';
-	1 : ObjectDetected := 'blue raw material';
-	2 : ObjectDetected := 'blue product lid';
-	3 : ObjectDetected := 'blue product base';
-	4 : ObjectDetected := 'green raw material';
-	5 : ObjectDetected:= 'green product lid';
-	6 : ObjectDetected := 'green product base';
-	7 : ObjectDetected := 'metal raw material';
-	8 : ObjectDetected:= 'metal product lid';
-	9 : ObjectDetected := 'metal product base';
+	0 : sObjectDetected := 'none';
+	1 : sObjectDetected := 'blue raw material';
+	2 : sObjectDetected := 'blue product lid';
+	3 : sObjectDetected := 'blue product base';
+	4 : sObjectDetected := 'green raw material';
+	5 : sObjectDetected:= 'green product lid';
+	6 : sObjectDetected := 'green product base';
+	7 : sObjectDetected := 'metal raw material';
+	8 : sObjectDetected:= 'metal product lid';
+	9 : sObjectDetected := 'metal product base';
 ELSE
-	ObjectDetected := 'unknown';	
+	sObjectDetected := 'unknown';	
 END_CASE
 
-IF ObjectDetected = 'none' THEN
-	isObjectDetected := FALSE;
+IF sObjectDetected = 'none' THEN
+	bObjectDetected := FALSE;
 ELSE
-	isObjectDetected := TRUE;
+	bObjectDetected := TRUE;
 END_IF

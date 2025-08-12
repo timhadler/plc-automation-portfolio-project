@@ -73,15 +73,13 @@ END_VAR
 // If object should be rejected, wait for it to be at the entrance of pusher before executing
 IF Reject AND iPusherEntrySensor THEN
 	Pusher.Execute();
-	Reject := FALSE;
-	test := FALSE;
+	Reject := FALSE;	// Reset Reject flag
 END_IF
 
-IF VisionSensor.isObjectDetected THEN
-	Object := VisionSensor.ObjectDetected;
+IF VisionSensor.bObjectDetected THEN
+	Object := VisionSensor.sObjectDetected;
 	// Check if object should be rejected
 	IF Object = 'metal raw material' OR Object = 'unknown' THEN
 		Reject := TRUE;
-		test := TRUE;
 	END_IF
 END_IF
