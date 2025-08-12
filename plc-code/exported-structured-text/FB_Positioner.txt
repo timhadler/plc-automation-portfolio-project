@@ -7,47 +7,63 @@ END_VAR
 VAR_OUTPUT
 	oClamp : BOOL;			// TRUE: activate clamp
 	oRaise : BOOL;			// TRUE: Raises the positioner off the conveyor
+	bBusy : BOOL;
 END_VAR
-VAR
-	// Set by method calls
-	RaiseRequest : BOOL;
-	LowerRequest : BOOL;
-	ClampRequest : BOOL;
-	ReleaseRequest : BOOL;
+VAR	
+	E_State : E_States := E_States.Idle;
+	CommandQueue : FB_CircularQueue_Command;
+	CurrentCommand : E_Command;
 END_VAR
+
 
 
 // Inlcude IF NOT iClamped when adding safety interlocks
-IF ClampRequest AND NOT LowerRequest THEN
-	ClampRequest := FALSE;
-	oClamp := TRUE;
-ELSIF ReleaseRequest THEN
-	ReleaseRequest := FALSE;
-	oClamp := FALSE;
-END_IF
-
-IF RaiseRequest  AND NOT LowerRequest THEN
-	RaiseRequest := FALSE;
-	oRaise := TRUE;
-ELSIF LowerRequest THEN
-	LowerRequest := FALSE;
-	oRaise := FALSE;
-END_IF
+CASE E_State OF
+	E_States.Idle:
+		IF NOT CommandQueue.bEmpty THEN
+			CurrentCommand := CommandQueue.Dequeue();
+			bBusy := TRUE;
+			E_State := E_States.Waiting;
+			CASE CurrentCommand OF
+				E_Command.eClamp: oClamp := TRUE;
+				E_Command.eRelease: oClamp :=FALSE;
+				E_Command.eRaise: oRaise := TRUE;
+				E_Command.eLower: oRaise := FALSE;
+			END_CASE
+		else
+			bBusy := false;
+		END_IF
+	E_States.Waiting:
+		IF NOT VerticleLimit OR CurrentCommand = E_Command.eClamp OR CurrentCommand = E_Command.eRelease THEN
+			E_State := E_States.Running;
+		END_IF
+	E_States.Running:
+		IF (CurrentCommand = E_Command.eClamp AND iClamped) OR (CurrentCommand = E_Command.eRelease AND NOT iClamped) THEN
+			E_State := E_States.Complete;
+		ELSIF CurrentCommand = E_Command.eRaise OR CurrentCommand = E_Command.eLower THEN
+			IF VerticleLimit THEN
+				E_State := E_States.Complete;
+			END_IF
+		END_IF
+	E_States.Complete:
+		CurrentCommand := E_Command.eNone;
+		E_State := E_States.Idle;
+END_CASE
 
 
 // Lifts the positioner
 // Allows for a part on a conveyor to pass through
 METHOD Lift : BOOL
-RaiseRequest := TRUE;
+CommandQueue.Enqueue(E_Command.eRaise);
 
 // Lowers the positioner to the starting position
 METHOD Lower : BOOL
-LowerRequest := TRUE;
+CommandQueue.Enqueue(E_Command.eLower);
 
 // Activates the Positioners clamp
 METHOD Clamp : BOOL
-ClampRequest := TRUE;
+CommandQueue.Enqueue(E_Command.eClamp);
 
 // Deactivates the positioners clamp
 METHOD Release : BOOL
-ReleaseRequest := true;
+CommandQueue.Enqueue(E_Command.eRelease);

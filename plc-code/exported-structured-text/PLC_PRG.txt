@@ -3,7 +3,9 @@ VAR
 	Operator : FB_OperatorPanel;
 	Stage1 : Stage1_PartDetection;
 	Stage2 : Stage2_MC;
+	Stage3 : Stage3_Assembly;
 END_VAR
+
 
 // Map IO to Function Blocks
 // Operator panel
@@ -47,3 +49,26 @@ GV_IO.oMC_Stop := Stage2.oStop;
 
 // Pass Ready flag to Stage 1
 Stage1(iStage2Ready := Stage2.ReadyForPart);
+
+// Stage 3 - Assembly
+Stage3(
+	iLidAtClampEntry := GV_IO.iLidAtPositioner, 
+	iBaseAtClampEntry := GV_IO.iBaseAtPositioner, 
+	iExitSensor := GV_IO.iContainerAtExit, 
+	iLidClampLimit := GV_IO.iLidPositionerLimit, 
+	iBaseClampLimit := GV_IO.iBasePositionerLimit, 
+	iLidClamped := GV_IO.iLidPositionerClamped, 
+	iBaseClamped := GV_IO.iBasePositionerClamped,
+	iAssemPartDetected := GV_IO.iPaPPartDetected, 
+	iAssemIsMovingX := GV_IO.iPaPMovingX, 
+	iAssemIsMovingZ := GV_IO.iPaPMovingZ);
+	
+GV_IO.oLidConveyor := Stage3.oLidConveyor;
+GV_IO.oBaseConveyor := Stage3.oBaseConveyor;
+GV_IO.oLidPositionerClamp := Stage3.oLidClamp;
+GV_IO.oBasePositionerClamp := Stage3.oBaseClamp;
+GV_IO.oLidPositionerRaise := Stage3.oLidPositionerRaise;
+GV_IO.oBasePositionerRaise := Stage3.oBasePositionerRaise;
+GV_IO.oPaPX := Stage3.oAssemMoveX;
+GV_IO.oPaPZ := Stage3.oAssemMoveZ;
+GV_IO.oPaPGrab := Stage3.oAssemGrab;

@@ -1,0 +1,141 @@
+// FB Controller for Stage 3 - Assembly
+// - Assembles product lids and bases into containers using Two-Axis Pick and Place Station
+// - Waits for product parts to be ready on their respective conveyors
+// - Secures parts with Poistioners (Clamp actuator)
+// States:
+// - IDLE: Enter WAITING if system is enabled
+// - WAITING: Wait for product parts to be at the positioners
+// - RUNNING: Clamp the products to secure them, disable conveyor belts, and assemble into a container
+// - COMPLETE: Raises Positioner to allow finished product through
+
+FUNCTION_BLOCK Stage3_Assembly
+VAR_INPUT
+	iLidAtClampEntry : BOOL;			// Lid at positioner
+	iBaseAtClampEntry : BOOL;			// Base at positioner
+	iExitSensor : BOOL;					// Container at exit
+	iLidClampLimit : BOOL;				// Lid positioner verticle limit switch
+	iBaseClampLimit : BOOL;				// Base positioner verticle limit switch
+	iLidClamped : BOOL;					// Lid Positier is clamped
+	iBaseClamped : BOOL;				// Base positioner is clamped
+	iAssemPartDetected : BOOL;			// Part detected in assemblers 'hand'
+	iAssemIsMovingX : BOOL;				// Assembler moving in the x-direction
+	iAssemIsMovingZ : BOOL;				// Assembler moving in the z-direction
+END_VAR
+VAR_OUTPUT
+	oLidConveyor : BOOL;				// Lid conveyor motor control
+	oBaseConveyor : BOOL;				// Base conveyor motor control
+	oLidClamp : BOOL;					// Lid Positioner clamp control
+	oBaseClamp : BOOL;					// Base positioner clamp control
+	oLidPositionerRaise : BOOL;			// Lid positioner raise control
+	oBasePositionerRaise : BOOL;		// Base positioner raise control
+	oAssemMoveX : BOOL;					// Assembler move x-direction control
+	oAssemMoveZ : BOOL;					// Assembler move z-direction control
+	oAssemGrab : BOOL;
+END_VAR
+VAR
+	// FB Controllers
+	LidConveyor : FB_ConveyorController;
+	BaseConveyor : FB_ConveyorController;
+	LidPositioner : FB_Positioner;
+	BasePositioner : FB_Positioner;
+	Assembler : FB_TwoAxisPaP;
+	
+	SystemOn : BOOL;					// Local System enabled flag
+	State : STATE := IDLE;				// Initiate State to IDLE
+	
+	// Falling triggers
+	F_LidAtEntry : F_TRIG;
+	F_BaseAtEntry : F_TRIG;
+	F_ExitSensor : F_TRIG;
+	
+	// Internal flags
+	LidReady : BOOL;
+	BaseReady : BOOL;
+	LidConveyorOn : BOOL;
+	BaseConveyorOn : BOOL;
+END_VAR
+
+
+// Check system is enabled
+SystemOn := GV_Flags.SystemEnable; 
+
+// Instantiate Controller FBs
+ LidConveyor(iRun := LidConveyorOn);
+ BaseConveyor(iRun := BaseConveyorOn);
+ oLidConveyor := LidConveyor.oRun;
+ oBaseConveyor := BaseConveyor.oRun;
+ 
+ // Positioners
+ LidPositioner(VerticleLimit := iLidClampLimit, iClamped := iLidClamped);
+ BasePositioner(VerticleLimit := iBaseClampLimit, iClamped := iBaseClamped);
+ 
+ oLidClamp := LidPositioner.oClamp;
+ oLidPositionerRaise := LidPositioner.oRaise;
+ oBaseClamp := BasePositioner.oClamp;
+ oBasePositionerRaise := BasePositioner.oRaise;
+ 
+ // Assembler (Two-Axis Pick and Place)
+ Assembler(
+	iPartDetected := iAssemPartDetected, 
+	iMovingX := iAssemIsMovingX, 
+	iMovingZ := iAssemIsMovingZ);
+	
+ oAssemGrab := Assembler.oGrab;
+ oAssemMoveX := Assembler.oX;
+ oAssemMoveZ := Assembler.oZ;
+ 
+ // Falling edge triggers
+ F_LidAtEntry(CLK := iLidAtClampEntry);
+ F_BaseAtEntry(CLK := iBaseAtClampEntry);
+ F_ExitSensor(CLK := iExitSensor);
+ 
+ CASE State OF
+	 IDLE:
+	 LidConveyorOn := FALSE;
+	 BaseConveyorOn := FALSE;
+	 	IF SystemOn THEN
+			State := WAITING;
+		END_IF
+	WAITING:
+		// Wait for both product parts to be at positioners
+		IF NOT LidReady THEN LidConveyorOn := TRUE; END_IF;
+		IF NOT BaseReady THEN BaseConveyorOn := TRUE; END_IF;
+	
+		// If lid at positioner
+		IF F_LidAtEntry.Q THEN
+			LidPositioner.Clamp();			// Secure part
+			LidConveyorOn := FALSE;			// Stop the conveyor
+			LidReady := TRUE; 
+		END_IF
+		IF F_BaseAtEntry.Q THEN
+			BasePositioner.Clamp();			// Secure part
+			BaseConveyorOn := FALSE;		// Stop the conveyor
+			BaseReady := TRUE; 
+		END_IF
+		
+		// If both parts are ready, begin assembly and transitition to RUNNING state
+		IF BaseReady AND LidReady THEN
+			Assembler.MoveXPos();			// Move to lid conveyor
+			LidPositioner.Release();		// Release the lid
+			Assembler.PickUp();				// Pick up the lid
+			Assembler.MoveXNeg();			// Move to base conveyor
+			Assembler.PutDown();			// Pace lid on base
+			State := RUNNING; 
+		END_IF
+	RUNNING: 
+		// Wait for assembler to finish
+		IF NOT Assembler.bBusy THEN
+			BasePositioner.Release();		// Release finished product
+			BasePositioner.Lift();			// Allow product through
+			BaseConveyorOn := TRUE;			// Turn base conveyor back on
+			State := COMPLETE;
+		END_IF 
+	COMPLETE: 
+		// Reset station once finished product has exited
+		IF F_ExitSensor.Q THEN
+			BasePositioner.Lower();
+			LidReady := FALSE;
+			BaseReady := FALSE;
+			State := IDLE;
+		END_IF
+ END_CASE

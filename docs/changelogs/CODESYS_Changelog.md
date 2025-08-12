@@ -136,3 +136,20 @@ C = Minor changes (e.g, bug fixes, code-only changes, sensor change/reconfigure)
 * Have not added the Stage 3 function block yet. Tested new FBs using test script and scene. 
 
 ---
+
+## \[v1.3.0] - 12/08/25
+**FactorIO Scene:** v3.1
+**Status:** Complete
+
+### Added
+* 'Stage3_Assembly' FB utilises internal state machine to assemble bases and lids into containers  
+  - Waits for parts to be ready at the positioners, clamps them, then assembles them together, allowing the finished product to continue through
+
+### Changed
+* 'FB_Positioner' now utilises internal state machine and command queue to handle commands
+  - Reason: Prevents multiple commands executing at once, and allows simple transition of states for the controller state machine (waits for command to be completed)
+
+### Notes
+* Bases can be allwed through without being assembled if they are too close to the preceding base product. 
+
+---

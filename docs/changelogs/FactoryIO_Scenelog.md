@@ -169,3 +169,9 @@ Inputs
 * Two-Axis Pick & Place (Grab) -> Input 18
 
 ---
+
+## \[v3.1] – 03/08/25
+
+### Changed
+* Placed Positioner entry sensors on the opposite side of the conveyor  
+  - Reason: Can fit closer to the positioner, increasing accuracy. 
