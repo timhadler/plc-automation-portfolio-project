@@ -10,4 +10,9 @@ VAR
 END_VAR
 
 
-oRun := iRun;
+// Safety stop
+IF NOT GV_Flags.SystemEnabled THEN
+	oRun := FALSE;
+ELSE
+	oRun := iRun;
+END_IF

@@ -22,12 +22,15 @@ VAR_OUTPUT
 END_VAR
 VAR
 	SystemOn : BOOL;				// Local SystemEnable flag
-	State : STATE := IDLE;			// Initiate to IDLE
-	isReadyForPart: BOOL := TRUE; 	// Local flag signals Stage One to provide raw material
+	E_State : E_States := E_States.Idle;			// Initiate to IDLE
+	bReadyForPart: BOOL := TRUE; 	// Local flag signals Stage One to provide raw material
 	
 	MC_Controller : FB_MachineCenter;
 END_VAR
 
+
+// Check system is enabled
+SystemOn := GV_Flags.SystemEnabled;
 
 // Instantiate Machining Center
 MC_Controller(
@@ -40,34 +43,33 @@ MC_Controller(
 	oReset := MC_Controller.oReset;
 	oProduceLids := MC_Controller.oProduceLids;
 	
-MC_Controller.ProduceLids := FALSE;
+// Set production type (bases)
+MC_Controller.bProduceLids := FALSE;
 
-// Check system is enabled
-SystemOn := GV_Flags.SystemEnable;
+// Safety stop
+IF NOT SystemOn THEN
+	E_State := E_States.Idle;
+END_IF
 
-CASE State OF
-	IDLE :
-		MC_Controller.Enabled := FALSE;
+CASE E_State OF
+	E_States.Idle :
+		MC_Controller.bEnable := FALSE;
 		IF SystemOn THEN
-			State := WAITING;
+			E_State := E_States.Waiting;
 		END_IF
-	WAITING:
-		MC_Controller.Enabled := TRUE;
-		IF MC_Controller.IsBusy THEN
-			isReadyForPart := FALSE;
-			State := RUNNING;
+	E_States.Waiting:
+		MC_Controller.bEnable := TRUE;
+		IF MC_Controller.bBusy THEN
+			bReadyForPart := FALSE;
+			E_State := E_States.Running;
 		END_IF
-	RUNNING:
-		IF NOT MC_Controller.IsBusy THEN
-			State := COMPLETE;
+	E_States.Running:
+		IF NOT MC_Controller.bBusy THEN
+			E_State := E_States.Complete;
 		END_IF
-	COMPLETE:
-		isReadyForPart := TRUE;
-		IF SystemOn THEN
-			State := WAITING;
-		ELSE
-			State := IDLE;
-		END_IF
+	E_States.Complete:
+		bReadyForPart := TRUE;
+		E_State := E_States.Idle;
 END_CASE
 
 

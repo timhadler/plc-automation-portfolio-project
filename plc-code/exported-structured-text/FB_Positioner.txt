@@ -10,17 +10,21 @@ VAR_OUTPUT
 	bBusy : BOOL;
 END_VAR
 VAR	
-	E_State : E_States := E_States.Idle;
+	SystemOn : BOOL;		// Local SystemEnable flag
+	E_State : E_States := E_States.Idle;	// Initiate state to Idle
+	
 	CommandQueue : FB_CircularQueue_Command;
 	CurrentCommand : E_Command;
 END_VAR
 
 
+// Check system is enabled
+SystemOn := GV_Flags.SystemEnabled;
 
 // Inlcude IF NOT iClamped when adding safety interlocks
 CASE E_State OF
 	E_States.Idle:
-		IF NOT CommandQueue.bEmpty THEN
+		IF SystemOn AND NOT CommandQueue.bEmpty THEN
 			CurrentCommand := CommandQueue.Dequeue();
 			bBusy := TRUE;
 			E_State := E_States.Waiting;

@@ -21,7 +21,7 @@ END_VAR
 
 CASE state OF
     0: // Idle
-        IF NOT CommandQueue.bEmpty THEN
+        IF GV_Flags.SystemEnabled AND NOT CommandQueue.bEmpty THEN
             currentCommand := CommandQueue.Dequeue();
             state := 1;
             bBusy := TRUE;

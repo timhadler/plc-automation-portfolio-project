@@ -25,7 +25,7 @@ END_VAR
 VAR
 	SystemOn: BOOL;					// Local system enabled flag
 	ConveyorOn : BOOL;				// Conveyor on signal
-	State : STATE := IDLE;			// Set intial state
+	E_State : E_States := E_States.Idle;			// Set intial state
 	Reject : BOOL;					// Used to reject unwanted parts
 
 	// Controllers
@@ -35,6 +35,9 @@ VAR
 END_VAR
 
 
+// Check if system is enabled
+SystemOn := GV_Flags.SystemEnabled;
+
 // Instantiate Controller FBs
 Conveyor(iRun := ConveyorOn);
 oConveyor := Conveyor.oRun;
@@ -42,22 +45,24 @@ Pusher(iFrontLimit := iPusherFrontLimit, iBackLimit := iPusherBackLimit);
 oPusher := Pusher.oPush;
 VisionSensor(iBit0 := iVisionSensorBit0, iBit1 := iVisionSensorBit1, iBit2 := iVisionSensorBit2, iBit3 := iVisionSensorBit3);
 
-// Check if system is enabled
-SystemOn := GV_Flags.SystemEnable;
+// Safety stop
+IF NOT SystemOn THEN
+	E_State := E_States.Idle;
+END_IF
 
-CASE State OF
-	IDLE : 
+CASE E_State OF
+	E_States.Idle : 
 		ConveyorOn := FALSE;
 		IF SystemOn AND iStage2Ready THEN
-			State := RUNNING;
+			E_State := E_States.Running;
 		END_IF
-	RUNNING :  
+	E_States.Running :  
 		ConveyorOn := TRUE;
 		// Process Vision Sensor Output
 		THIS^.ProcessObjectDetection();
 		
 		IF NOT SystemOn OR NOT iStage2Ready THEN
-			State := IDLE;
+			E_State := E_States.Idle;
 		END_IF
 END_CASE
 

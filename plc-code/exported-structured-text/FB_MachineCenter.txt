@@ -2,6 +2,7 @@
 // Robotic arm transports raw material to CNC machine when material is detected and oStart is TRUE
 // Part detection is handled internally by FactoryIO
 // iError is set when a non-material part is detected at entrance
+// Proprties used to set/get Enabled, DoorOpened, Error, IsBusy, ProduceLids, and CNC Progress
 FUNCTION_BLOCK FB_MachineCenter
 VAR_INPUT
 	iBusy : BOOL;				// TRUE when the station is processing raw material
@@ -16,44 +17,49 @@ VAR_OUTPUT
 	oProduceLids: BOOL;			// TRUE: MC produces lids, FALSE: MC produces bases
 END_VAR
 VAR
-	On : BOOL;					// Enable/Disable Machining Station
-	Production : BOOL;			// TRUE: Lids, FALSE: Bases
-	Busy: BOOL;
-	CNCProgress : BOOL;
-	IsError : BOOL;
-	IsDoorOpened : BOOL;
+	bEnabled : BOOL;			// Enable/Disable Machining Station
+	bProduction : BOOL;			// TRUE: Lids, FALSE: Bases
+	bIsError : BOOL;			// True when a non-material part is detected at entry
+	bIsDoorOpened : BOOL;		// True when CNC machine door is open
 END_VAR
 
 
 // Map variables to outputs
-oStart := On;
-oProduceLids := Production;
+oStart := bEnable;
+oProduceLids := bProduction;
+
+// Safety stop
+IF NOT GV_Flags.SystemEnabled THEN
+	oStop := TRUE;
+ELSE
+	oStop := FALSE;
+END_IF
 
 
-PROPERTY IsBusy : BOOL
+PROPERTY bBusy : BOOL
 GET
-IsBusy := iBusy;
+bBusy := iBusy;
 
-PROPERTY DoorOpened : BOOL
+PROPERTY bDoorOpened : BOOL
 GET
-DoorOpened := iOpened;
+bDoorOpened := iOpened;
 
-PROPERTY Error : BOOL
+PROPERTY bError : BOOL
 GET
-Error := iError;
+bError := iError;
 
-PROPERTY Progress : WORD
+PROPERTY wProgress : WORD
 GET
-Progress := iProgress;
+wProgress := iProgress;
 
-PROPERTY Enabled : BOOL
+PROPERTY bEnable : BOOL
 GET
-Enabled := On;
+bEnable := bEnabled;
 SET
-On := Enabled;
+bEnabled := bEnable;
 
-PROPERTY ProduceLids : BOOL
+PROPERTY bProduceLids : BOOL
 GET
-ProduceLids := Production;
+bProduceLids := bProduction;
 SET
-Production := ProduceLids;
+bProduction := bProduceLids;

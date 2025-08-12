@@ -153,3 +153,13 @@ C = Minor changes (e.g, bug fixes, code-only changes, sensor change/reconfigure)
 * Bases can be allwed through without being assembled if they are too close to the preceding base product. 
 
 ---
+
+## \[v1.3.1] - 12/08/25
+**FactorIO Scene:** v3.1
+**Status:** Complete
+
+### Changed
+* All function blocks that control outputs now implmented safety interlocking using 'GV_Flags.SystemEnabled'
+  - Reason: Meets safety standards
+
+---

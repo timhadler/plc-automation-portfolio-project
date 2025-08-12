@@ -57,7 +57,7 @@ END_VAR
 
 
 // Check system is enabled
-SystemOn := GV_Flags.SystemEnable; 
+SystemOn := GV_Flags.SystemEnabled; 
 
 // Instantiate Controller FBs
  LidConveyor(iRun := LidConveyorOn);
@@ -89,14 +89,19 @@ SystemOn := GV_Flags.SystemEnable;
  F_BaseAtEntry(CLK := iBaseAtClampEntry);
  F_ExitSensor(CLK := iExitSensor);
  
- CASE State OF
-	 IDLE:
+ // Safety stop
+ IF NOT SystemOn THEN
+	 E_State := E_States.Idle;
+ END_IF
+ 
+ CASE E_State OF
+	 E_States.Idle:
 	 LidConveyorOn := FALSE;
 	 BaseConveyorOn := FALSE;
 	 	IF SystemOn THEN
-			State := WAITING;
+			E_State := E_States.Waiting;
 		END_IF
-	WAITING:
+	E_States.Waiting:
 		// Wait for both product parts to be at positioners
 		IF NOT LidReady THEN LidConveyorOn := TRUE; END_IF;
 		IF NOT BaseReady THEN BaseConveyorOn := TRUE; END_IF;
@@ -120,22 +125,22 @@ SystemOn := GV_Flags.SystemEnable;
 			Assembler.PickUp();				// Pick up the lid
 			Assembler.MoveXNeg();			// Move to base conveyor
 			Assembler.PutDown();			// Pace lid on base
-			State := RUNNING; 
+			E_State := E_States.Running; 
 		END_IF
-	RUNNING: 
+	E_States.Running: 
 		// Wait for assembler to finish
 		IF NOT Assembler.bBusy THEN
 			BasePositioner.Release();		// Release finished product
 			BasePositioner.Lift();			// Allow product through
 			BaseConveyorOn := TRUE;			// Turn base conveyor back on
-			State := COMPLETE;
+			E_State := E_States.Complete;
 		END_IF 
-	COMPLETE: 
+	E_States.Complete: 
 		// Reset station once finished product has exited
 		IF F_ExitSensor.Q THEN
 			BasePositioner.Lower();
 			LidReady := FALSE;
 			BaseReady := FALSE;
-			State := IDLE;
+			E_State := E_States.Idle;
 		END_IF
  END_CASE
