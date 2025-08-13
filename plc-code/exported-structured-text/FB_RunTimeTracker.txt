@@ -1,0 +1,38 @@
+// Tracks time that iRun is on in minutes in a persistent variable
+FUNCTION_BLOCK FB_RunTimeTracker
+VAR_INPUT
+	iRun : BOOL;		// Process On signal
+END_VAR
+VAR
+	RunTimer : TON;
+	R_Run : R_TRIG;
+	CurrentMinuteCounter : UDINT;
+	TotalMinuteCounter : UDINT;
+	R_Reset : R_TRIG;
+END_VAR
+VAR PERSISTENT
+	iPersistentCounterRunTime : UDINT;	// Used to track time since last maintenance
+END_VAR
+
+
+// Run timer when the process is on
+RunTimer(IN := iRun, PT := T#60S);
+
+// Check for reset signal
+R_Reset(CLK := GVL.MaintenenceReset);
+IF R_Reset.Q THEN
+	iPersistentCounterRunTime := 0;
+END_IF
+
+R_Run(CLK := iRun);
+IF R_Run.Q THEN
+	CurrentMinuteCounter := 0;	// Reset counter
+END_IF
+
+IF RunTimer.Q THEN
+	iPersistentCounterRunTime := iPersistentCounterRunTime + 1;
+	CurrentMinuteCounter := CurrentMinuteCounter + 1;
+	RunTimer(IN := FALSE);	// Reset timer
+END_IF
+
+GVL.CurrentRunMinutes := CurrentMinuteCounter;
