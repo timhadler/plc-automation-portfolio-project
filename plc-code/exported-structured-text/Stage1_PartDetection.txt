@@ -2,7 +2,7 @@
 // - Monitor sensor inputs (Vision sensor, actuator limit switches)
 // - Control outputs  (conveyor motor, pusher actuator)
 // - Reject metal raw materials by pushing them off the conveyor, while accepting blue materials
-// - Manage internal state transisitions using a state machine
+// - All outputs are disabled if GV_Flags.SystemEnabled is FALSE
 // States:
 // - IDLE: Enter RUNNING state if start trigger is TRUE and Stage 2 is ready for material
 // - RUNNING: Conveyor on, reject metal raw materials, Enter IDLE if Stage 2 not ready for material
@@ -26,7 +26,8 @@ VAR
 	SystemOn: BOOL;					// Local system enabled flag
 	ConveyorOn : BOOL;				// Conveyor on signal
 	E_State : E_States := E_States.Idle;			// Set intial state
-	Reject : BOOL;					// Used to reject unwanted parts
+	Reject : BOOL;					// Set in 'ProcessObjectDetection'
+	R_PusherEntry : R_TRIG;
 
 	// Controllers
 	Pusher : FB_PusherController;
@@ -36,7 +37,7 @@ END_VAR
 
 
 // Check if system is enabled
-SystemOn := GV_Flags.SystemEnabled;
+SystemOn := GVL.SystemEnabled;
 
 // Instantiate Controller FBs
 Conveyor(iRun := ConveyorOn);
@@ -44,6 +45,9 @@ oConveyor := Conveyor.oRun;
 Pusher(iFrontLimit := iPusherFrontLimit, iBackLimit := iPusherBackLimit);
 oPusher := Pusher.oPush;
 VisionSensor(iBit0 := iVisionSensorBit0, iBit1 := iVisionSensorBit1, iBit2 := iVisionSensorBit2, iBit3 := iVisionSensorBit3);
+
+// Rising triggers
+R_PusherEntry(CLK := iPusherEntrySensor);
 
 // Safety stop
 IF NOT SystemOn THEN
@@ -61,6 +65,13 @@ CASE E_State OF
 		// Process Vision Sensor Output
 		THIS^.ProcessObjectDetection();
 		
+		// If object should be rejected, wait for it to be at the entrance of pusher before executing
+		IF Reject AND R_PusherEntry.Q THEN
+			GVL.RejectedPartsCounter := GVL.RejectedPartsCounter + 1;	// Increment counter
+			Pusher.Execute();
+			Reject := FALSE;	// Reset Reject flag
+		END_IF
+		
 		IF NOT SystemOn OR NOT iStage2Ready THEN
 			E_State := E_States.Idle;
 		END_IF
@@ -74,12 +85,6 @@ METHOD ProcessObjectDetection : BOOL
 VAR
 	Object: STRING;
 END_VAR
-
-// If object should be rejected, wait for it to be at the entrance of pusher before executing
-IF Reject AND iPusherEntrySensor THEN
-	Pusher.Execute();
-	Reject := FALSE;	// Reset Reject flag
-END_IF
 
 IF VisionSensor.bObjectDetected THEN
 	Object := VisionSensor.sObjectDetected;
