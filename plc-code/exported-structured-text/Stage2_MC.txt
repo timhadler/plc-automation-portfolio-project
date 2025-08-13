@@ -2,6 +2,8 @@
 // - Machines raw materials into product bases
 // - Manage internal state transisitions using a state machine
 // - Sets local 'readyForPart' flag to signal upstream to provide raw material
+// - All outputs are disabled if GV_Flags.SystemEnabled is FALSE
+// - Sets fault flag if raw material doesn't arrive at entrance within time limit, or incorrect material, requires reset by operator
 // States:
 // - IDLE: Enter WAITING if system is enabled
 // - WAITING: Send start signal to the MC, if MC is busy reset 'ReadyForPart' flag and enter RUNNING
@@ -21,16 +23,21 @@ VAR_OUTPUT
 	oProduceLids: BOOL;				// TRUE: MC produces lids, FALSE: MC produces bases
 END_VAR
 VAR
-	SystemOn : BOOL;				// Local SystemEnable flag
-	E_State : E_States := E_States.Idle;			// Initiate to IDLE
-	bReadyForPart: BOOL := TRUE; 	// Local flag signals Stage One to provide raw material
+	SystemOn : BOOL;						// Local SystemEnable flag
+	E_State : E_States := E_States.Idle;	// Initiate to IDLE
+	bReadyForPart: BOOL := TRUE; 			// Local flag signals Stage One to provide raw material
+	FaultTimer : TON;						// Timer for waiting for parts to arrive
+	bTimerOn : BOOL;						// Used to start the fault timer
 	
 	MC_Controller : FB_MachineCenter;
+END_VAR
+VAR CONSTANT
+	FaultTimeS : TIME := T#15S;
 END_VAR
 
 
 // Check system is enabled
-SystemOn := GV_Flags.SystemEnabled;
+SystemOn := GVL.SystemEnabled;
 
 // Instantiate Machining Center
 MC_Controller(
@@ -46,6 +53,12 @@ MC_Controller(
 // Set production type (bases)
 MC_Controller.bProduceLids := FALSE;
 
+// If material is incorrect or doesn't arrive
+FaultTimer(IN := bTimerOn, PT := FaultTimeS);
+IF FaultTimer.Q OR iError THEN
+	GVL.SystemFault := TRUE;
+END_IF
+
 // Safety stop
 IF NOT SystemOn THEN
 	E_State := E_States.Idle;
@@ -59,7 +72,9 @@ CASE E_State OF
 		END_IF
 	E_States.Waiting:
 		MC_Controller.bEnable := TRUE;
+		bTimerOn := TRUE;					// Start fault timer
 		IF MC_Controller.bBusy THEN
+			bTimerOn := FALSE;
 			bReadyForPart := FALSE;
 			E_State := E_States.Running;
 		END_IF

@@ -13,6 +13,7 @@ Operator(
 	StartButton := GV_IO.iStartButton, 
 	StopButton := GV_IO.iStopButton,
 	ResetButton := GV_IO.iResetButton,
+	Fault := GVL.SystemFault,
 	eStopButton := GV_IO.iEmergencyStopButton);
 	
 GV_IO.oProcessOnLight := Operator.ProcessOn;
@@ -20,7 +21,10 @@ GV_IO.oStopButtonLight := Operator.ProcessOn;
 GV_IO.oResetButtonLight := Operator.ResetButtonLight;
 GV_IO.oStartButtonLight := Operator.StartButtonLight;
 
-GV_Flags.SystemEnable := Operator.ProcessOn;
+GVL.SystemEnabled := Operator.ProcessOn;
+
+// Process timer
+ProcessTimer(iRun := GVL.SystemEnabled);
 
 // Stage 1 - Part Detection and Processing
 Stage1(
