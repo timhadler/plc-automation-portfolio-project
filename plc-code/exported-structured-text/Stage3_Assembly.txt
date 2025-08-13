@@ -57,7 +57,7 @@ END_VAR
 
 
 // Check system is enabled
-SystemOn := GV_Flags.SystemEnabled; 
+SystemOn := GVL.SystemEnabled; 
 
 // Instantiate Controller FBs
  LidConveyor(iRun := LidConveyorOn);
@@ -89,11 +89,6 @@ SystemOn := GV_Flags.SystemEnabled;
  F_BaseAtEntry(CLK := iBaseAtClampEntry);
  F_ExitSensor(CLK := iExitSensor);
  
- // Safety stop
- IF NOT SystemOn THEN
-	 E_State := E_States.Idle;
- END_IF
- 
  CASE E_State OF
 	 E_States.Idle:
 	 LidConveyorOn := FALSE;
@@ -119,7 +114,7 @@ SystemOn := GV_Flags.SystemEnabled;
 		END_IF
 		
 		// If both parts are ready, begin assembly and transitition to RUNNING state
-		IF BaseReady AND LidReady THEN
+		IF BaseReady AND LidReady AND SystemOn THEN
 			Assembler.MoveXPos();			// Move to lid conveyor
 			LidPositioner.Release();		// Release the lid
 			Assembler.PickUp();				// Pick up the lid
@@ -129,7 +124,7 @@ SystemOn := GV_Flags.SystemEnabled;
 		END_IF
 	E_States.Running: 
 		// Wait for assembler to finish
-		IF NOT Assembler.bBusy THEN
+		IF NOT Assembler.bBusy and SystemOn THEN
 			BasePositioner.Release();		// Release finished product
 			BasePositioner.Lift();			// Allow product through
 			BaseConveyorOn := TRUE;			// Turn base conveyor back on
@@ -138,6 +133,11 @@ SystemOn := GV_Flags.SystemEnabled;
 	E_States.Complete: 
 		// Reset station once finished product has exited
 		IF F_ExitSensor.Q THEN
+			GVL.FinishedProductsCounter := GVL.FinishedProductsCounter + 1;	// Increment counter
+			// Calculate Production Rate
+			IF GVL.CurrentRunMinutes <> 0 THEN
+				GVL.ProductionRate := TO_REAL(GVL.FinishedProductsCounter) / TO_REAL(GVL.CurrentRunMinutes);
+			END_IF
 			BasePositioner.Lower();
 			LidReady := FALSE;
 			BaseReady := FALSE;

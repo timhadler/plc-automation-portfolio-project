@@ -163,3 +163,19 @@ C = Minor changes (e.g, bug fixes, code-only changes, sensor change/reconfigure)
   - Reason: Meets safety standards
 
 ---
+
+## \[v1.3.2] - 13/08/25
+**FactorIO Scene:** v3.1
+**Status:** Completed
+
+### Added
+* 'FB_RunTimeTracker' tracks current and total (persistent) process run time
+
+### Changed
+* 'Stage2_MC' sets fault flag if the incorrect material is detected at entrance, or material doesnt arrive within time limit
+* 'FB_OperatorPanel' halts process when a fault is detected
+* Stage 1 controller counts the number of materials it rejects
+* Stage 3 counts the number of completed containers and calculates production rate
+
+---
+
