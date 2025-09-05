@@ -1,5 +1,5 @@
 # Industry 4.0 Manufacturing Automation Portfolio Project
-Complete 3-stage manufacturing and assembly process automation using structured PLC programming with industrial communication protocols, emergency stop, and fault handling. The process manucatures raw materials into product bases, and assmebles them with product lids to create containers in FactoryIO. 
+Complete 3-stage manufacturing and assembly process automation using structured PLC programming with industrial communication protocols, emergency stop, and fault handling. The process manufactures raw materials into product bases, and assmebles them with product lids to create containers in FactoryIO. 
 
 ## Key Technologies
 - CODESYS PLC Programming (structured text, function blocks, ladder logic)
@@ -38,7 +38,7 @@ Demonstrates the full 3-stage process.
 https://drive.google.com/file/d/1jgmJhKKk6puQMtF79jDqM2R668uc4EmO/view?usp=sharing
 
 **Fault and E-Stop Handling [ 1:42 ]**  
-Injected a fault (part gets stuck at entry to the manufacturing center). After 20 seconds the controller recognises there is a fault, causing the entire process to halt and requires operator intervention to restart. 
+Injected a fault (raw material gets stuck at entry to Stage 2). After 20 seconds the controller recognises there is a fault, causing the entire process to halt and requires operator intervention to restart. 
 Initiated an emergency stop [ 1:05 ] and restart. 
 
 https://drive.google.com/file/d/1Wlif4s2rBeTBHrgsaJoMtnuUYSDvpSE7/view?usp=sharing
