@@ -57,6 +57,8 @@ MC_Controller.bProduceLids := FALSE;
 FaultTimer(IN := bTimerOn, PT := FaultTimeS);
 IF FaultTimer.Q OR iError THEN
 	GVL.SystemFault := TRUE;
+	FaultTimer(IN := FALSE);	// Reset fault timer
+	bTimerOn := FALSE;
 END_IF
 
 // Safety stop
@@ -70,9 +72,9 @@ CASE E_State OF
 		IF SystemOn THEN
 			E_State := E_States.Waiting;
 		END_IF
-	E_States.Waiting:
+	E_States.Waiting:	// Wait for MC to start
 		MC_Controller.bEnable := TRUE;
-		bTimerOn := TRUE;					// Start fault timer
+		bTimerOn := TRUE;				// Start fault timer
 		IF MC_Controller.bBusy THEN
 			bTimerOn := FALSE;
 			bReadyForPart := FALSE;
@@ -86,7 +88,6 @@ CASE E_State OF
 		bReadyForPart := TRUE;
 		E_State := E_States.Idle;
 END_CASE
-
 
 PROPERTY ReadyForPart : BOOL
 GET
