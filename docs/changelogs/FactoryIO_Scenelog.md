@@ -175,3 +175,7 @@ Inputs
 ### Changed
 * Placed Positioner entry sensors on the opposite side of the conveyor  
   - Reason: Can fit closer to the positioner, increasing accuracy. 
+
+### Notes
+* Conveyor chute should be moved closer to the vision sensor to more accurately catch rejected materials
+* Pusher should be moved further awway from the vision sensor to prevent re-reading of rejected material after it has been rejected

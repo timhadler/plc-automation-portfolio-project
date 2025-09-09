@@ -177,5 +177,8 @@ C = Minor changes (e.g, bug fixes, code-only changes, sensor change/reconfigure)
 * Stage 1 controller counts the number of materials it rejects
 * Stage 3 counts the number of completed containers and calculates production rate
 
+### Notes
+* Logic to restart system after a fault not implemented yet
+
 ---
 
