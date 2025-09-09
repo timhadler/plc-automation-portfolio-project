@@ -17,12 +17,18 @@ Circular queue properties and Enqueue method example, used to sequence commands 
 
 Material sorting with vision integration
 
-<img width="1385" height="1295" alt="Stage1" src="https://github.com/user-attachments/assets/c88180ee-db59-4173-af4c-f8cf215a7960" />
+<img width="980" height="1263" alt="Stage1" src="https://github.com/user-attachments/assets/e15d369f-3927-4adf-92ab-153d2debf3a5" />
 
 ## Stage 3 - Assembly
 
 Automated assembly, multiple component coordination
 
-<img width="1260" height="825" alt="Stage3" src="https://github.com/user-attachments/assets/2cf968d9-fa2b-4259-abf1-1cde26b71629" />
+<img width="959" height="798" alt="pap" src="https://github.com/user-attachments/assets/027ed08d-677a-4fbd-922f-04c9e6b43d14" />
 <img width="460" height="182" alt="Stage3 pickup" src="https://github.com/user-attachments/assets/8e2f9414-6040-4484-acbe-edc889fc37cd" />
 <img width="548" height="364" alt="Stage3 process command" src="https://github.com/user-attachments/assets/81f553b5-fe32-45a6-b96e-e4d5ca29571c" />
+
+## Operator Panel - Ladder logic
+
+Operator input, fault and eStop handling
+
+<img width="1148" height="1212" alt="operator panel" src="https://github.com/user-attachments/assets/1f5006e3-aebe-492f-a21c-b438c15b1c0d" />
