@@ -28,7 +28,7 @@
         </Dictionary>
         <Single Name="TypeGuid" Type="System.Guid">225bfe47-7336-4dbc-9419-4105a7c831fa</Single>
         <Null Name="EmbeddedTypeGuids" />
-        <Single Name="Timestamp" Type="long">638899960945064590</Single>
+        <Single Name="Timestamp" Type="long">638918959108212370</Single>
       </Single>
       <Single Name="Object" Type="{225bfe47-7336-4dbc-9419-4105a7c831fa}" Method="IArchivable">
         <Single Name="UniqueIdGenerator" Type="string">4105</Single>
@@ -260,10 +260,7 @@
           <Single Name="Address" Type="{06bee84e-fb7b-460d-bdbc-36d334cb5380}" Method="IArchivable">
             <Array Name="Addr" Type="{9ba826d6-fdbc-4f85-99e6-e813fdd446c4}">
               <Single Type="{9ba826d6-fdbc-4f85-99e6-e813fdd446c4}" Method="IArchivable">
-                <Array Name="components" Type="byte">AwE=</Array>
-              </Single>
-              <Single Type="{9ba826d6-fdbc-4f85-99e6-e813fdd446c4}" Method="IArchivable">
-                <Array Name="components" Type="byte">MLU=</Array>
+                <Array Name="components" Type="byte">ALU=</Array>
               </Single>
             </Array>
           </Single>
@@ -12061,22 +12058,118 @@
     <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
       <Single Name="IsRoot" Type="bool">False</Single>
       <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">692ef4e9-d36a-42a4-b914-14ec83bab89b</Single>
+        <Single Name="ParentGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
+        <Single Name="Name" Type="string">E_Command</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">2db5746d-d284-4425-9f7f-2663a34b0ebc</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638906010265855033</Single>
+      </Single>
+      <Single Name="Object" Type="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" Method="IArchivable">
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_Command :
+(
+	// Assembler
+    eNone,
+    eMoveXPos,
+    eMoveXNeg,
+    eMoveZUp,
+    eMoveZDown,
+    eGrab,
+    eRelease, 
+	
+	// Positioners
+	eClamp, 
+	eRaise, 
+	eLower
+);
+END_TYPE</Single>
+            <Single Name="LineInfoPersistence" Type="string">692ef4e9-d36a-42a4-b914-14ec83bab89b_Decl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="UniqueIdGenerator" Type="string">36</Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">7be5c25f-be62-4231-8c97-05d27a191532</Single>
+        <Single Name="ParentGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
+        <Single Name="Name" Type="string">E_States</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">2db5746d-d284-4425-9f7f-2663a34b0ebc</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638906011066648925</Single>
+      </Single>
+      <Single Name="Object" Type="{2db5746d-d284-4425-9f7f-2663a34b0ebc}" Method="IArchivable">
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_States :
+(
+	Idle, 
+	Running, 
+	Waiting, 
+	Complete
+);
+END_TYPE
+</Single>
+            <Single Name="LineInfoPersistence" Type="string">7be5c25f-be62-4231-8c97-05d27a191532_Decl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="UniqueIdGenerator" Type="string">32</Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
         <Single Name="Guid" Type="System.Guid">a4a596e8-2fa5-4aca-8fe4-175a334e800c</Single>
         <Single Name="ParentGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
-        <Single Name="Name" Type="string">GV_Flags</Single>
+        <Single Name="Name" Type="string">GVL</Single>
         <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
         <Single Name="TypeGuid" Type="System.Guid">ffbfa93a-b94d-45fc-a329-229860183b1d</Single>
         <Array Name="EmbeddedTypeGuids" Type="System.Guid">
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638898631742758121</Single>
+        <Single Name="Timestamp" Type="long">638906957401148804</Single>
       </Single>
       <Single Name="Object" Type="{ffbfa93a-b94d-45fc-a329-229860183b1d}" Method="IArchivable">
         <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
             <Single Name="TextBlobForSerialisation" Type="string">{attribute 'qualified_only'}
 VAR_GLOBAL
-	SystemEnable: BOOL;
+	SystemEnabled : BOOL;
+	SystemFault : BOOL;		// Set by Stage 2
+	
+	// Trackers
+	CurrentRunMinutes : UDINT;
+	RejectedPartsCounter : UINT;
+	FinishedProductsCounter : UINT;
+	ProductionRate : REAL; // Parts/minute
+	MaintenenceReset : BOOL;
 END_VAR</Single>
             <Single Name="LineInfoPersistence" Type="string">a4a596e8-2fa5-4aca-8fe4-175a334e800c_Decl_LineIds</Single>
           </Single>
@@ -12201,49 +12294,13 @@ END_VAR</Single>
     <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
       <Single Name="IsRoot" Type="bool">False</Single>
       <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
-        <Single Name="Guid" Type="System.Guid">69873f05-6a8e-42a2-8791-b1a01e81ed84</Single>
-        <Single Name="ParentGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
-        <Single Name="Name" Type="string">Types</Single>
-        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
-        <Single Name="TypeGuid" Type="System.Guid">ffbfa93a-b94d-45fc-a329-229860183b1d</Single>
-        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
-          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
-        </Array>
-        <Single Name="Timestamp" Type="long">638896895386895907</Single>
-      </Single>
-      <Single Name="Object" Type="{ffbfa93a-b94d-45fc-a329-229860183b1d}" Method="IArchivable">
-        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
-          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">VAR_GLOBAL
-END_VAR
-// Enum state stages
-TYPE STATE : (IDLE, WAITING, RUNNING, COMPLETE);
-END_TYPE</Single>
-            <Single Name="LineInfoPersistence" Type="string">69873f05-6a8e-42a2-8791-b1a01e81ed84_Decl_LineIds</Single>
-          </Single>
-        </Single>
-        <Null Name="NetVarProperties" />
-        <Single Name="ParameterList" Type="bool">False</Single>
-        <Single Name="AddAttributeSubsequent" Type="bool">False</Single>
-      </Single>
-      <Single Name="ParentSVNodeGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
-      <Array Name="Path" Type="string">
-        <Single Type="string">Device</Single>
-        <Single Type="string">PLC Logic</Single>
-        <Single Type="string">Application</Single>
-      </Array>
-      <Single Name="Index" Type="int">-1</Single>
-    </Single>
-    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
-      <Single Name="IsRoot" Type="bool">False</Single>
-      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
         <Single Name="Guid" Type="System.Guid">ba31a869-e483-4e50-a33a-6e035681e488</Single>
         <Single Name="ParentGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
         <Single Name="Name" Type="string">Library Manager</Single>
         <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
         <Single Name="TypeGuid" Type="System.Guid">adb5cb65-8e1d-4a00-b70a-375ea27582f3</Single>
         <Null Name="EmbeddedTypeGuids" />
-        <Single Name="Timestamp" Type="long">638898698429530153</Single>
+        <Single Name="Timestamp" Type="long">638906855403264815</Single>
       </Single>
       <Single Name="Object" Type="{adb5cb65-8e1d-4a00-b70a-375ea27582f3}" Method="IArchivable">
         <List2 Name="ParameterTable" />
@@ -12785,6 +12842,60 @@ END_VAR</Single>
     <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
       <Single Name="IsRoot" Type="bool">False</Single>
       <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">76e9af9e-74e0-465c-8b64-e641e0a12713</Single>
+        <Single Name="ParentGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
+        <Single Name="Name" Type="string">FB_CircularQueue_Command</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">6f9dac99-8de1-4efc-8465-68ac443b7d08</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638906023138541465</Single>
+      </Single>
+      <Single Name="Object" Type="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" Method="IArchivable">
+        <Single Name="SpecialFunc" Type="{0db3d7bb-cde0-4416-9a7b-ce49a0124323}">None</Single>
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string"></Single>
+            <Single Name="LineInfoPersistence" Type="string">76e9af9e-74e0-465c-8b64-e641e0a12713_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Requires E_Command Enum DUT
+FUNCTION_BLOCK FB_CircularQueue_Command
+VAR_OUTPUT
+    bFull  : BOOL;
+    bEmpty : BOOL := TRUE;	// Initialize to True
+    iCount : INT;
+END_VAR
+
+VAR
+	MaxSize : INT := 10; 					// Max size of queue (default 10)
+    aQueue : ARRAY[0..10] OF E_Command;		// Size must match MaxSize
+    iHead  : INT := 0; 						// Points to first valid element
+    iTail  : INT := 0; 						// Points to next free spot
+END_VAR</Single>
+            <Single Name="LineInfoPersistence" Type="string">76e9af9e-74e0-465c-8b64-e641e0a12713_Decl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="UniqueIdGenerator" Type="string">26</Single>
+        <Single Name="POULevel" Type="{8e575c5b-1d37-49c6-941b-5c0ec7874787}">Standard</Single>
+        <List Name="ChildObjectGuids" Type="System.Collections.ArrayList" />
+        <Single Name="AddAttributeSubsequent" Type="bool">False</Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
         <Single Name="Guid" Type="System.Guid">f52facbb-251f-4402-8ccf-806a0d37798d</Single>
         <Single Name="ParentGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
         <Single Name="Name" Type="string">FB_ConveyorController</Single>
@@ -12794,13 +12905,18 @@ END_VAR</Single>
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638896511564790224</Single>
+        <Single Name="Timestamp" Type="long">638906854252165366</Single>
       </Single>
       <Single Name="Object" Type="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" Method="IArchivable">
         <Single Name="SpecialFunc" Type="{0db3d7bb-cde0-4416-9a7b-ce49a0124323}">None</Single>
         <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">oRun := iRun;</Single>
+            <Single Name="TextBlobForSerialisation" Type="string">// Safety stop
+IF NOT GVL.SystemEnabled THEN
+	oRun := FALSE;
+ELSE
+	oRun := iRun;
+END_IF</Single>
             <Single Name="LineInfoPersistence" Type="string">f52facbb-251f-4402-8ccf-806a0d37798d_Impl_LineIds</Single>
           </Single>
         </Single>
@@ -12820,7 +12936,7 @@ END_VAR
             <Single Name="LineInfoPersistence" Type="string">f52facbb-251f-4402-8ccf-806a0d37798d_Decl_LineIds</Single>
           </Single>
         </Single>
-        <Single Name="UniqueIdGenerator" Type="string">42</Single>
+        <Single Name="UniqueIdGenerator" Type="string">57</Single>
         <Single Name="POULevel" Type="{8e575c5b-1d37-49c6-941b-5c0ec7874787}">Standard</Single>
         <List Name="ChildObjectGuids" Type="System.Collections.ArrayList" />
         <Single Name="AddAttributeSubsequent" Type="bool">False</Single>
@@ -12845,15 +12961,22 @@ END_VAR
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638900129869818313</Single>
+        <Single Name="Timestamp" Type="long">638906854302116177</Single>
       </Single>
       <Single Name="Object" Type="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" Method="IArchivable">
         <Single Name="SpecialFunc" Type="{0db3d7bb-cde0-4416-9a7b-ce49a0124323}">None</Single>
         <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
             <Single Name="TextBlobForSerialisation" Type="string">// Map variables to outputs
-oStart := On;
-oProduceLids := Production;</Single>
+oStart := bEnable;
+oProduceLids := bProduction;
+
+// Safety stop
+IF NOT GVL.SystemEnabled THEN
+	oStop := TRUE;
+ELSE
+	oStop := FALSE;
+END_IF</Single>
             <Single Name="LineInfoPersistence" Type="string">2e68f577-72d8-44e6-9b1c-7d7002b0784c_Impl_LineIds</Single>
           </Single>
         </Single>
@@ -12863,6 +12986,7 @@ oProduceLids := Production;</Single>
 // Robotic arm transports raw material to CNC machine when material is detected and oStart is TRUE
 // Part detection is handled internally by FactoryIO
 // iError is set when a non-material part is detected at entrance
+// Proprties used to set/get Enabled, DoorOpened, Error, IsBusy, ProduceLids, and CNC Progress
 FUNCTION_BLOCK FB_MachineCenter
 VAR_INPUT
 	iBusy : BOOL;				// TRUE when the station is processing raw material
@@ -12877,18 +13001,16 @@ VAR_OUTPUT
 	oProduceLids: BOOL;			// TRUE: MC produces lids, FALSE: MC produces bases
 END_VAR
 VAR
-	On : BOOL;					// Enable/Disable Machining Station
-	Production : BOOL;			// TRUE: Lids, FALSE: Bases
-	Busy: BOOL;
-	CNCProgress : BOOL;
-	IsError : BOOL;
-	IsDoorOpened : BOOL;
+	bEnabled : BOOL;			// Enable/Disable Machining Station
+	bProduction : BOOL;			// TRUE: Lids, FALSE: Bases
+	bIsError : BOOL;			// True when a non-material part is detected at entry
+	bIsDoorOpened : BOOL;		// True when CNC machine door is open
 END_VAR
 </Single>
             <Single Name="LineInfoPersistence" Type="string">2e68f577-72d8-44e6-9b1c-7d7002b0784c_Decl_LineIds</Single>
           </Single>
         </Single>
-        <Single Name="UniqueIdGenerator" Type="string">51</Single>
+        <Single Name="UniqueIdGenerator" Type="string">87</Single>
         <Single Name="POULevel" Type="{8e575c5b-1d37-49c6-941b-5c0ec7874787}">Standard</Single>
         <List Name="ChildObjectGuids" Type="System.Collections.ArrayList" />
         <Single Name="AddAttributeSubsequent" Type="bool">False</Single>
@@ -12913,7 +13035,7 @@ END_VAR
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">f0fda5b8-8c48-4377-bbd5-c49444e4d26e</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638897853194445836</Single>
+        <Single Name="Timestamp" Type="long">638918973673118633</Single>
       </Single>
       <Single Name="Object" Type="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" Method="IArchivable">
         <Single Name="SpecialFunc" Type="{0db3d7bb-cde0-4416-9a7b-ce49a0124323}">None</Single>
@@ -12968,6 +13090,17 @@ END_VAR
             "Operand": {
               "$type": "Operand",
               "Expression": "eStopButton"
+            }
+          },
+          {
+            "$type": "Contact",
+            "Operand": {
+              "$type": "Operand",
+              "Expression": "Fault",
+              "Modifier": {
+                "$type": "Modifier",
+                "Negation": true
+              }
             }
           },
           {
@@ -13064,7 +13197,7 @@ END_VAR
     },
     {
       "$type": "Network",
-      "Id": "SL7bPMeg",
+      "Id": "bENgwKc_",
       "Sequence": {
         "$type": "Sequence",
         "Elements": [
@@ -13072,8 +13205,64 @@ END_VAR
             "$type": "Contact",
             "Operand": {
               "$type": "Operand",
-              "Expression": "EmergencyStop"
+              "Expression": "ResetButton",
+              "Modifier": {
+                "$type": "Modifier",
+                "Negation": true
+              }
             }
+          },
+          {
+            "$type": "Contact",
+            "Operand": {
+              "$type": "Operand",
+              "Expression": "Fault"
+            }
+          },
+          {
+            "$type": "Coil",
+            "Operand": {
+              "$type": "Operand",
+              "Expression": "SystemFault"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "$type": "Network",
+      "Id": "bcRZTD7Z",
+      "Sequence": {
+        "$type": "Sequence",
+        "Elements": [
+          {
+            "$type": "ParallelClosed",
+            "Branches": [
+              {
+                "$type": "Sequence",
+                "Elements": [
+                  {
+                    "$type": "Contact",
+                    "Operand": {
+                      "$type": "Operand",
+                      "Expression": "EmergencyStop"
+                    }
+                  }
+                ]
+              },
+              {
+                "$type": "Sequence",
+                "Elements": [
+                  {
+                    "$type": "Contact",
+                    "Operand": {
+                      "$type": "Operand",
+                      "Expression": "SystemFault"
+                    }
+                  }
+                ]
+              }
+            ]
           },
           {
             "$type": "Coil",
@@ -13133,10 +13322,12 @@ VAR_INPUT
 	StartButton : BOOL;
 	StopButton : BOOL;
 	ResetButton : BOOL;
+	Fault : BOOL;
 	eStopButton : BOOL := TRUE;
 END_VAR
 VAR_OUTPUT
 	ProcessOn : BOOL;
+	SystemFault : BOOL;
 	StartButtonLight : BOOL;
 	StopButtonLight : BOOL;
 	ResetButtonLight : BOOL;
@@ -13148,7 +13339,100 @@ END_VAR
             <Single Name="LineInfoPersistence" Type="string">4f02c6a0-b916-4bef-a0a6-0c1a1034360f_Decl_LineIds</Single>
           </Single>
         </Single>
-        <Single Name="UniqueIdGenerator" Type="string">127</Single>
+        <Single Name="UniqueIdGenerator" Type="string">129</Single>
+        <Single Name="POULevel" Type="{8e575c5b-1d37-49c6-941b-5c0ec7874787}">Standard</Single>
+        <List Name="ChildObjectGuids" Type="System.Collections.ArrayList" />
+        <Single Name="AddAttributeSubsequent" Type="bool">False</Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">f41a63ea-abc2-4b55-91ef-c224d519fe39</Single>
+        <Single Name="ParentGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
+        <Single Name="Name" Type="string">FB_Positioner</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">6f9dac99-8de1-4efc-8465-68ac443b7d08</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638906854423361516</Single>
+      </Single>
+      <Single Name="Object" Type="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" Method="IArchivable">
+        <Single Name="SpecialFunc" Type="{0db3d7bb-cde0-4416-9a7b-ce49a0124323}">None</Single>
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Check system is enabled
+SystemOn := GVL.SystemEnabled;
+
+// Inlcude IF NOT iClamped when adding safety interlocks
+CASE E_State OF
+	E_States.Idle:
+		IF SystemOn AND NOT CommandQueue.bEmpty THEN
+			CurrentCommand := CommandQueue.Dequeue();
+			bBusy := TRUE;
+			E_State := E_States.Waiting;
+			CASE CurrentCommand OF
+				E_Command.eClamp: oClamp := TRUE;
+				E_Command.eRelease: oClamp :=FALSE;
+				E_Command.eRaise: oRaise := TRUE;
+				E_Command.eLower: oRaise := FALSE;
+			END_CASE
+		else
+			bBusy := false;
+		END_IF
+	E_States.Waiting:
+		IF NOT VerticleLimit OR CurrentCommand = E_Command.eClamp OR CurrentCommand = E_Command.eRelease THEN
+			E_State := E_States.Running;
+		END_IF
+	E_States.Running:
+		IF (CurrentCommand = E_Command.eClamp AND iClamped) OR (CurrentCommand = E_Command.eRelease AND NOT iClamped) THEN
+			E_State := E_States.Complete;
+		ELSIF CurrentCommand = E_Command.eRaise OR CurrentCommand = E_Command.eLower THEN
+			IF VerticleLimit THEN
+				E_State := E_States.Complete;
+			END_IF
+		END_IF
+	E_States.Complete:
+		CurrentCommand := E_Command.eNone;
+		E_State := E_States.Idle;
+END_CASE</Single>
+            <Single Name="LineInfoPersistence" Type="string">f41a63ea-abc2-4b55-91ef-c224d519fe39_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Controller for FactorIOs Clamp Positioner
+FUNCTION_BLOCK FB_Positioner
+VAR_INPUT
+	VerticleLimit : BOOL;	// True when positioner is at reset or fully extended position
+	iClamped : BOOL;		// True when clamping
+END_VAR
+VAR_OUTPUT
+	oClamp : BOOL;			// TRUE: activate clamp
+	oRaise : BOOL;			// TRUE: Raises the positioner off the conveyor
+	bBusy : BOOL;
+END_VAR
+VAR	
+	SystemOn : BOOL;		// Local SystemEnable flag
+	E_State : E_States := E_States.Idle;	// Initiate state to Idle
+	
+	CommandQueue : FB_CircularQueue_Command;
+	CurrentCommand : E_Command;
+END_VAR
+</Single>
+            <Single Name="LineInfoPersistence" Type="string">f41a63ea-abc2-4b55-91ef-c224d519fe39_Decl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="UniqueIdGenerator" Type="string">221</Single>
         <Single Name="POULevel" Type="{8e575c5b-1d37-49c6-941b-5c0ec7874787}">Standard</Single>
         <List Name="ChildObjectGuids" Type="System.Collections.ArrayList" />
         <Single Name="AddAttributeSubsequent" Type="bool">False</Single>
@@ -13173,24 +13457,22 @@ END_VAR
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638896520258631681</Single>
+        <Single Name="Timestamp" Type="long">638906854462163814</Single>
       </Single>
       <Single Name="Object" Type="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" Method="IArchivable">
         <Single Name="SpecialFunc" Type="{0db3d7bb-cde0-4416-9a7b-ce49a0124323}">None</Single>
         <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">IF isPushing THEN
+            <Single Name="TextBlobForSerialisation" Type="string">IF PushRequest AND GVL.SystemEnabled THEN
 	oPush := TRUE;		// Turn push motor on
 	
 	IF iFrontLimit THEN // Stop pushing if arm is fully extended
 		oPush := FALSE;
-		isPushing := FALSE;
+		PushRequest := FALSE;
 	END_IF
 ELSE
 	oPush := FALSE;		// Turn push motor off
-END_IF
-
-</Single>
+END_IF</Single>
             <Single Name="LineInfoPersistence" Type="string">623650f9-d912-474f-884a-9a953fb06f3b_Impl_LineIds</Single>
           </Single>
         </Single>
@@ -13207,13 +13489,170 @@ VAR_OUTPUT
 	oPush : BOOL;			// Extend arm (when TRUE)
 END_VAR
 VAR
-	isPushing : BOOL;		// Latch to track push operation
-END_VAR
-</Single>
+	PushRequest : BOOL;		// Latch to track push operation
+END_VAR</Single>
             <Single Name="LineInfoPersistence" Type="string">623650f9-d912-474f-884a-9a953fb06f3b_Decl_LineIds</Single>
           </Single>
         </Single>
-        <Single Name="UniqueIdGenerator" Type="string">55</Single>
+        <Single Name="UniqueIdGenerator" Type="string">57</Single>
+        <Single Name="POULevel" Type="{8e575c5b-1d37-49c6-941b-5c0ec7874787}">Standard</Single>
+        <List Name="ChildObjectGuids" Type="System.Collections.ArrayList" />
+        <Single Name="AddAttributeSubsequent" Type="bool">False</Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">997a7b96-c17b-4fd5-8d36-d2c6f7515d4f</Single>
+        <Single Name="ParentGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
+        <Single Name="Name" Type="string">FB_RunTimeTracker</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">6f9dac99-8de1-4efc-8465-68ac443b7d08</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638906933214533218</Single>
+      </Single>
+      <Single Name="Object" Type="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" Method="IArchivable">
+        <Single Name="SpecialFunc" Type="{0db3d7bb-cde0-4416-9a7b-ce49a0124323}">None</Single>
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Run timer when the process is on
+RunTimer(IN := iRun, PT := T#60S);
+
+// Check for reset signal
+R_Reset(CLK := GVL.MaintenenceReset);
+IF R_Reset.Q THEN
+	iPersistentCounterRunTime := 0;
+END_IF
+
+R_Run(CLK := iRun);
+IF R_Run.Q THEN
+	CurrentMinuteCounter := 0;	// Reset counter
+END_IF
+
+IF RunTimer.Q THEN
+	iPersistentCounterRunTime := iPersistentCounterRunTime + 1;
+	CurrentMinuteCounter := CurrentMinuteCounter + 1;
+	RunTimer(IN := FALSE);	// Reset timer
+END_IF
+
+GVL.CurrentRunMinutes := CurrentMinuteCounter;</Single>
+            <Single Name="LineInfoPersistence" Type="string">997a7b96-c17b-4fd5-8d36-d2c6f7515d4f_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Tracks time that iRun is on in minutes in a persistent variable
+FUNCTION_BLOCK FB_RunTimeTracker
+VAR_INPUT
+	iRun : BOOL;		// Process On signal
+END_VAR
+VAR
+	RunTimer : TON;
+	R_Run : R_TRIG;
+	CurrentMinuteCounter : UDINT;
+	TotalMinuteCounter : UDINT;
+	R_Reset : R_TRIG;
+END_VAR
+VAR PERSISTENT
+	iPersistentCounterRunTime : UDINT;	// Used to track time since last maintenance
+END_VAR</Single>
+            <Single Name="LineInfoPersistence" Type="string">997a7b96-c17b-4fd5-8d36-d2c6f7515d4f_Decl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="UniqueIdGenerator" Type="string">57</Single>
+        <Single Name="POULevel" Type="{8e575c5b-1d37-49c6-941b-5c0ec7874787}">Standard</Single>
+        <List Name="ChildObjectGuids" Type="System.Collections.ArrayList" />
+        <Single Name="AddAttributeSubsequent" Type="bool">False</Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">54764b11-656f-4e28-8e4a-0a7dbaa71458</Single>
+        <Single Name="ParentGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
+        <Single Name="Name" Type="string">FB_TwoAxisPaP</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">6f9dac99-8de1-4efc-8465-68ac443b7d08</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638906854492290540</Single>
+      </Single>
+      <Single Name="Object" Type="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" Method="IArchivable">
+        <Single Name="SpecialFunc" Type="{0db3d7bb-cde0-4416-9a7b-ce49a0124323}">None</Single>
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">CASE state OF
+    0: // Idle
+        IF GVL.SystemEnabled AND NOT CommandQueue.bEmpty THEN
+            currentCommand := CommandQueue.Dequeue();
+            state := 1;
+            bBusy := TRUE;
+			
+			ProcessCommand(currentCommand);
+		ELSE
+			bBusy := FALSE;
+        END_IF
+
+    1: // Waiting for motion to start (no movement for grab commands)
+        IF IsMoving(currentCommand) OR currentCommand = E_Command.eGrab OR currentCommand = E_Command.eRelease THEN
+            state := 2;
+        END_IF
+
+    2: // Wait for motion to finish
+        IF NOT IsMoving(currentCommand) OR currentCommand = E_Command.eGrab OR currentCommand = E_Command.eRelease THEN
+            state := 0;
+            currentCommand := E_Command.eNone;
+        END_IF
+END_CASE
+</Single>
+            <Single Name="LineInfoPersistence" Type="string">54764b11-656f-4e28-8e4a-0a7dbaa71458_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Controller for FactoryIOs Two-Axis Pick and Place Station (Digital Configuration)
+// - Two positions for each direction; 0: Reset (Starting) position, 1: Extended Position
+FUNCTION_BLOCK FB_TwoAxisPaP
+VAR_INPUT
+	iPartDetected : BOOL;		// True when part is at the gripper
+	iMovingX : BOOL;			// Is moving in the X direction
+	iMovingZ : BOOL;			// Is moving in teh Z direction
+END_VAR
+VAR_OUTPUT
+	oX : BOOL;					// Extend in the X direction
+	oZ : BOOL;					// Extend in the Z direction
+	oGrab : BOOL;				// Inititate grab
+	bBusy : BOOL;
+END_VAR
+VAR
+	currentCommand : E_Command;
+	CommandQueue : FB_CircularQueue_Command;
+    state : INT := 0;
+END_VAR
+</Single>
+            <Single Name="LineInfoPersistence" Type="string">54764b11-656f-4e28-8e4a-0a7dbaa71458_Decl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="UniqueIdGenerator" Type="string">142</Single>
         <Single Name="POULevel" Type="{8e575c5b-1d37-49c6-941b-5c0ec7874787}">Standard</Single>
         <List Name="ChildObjectGuids" Type="System.Collections.ArrayList" />
         <Single Name="AddAttributeSubsequent" Type="bool">False</Single>
@@ -13238,7 +13677,7 @@ END_VAR
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638896526477086699</Single>
+        <Single Name="Timestamp" Type="long">638906160050985058</Single>
       </Single>
       <Single Name="Object" Type="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" Method="IArchivable">
         <Single Name="SpecialFunc" Type="{0db3d7bb-cde0-4416-9a7b-ce49a0124323}">None</Single>
@@ -13249,24 +13688,24 @@ ObjectCode := BitsToByte(Bit0 := iBit0, Bit1 := iBit1, Bit2 := iBit2, Bit3 := iB
 
 // Decode the result
 CASE ObjectCode OF
-	0 : ObjectDetected := 'none';
-	1 : ObjectDetected := 'blue raw material';
-	2 : ObjectDetected := 'blue product lid';
-	3 : ObjectDetected := 'blue product base';
-	4 : ObjectDetected := 'green raw material';
-	5 : ObjectDetected:= 'green product lid';
-	6 : ObjectDetected := 'green product base';
-	7 : ObjectDetected := 'metal raw material';
-	8 : ObjectDetected:= 'metal product lid';
-	9 : ObjectDetected := 'metal product base';
+	0 : sObjectDetected := 'none';
+	1 : sObjectDetected := 'blue raw material';
+	2 : sObjectDetected := 'blue product lid';
+	3 : sObjectDetected := 'blue product base';
+	4 : sObjectDetected := 'green raw material';
+	5 : sObjectDetected:= 'green product lid';
+	6 : sObjectDetected := 'green product base';
+	7 : sObjectDetected := 'metal raw material';
+	8 : sObjectDetected:= 'metal product lid';
+	9 : sObjectDetected := 'metal product base';
 ELSE
-	ObjectDetected := 'unknown';	
+	sObjectDetected := 'unknown';	
 END_CASE
 
-IF ObjectDetected = 'none' THEN
-	isObjectDetected := FALSE;
+IF sObjectDetected = 'none' THEN
+	bObjectDetected := FALSE;
 ELSE
-	isObjectDetected := TRUE;
+	bObjectDetected := TRUE;
 END_IF</Single>
             <Single Name="LineInfoPersistence" Type="string">6f68b79a-f674-43eb-9051-1b7bfef8e727_Impl_LineIds</Single>
           </Single>
@@ -13283,8 +13722,8 @@ VAR_INPUT
 	iBit3 : BOOL;	// MSB
 END_VAR
 VAR_OUTPUT
-	isObjectDetected : BOOL;	// TRUE when the sensor detects something
-	ObjectDetected : STRING;	// The object being detected
+	bObjectDetected : BOOL;		// TRUE when the sensor detects something
+	sObjectDetected : STRING;	// The object being detected
 END_VAR
 VAR
 	ObjectCode : BYTE;			// Reconstructed bitwise code
@@ -13318,7 +13757,7 @@ END_VAR
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638900113864998296</Single>
+        <Single Name="Timestamp" Type="long">638919012921909513</Single>
       </Single>
       <Single Name="Object" Type="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" Method="IArchivable">
         <Single Name="SpecialFunc" Type="{0db3d7bb-cde0-4416-9a7b-ce49a0124323}">None</Single>
@@ -13330,14 +13769,19 @@ Operator(
 	StartButton := GV_IO.iStartButton, 
 	StopButton := GV_IO.iStopButton,
 	ResetButton := GV_IO.iResetButton,
+	Fault := GVL.SystemFault,
 	eStopButton := GV_IO.iEmergencyStopButton);
-	
+
 GV_IO.oProcessOnLight := Operator.ProcessOn;
 GV_IO.oStopButtonLight := Operator.ProcessOn;
 GV_IO.oResetButtonLight := Operator.ResetButtonLight;
 GV_IO.oStartButtonLight := Operator.StartButtonLight;
 
-GV_Flags.SystemEnable := Operator.ProcessOn;
+GVL.SystemFault := Operator.SystemFault;
+GVL.SystemEnabled := Operator.ProcessOn;
+
+// Process timer
+ProcessTimer(iRun := GVL.SystemEnabled);
 
 // Stage 1 - Part Detection and Processing
 Stage1(
@@ -13374,6 +13818,8 @@ Stage3(
 	iExitSensor := GV_IO.iContainerAtExit, 
 	iLidClampLimit := GV_IO.iLidPositionerLimit, 
 	iBaseClampLimit := GV_IO.iBasePositionerLimit, 
+	iLidClamped := GV_IO.iLidPositionerClamped, 
+	iBaseClamped := GV_IO.iBasePositionerClamped,
 	iAssemPartDetected := GV_IO.iPaPPartDetected, 
 	iAssemIsMovingX := GV_IO.iPaPMovingX, 
 	iAssemIsMovingZ := GV_IO.iPaPMovingZ);
@@ -13395,6 +13841,7 @@ GV_IO.oPaPGrab := Stage3.oAssemGrab;</Single>
             <Single Name="TextBlobForSerialisation" Type="string">PROGRAM PLC_PRG
 VAR
 	Operator : FB_OperatorPanel;
+	ProcessTimer : FB_RunTimeTracker;
 	Stage1 : Stage1_PartDetection;
 	Stage2 : Stage2_MC;
 	Stage3 : Stage3_Assembly;
@@ -13402,70 +13849,7 @@ END_VAR</Single>
             <Single Name="LineInfoPersistence" Type="string">e543c1d1-57da-4a5d-9688-64e89eb684bc_Decl_LineIds</Single>
           </Single>
         </Single>
-        <Single Name="UniqueIdGenerator" Type="string">125</Single>
-        <Single Name="POULevel" Type="{8e575c5b-1d37-49c6-941b-5c0ec7874787}">Standard</Single>
-        <List Name="ChildObjectGuids" Type="System.Collections.ArrayList" />
-        <Single Name="AddAttributeSubsequent" Type="bool">False</Single>
-      </Single>
-      <Single Name="ParentSVNodeGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
-      <Array Name="Path" Type="string">
-        <Single Type="string">Device</Single>
-        <Single Type="string">PLC Logic</Single>
-        <Single Type="string">Application</Single>
-      </Array>
-      <Single Name="Index" Type="int">-1</Single>
-    </Single>
-    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
-      <Single Name="IsRoot" Type="bool">False</Single>
-      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
-        <Single Name="Guid" Type="System.Guid">070428e5-4548-40f2-a1e5-5fbd2ad8bb77</Single>
-        <Single Name="ParentGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
-        <Single Name="Name" Type="string">PRG_Test</Single>
-        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
-        <Single Name="TypeGuid" Type="System.Guid">6f9dac99-8de1-4efc-8465-68ac443b7d08</Single>
-        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
-          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
-          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
-        </Array>
-        <Single Name="Timestamp" Type="long">638896001988089571</Single>
-      </Single>
-      <Single Name="Object" Type="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" Method="IArchivable">
-        <Single Name="SpecialFunc" Type="{0db3d7bb-cde0-4416-9a7b-ce49a0124323}">None</Single>
-        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
-          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">//conveyor(iRun := run);
-
-pusher(iFrontLimit := GV_IO.iBasePusherFrontLimit, iBackLimit := GV_IO.iBasePusherBackLimit);
-GV_IO.oBasePusher := pusher.oPush;
-
-IF execute THEN
-	pusher.Execute();
-END_IF
-
-byte1 := BitsToByte(Bit0 := bit0, Bit1 := bit1, Bit2 := bit2);</Single>
-            <Single Name="LineInfoPersistence" Type="string">070428e5-4548-40f2-a1e5-5fbd2ad8bb77_Impl_LineIds</Single>
-          </Single>
-        </Single>
-        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
-          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">PROGRAM PRG_Test
-VAR
-	conveyor: FB_ConveyorController;
-	run: BOOL;
-	
-	pusher: FB_PusherController;
-	execute: BOOL;
-	
-	bit0: BOOL;
-	bit1: BOOL;
-	bit2: BOOL;
-	byte1: BYTE;
-END_VAR
-</Single>
-            <Single Name="LineInfoPersistence" Type="string">070428e5-4548-40f2-a1e5-5fbd2ad8bb77_Decl_LineIds</Single>
-          </Single>
-        </Single>
-        <Single Name="UniqueIdGenerator" Type="string">33</Single>
+        <Single Name="UniqueIdGenerator" Type="string">150</Single>
         <Single Name="POULevel" Type="{8e575c5b-1d37-49c6-941b-5c0ec7874787}">Standard</Single>
         <List Name="ChildObjectGuids" Type="System.Collections.ArrayList" />
         <Single Name="AddAttributeSubsequent" Type="bool">False</Single>
@@ -13490,35 +13874,50 @@ END_VAR
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638899917298987152</Single>
+        <Single Name="Timestamp" Type="long">638918992789027089</Single>
       </Single>
       <Single Name="Object" Type="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" Method="IArchivable">
         <Single Name="SpecialFunc" Type="{0db3d7bb-cde0-4416-9a7b-ce49a0124323}">None</Single>
         <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">// Instantiate Controller FBs
+            <Single Name="TextBlobForSerialisation" Type="string">// Check if system is enabled
+SystemOn := GVL.SystemEnabled;
+
+// Instantiate Controller FBs
 Conveyor(iRun := ConveyorOn);
 oConveyor := Conveyor.oRun;
 Pusher(iFrontLimit := iPusherFrontLimit, iBackLimit := iPusherBackLimit);
 oPusher := Pusher.oPush;
 VisionSensor(iBit0 := iVisionSensorBit0, iBit1 := iVisionSensorBit1, iBit2 := iVisionSensorBit2, iBit3 := iVisionSensorBit3);
 
-// Check if system is enabled
-SystemOn := GV_Flags.SystemEnable;
+// Rising triggers
+R_PusherEntry(CLK := iPusherEntrySensor);
 
-CASE State OF
-	IDLE : 
+// Safety stop
+IF NOT SystemOn THEN
+	E_State := E_States.Idle;
+END_IF
+
+CASE E_State OF
+	E_States.Idle : 
 		ConveyorOn := FALSE;
 		IF SystemOn AND iStage2Ready THEN
-			State := RUNNING;
+			E_State := E_States.Running;
 		END_IF
-	RUNNING :  
+	E_States.Running :  
 		ConveyorOn := TRUE;
 		// Process Vision Sensor Output
 		THIS^.ProcessObjectDetection();
 		
+		// If object should be rejected, wait for it to be at the entrance of pusher before executing
+		IF Reject AND R_PusherEntry.Q THEN
+			GVL.RejectedPartsCounter := GVL.RejectedPartsCounter + 1;	// Increment counter
+			Pusher.Execute();
+			Reject := FALSE;	// Reset Reject flag
+		END_IF
+		
 		IF NOT SystemOn OR NOT iStage2Ready THEN
-			State := IDLE;
+			E_State := E_States.Idle;
 		END_IF
 END_CASE</Single>
             <Single Name="LineInfoPersistence" Type="string">a268c88d-b6d8-4983-9e10-bdc5a1bc5ade_Impl_LineIds</Single>
@@ -13530,7 +13929,7 @@ END_CASE</Single>
 // - Monitor sensor inputs (Vision sensor, actuator limit switches)
 // - Control outputs  (conveyor motor, pusher actuator)
 // - Reject metal raw materials by pushing them off the conveyor, while accepting blue materials
-// - Manage internal state transisitions using a state machine
+// - All outputs are disabled if GV_Flags.SystemEnabled is FALSE
 // States:
 // - IDLE: Enter RUNNING state if start trigger is TRUE and Stage 2 is ready for material
 // - RUNNING: Conveyor on, reject metal raw materials, Enter IDLE if Stage 2 not ready for material
@@ -13553,8 +13952,9 @@ END_VAR
 VAR
 	SystemOn: BOOL;					// Local system enabled flag
 	ConveyorOn : BOOL;				// Conveyor on signal
-	State : STATE := IDLE;			// Set intial state
-	Reject : BOOL;					// Used to reject unwanted parts
+	E_State : E_States := E_States.Idle;			// Set intial state
+	Reject : BOOL;					// Set in 'ProcessObjectDetection'
+	R_PusherEntry : R_TRIG;
 
 	// Controllers
 	Pusher : FB_PusherController;
@@ -13564,7 +13964,7 @@ END_VAR</Single>
             <Single Name="LineInfoPersistence" Type="string">a268c88d-b6d8-4983-9e10-bdc5a1bc5ade_Decl_LineIds</Single>
           </Single>
         </Single>
-        <Single Name="UniqueIdGenerator" Type="string">250</Single>
+        <Single Name="UniqueIdGenerator" Type="string">269</Single>
         <Single Name="POULevel" Type="{8e575c5b-1d37-49c6-941b-5c0ec7874787}">Standard</Single>
         <List Name="ChildObjectGuids" Type="System.Collections.ArrayList" />
         <Single Name="AddAttributeSubsequent" Type="bool">False</Single>
@@ -13589,13 +13989,16 @@ END_VAR</Single>
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638900127859384206</Single>
+        <Single Name="Timestamp" Type="long">638918992719094830</Single>
       </Single>
       <Single Name="Object" Type="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" Method="IArchivable">
         <Single Name="SpecialFunc" Type="{0db3d7bb-cde0-4416-9a7b-ce49a0124323}">None</Single>
         <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">// Instantiate Machining Center
+            <Single Name="TextBlobForSerialisation" Type="string">// Check system is enabled
+SystemOn := GVL.SystemEnabled;
+
+// Instantiate Machining Center
 MC_Controller(
 	iBusy := iBusy, 
 	iOpened := iOpened, 
@@ -13606,34 +14009,43 @@ MC_Controller(
 	oReset := MC_Controller.oReset;
 	oProduceLids := MC_Controller.oProduceLids;
 	
-MC_Controller.ProduceLids := FALSE;
+// Set production type (bases)
+MC_Controller.bProduceLids := FALSE;
 
-// Check system is enabled
-SystemOn := GV_Flags.SystemEnable;
+// If material is incorrect or doesn't arrive
+FaultTimer(IN := bTimerOn, PT := FaultTimeS);
+IF FaultTimer.Q OR iError THEN
+	GVL.SystemFault := TRUE;
+	FaultTimer(IN := FALSE);	// Reset fault timer
+	bTimerOn := FALSE;
+END_IF
 
-CASE State OF
-	IDLE :
-		MC_Controller.Enabled := FALSE;
+// Safety stop
+IF NOT SystemOn THEN
+	E_State := E_States.Idle;
+END_IF
+
+CASE E_State OF
+	E_States.Idle :
+		MC_Controller.bEnable := FALSE;
 		IF SystemOn THEN
-			State := WAITING;
+			E_State := E_States.Waiting;
 		END_IF
-	WAITING:
-		MC_Controller.Enabled := TRUE;
-		IF MC_Controller.IsBusy THEN
-			isReadyForPart := FALSE;
-			State := RUNNING;
+	E_States.Waiting:				// Wait for MC to start
+		MC_Controller.bEnable := TRUE;
+		bTimerOn := TRUE;				// Start fault timer
+		IF MC_Controller.bBusy THEN
+			bTimerOn := FALSE;
+			bReadyForPart := FALSE;
+			E_State := E_States.Running;
 		END_IF
-	RUNNING:
-		IF NOT MC_Controller.IsBusy THEN
-			State := COMPLETE;
+	E_States.Running:
+		IF NOT MC_Controller.bBusy THEN
+			E_State := E_States.Complete;
 		END_IF
-	COMPLETE:
-		isReadyForPart := TRUE;
-		IF SystemOn THEN
-			State := WAITING;
-		ELSE
-			State := IDLE;
-		END_IF
+	E_States.Complete:
+		bReadyForPart := TRUE;
+		E_State := E_States.Idle;
 END_CASE</Single>
             <Single Name="LineInfoPersistence" Type="string">c93a7720-528a-458a-990b-58d7bf28dc0e_Impl_LineIds</Single>
           </Single>
@@ -13644,6 +14056,8 @@ END_CASE</Single>
 // - Machines raw materials into product bases
 // - Manage internal state transisitions using a state machine
 // - Sets local 'readyForPart' flag to signal upstream to provide raw material
+// - All outputs are disabled if GV_Flags.SystemEnabled is FALSE
+// - Sets fault flag if raw material doesn't arrive at entrance within time limit, or incorrect material, requires reset by operator
 // States:
 // - IDLE: Enter WAITING if system is enabled
 // - WAITING: Send start signal to the MC, if MC is busy reset 'ReadyForPart' flag and enter RUNNING
@@ -13663,16 +14077,21 @@ VAR_OUTPUT
 	oProduceLids: BOOL;				// TRUE: MC produces lids, FALSE: MC produces bases
 END_VAR
 VAR
-	SystemOn : BOOL;				// Local SystemEnable flag
-	State : STATE := IDLE;			// Initiate to IDLE
-	isReadyForPart: BOOL := TRUE; 	// Local flag signals Stage One to provide raw material
+	SystemOn : BOOL;						// Local SystemEnable flag
+	E_State : E_States := E_States.Idle;	// Initiate to IDLE
+	bReadyForPart: BOOL := TRUE; 			// Local flag signals Stage One to provide raw material
+	FaultTimer : TON;						// Timer for waiting for parts to arrive
+	bTimerOn : BOOL;						// Used to start the fault timer
 	
 	MC_Controller : FB_MachineCenter;
+END_VAR
+VAR CONSTANT
+	FaultTimeS : TIME := T#20S;
 END_VAR</Single>
             <Single Name="LineInfoPersistence" Type="string">c93a7720-528a-458a-990b-58d7bf28dc0e_Decl_LineIds</Single>
           </Single>
         </Single>
-        <Single Name="UniqueIdGenerator" Type="string">105</Single>
+        <Single Name="UniqueIdGenerator" Type="string">136</Single>
         <Single Name="POULevel" Type="{8e575c5b-1d37-49c6-941b-5c0ec7874787}">Standard</Single>
         <List Name="ChildObjectGuids" Type="System.Collections.ArrayList" />
         <Single Name="AddAttributeSubsequent" Type="bool">False</Single>
@@ -13697,44 +14116,98 @@ END_VAR</Single>
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638899963264043851</Single>
+        <Single Name="Timestamp" Type="long">638906967385115440</Single>
       </Single>
       <Single Name="Object" Type="{6f9dac99-8de1-4efc-8465-68ac443b7d08}" Method="IArchivable">
         <Single Name="SpecialFunc" Type="{0db3d7bb-cde0-4416-9a7b-ce49a0124323}">None</Single>
         <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string"> // Instantiate Controller FBs
- LidConveyor(iRun := TurnLidConveyorOn);
+            <Single Name="TextBlobForSerialisation" Type="string">// Check system is enabled
+SystemOn := GVL.SystemEnabled; 
+
+// Instantiate Controller FBs
+ LidConveyor(iRun := LidConveyorOn);
+ BaseConveyor(iRun := BaseConveyorOn);
  oLidConveyor := LidConveyor.oRun;
- 
- BaseConveyor(iRun := TurnBaseConveyorOn);
  oBaseConveyor := BaseConveyor.oRun;
  
- // Check if system is enabled
- SystemOn := GV_Flags.SystemEnable;
+ // Positioners
+ LidPositioner(VerticleLimit := iLidClampLimit, iClamped := iLidClamped);
+ BasePositioner(VerticleLimit := iBaseClampLimit, iClamped := iBaseClamped);
+ 
+ oLidClamp := LidPositioner.oClamp;
+ oLidPositionerRaise := LidPositioner.oRaise;
+ oBaseClamp := BasePositioner.oClamp;
+ oBasePositionerRaise := BasePositioner.oRaise;
+ 
+ // Assembler (Two-Axis Pick and Place)
+ Assembler(
+	iPartDetected := iAssemPartDetected, 
+	iMovingX := iAssemIsMovingX, 
+	iMovingZ := iAssemIsMovingZ);
+	
+ oAssemGrab := Assembler.oGrab;
+ oAssemMoveX := Assembler.oX;
+ oAssemMoveZ := Assembler.oZ;
  
  // Falling edge triggers
  F_LidAtEntry(CLK := iLidAtClampEntry);
- test := F_LidAtEntry.Q;
  F_BaseAtEntry(CLK := iBaseAtClampEntry);
+ F_ExitSensor(CLK := iExitSensor);
  
- CASE State OF
-	 IDLE:
+ CASE E_State OF
+	 E_States.Idle:
+	 LidConveyorOn := FALSE;
+	 BaseConveyorOn := FALSE;
 	 	IF SystemOn THEN
-			State := WAITING;
+			E_State := E_States.Waiting;
 		END_IF
-	WAITING:
-		// Wait until both parts are detected, disable conveyors when parts are detected
-		IF NOT oLidClamp THEN
-			TurnLidConveyorOn := TRUE;
-			TurnBaseConveyorOn := TRUE;
-		END_IF
+	E_States.Waiting:
+		// Wait for both product parts to be at positioners
+		IF NOT LidReady THEN LidConveyorOn := TRUE; END_IF;
+		IF NOT BaseReady THEN BaseConveyorOn := TRUE; END_IF;
+	
+		// If lid at positioner
 		IF F_LidAtEntry.Q THEN
-			TurnLidConveyorOn := FALSE;
-			oLidClamp := TRUE;
+			LidPositioner.Clamp();			// Secure part
+			LidConveyorOn := FALSE;			// Stop the conveyor
+			LidReady := TRUE; 
 		END_IF
 		IF F_BaseAtEntry.Q THEN
-			TurnBaseConveyorOn := FALSE;
+			BasePositioner.Clamp();			// Secure part
+			BaseConveyorOn := FALSE;		// Stop the conveyor
+			BaseReady := TRUE; 
+		END_IF
+		
+		// If both parts are ready, begin assembly and transitition to RUNNING state
+		IF BaseReady AND LidReady AND SystemOn THEN
+			Assembler.MoveXPos();			// Move to lid conveyor
+			LidPositioner.Release();		// Release the lid
+			Assembler.PickUp();				// Pick up the lid
+			Assembler.MoveXNeg();			// Move to base conveyor
+			Assembler.PutDown();			// Pace lid on base
+			E_State := E_States.Running; 
+		END_IF
+	E_States.Running: 
+		// Wait for assembler to finish
+		IF NOT Assembler.bBusy and SystemOn THEN
+			BasePositioner.Release();		// Release finished product
+			BasePositioner.Lift();			// Allow product through
+			BaseConveyorOn := TRUE;			// Turn base conveyor back on
+			E_State := E_States.Complete;
+		END_IF 
+	E_States.Complete: 
+		// Reset station once finished product has exited
+		IF F_ExitSensor.Q THEN
+			GVL.FinishedProductsCounter := GVL.FinishedProductsCounter + 1;	// Increment counter
+			// Calculate Production Rate
+			IF GVL.CurrentRunMinutes &lt;&gt; 0 THEN
+				GVL.ProductionRate := TO_REAL(GVL.FinishedProductsCounter) / TO_REAL(GVL.CurrentRunMinutes);
+			END_IF
+			BasePositioner.Lower();
+			LidReady := FALSE;
+			BaseReady := FALSE;
+			E_State := E_States.Idle;
 		END_IF
  END_CASE</Single>
             <Single Name="LineInfoPersistence" Type="string">6723a676-8ade-4dc5-813b-59fe30a1b06c_Impl_LineIds</Single>
@@ -13742,46 +14215,68 @@ END_VAR</Single>
         </Single>
         <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">FUNCTION_BLOCK Stage3_Assembly
+            <Single Name="TextBlobForSerialisation" Type="string">// FB Controller for Stage 3 - Assembly
+// - Assembles product lids and bases into containers using Two-Axis Pick and Place Station
+// - Waits for product parts to be ready on their respective conveyors
+// - Secures parts with Poistioners (Clamp actuator)
+// - All outputs are disabled if GV_Flags.SystemEnabled is FALSE
+// States:
+// - IDLE: Enter WAITING if system is enabled
+// - WAITING: Wait for product parts to be at the positioners
+// - RUNNING: Clamp the products to secure them, disable conveyor belts, and assemble into a container
+// - COMPLETE: Raises Positioner to allow finished product through
+
+FUNCTION_BLOCK Stage3_Assembly
 VAR_INPUT
-	iLidAtClampEntry : BOOL;
-	iBaseAtClampEntry : BOOL;
-	iExitSensor : BOOL;
-	iLidClampLimit : BOOL;
-	iBaseClampLimit : BOOL;
-	iAssemPartDetected : BOOL;
-	iAssemIsMovingX : BOOL;
-	iAssemIsMovingz : BOOL;
+	iLidAtClampEntry : BOOL;			// Lid at positioner
+	iBaseAtClampEntry : BOOL;			// Base at positioner
+	iExitSensor : BOOL;					// Container at exit
+	iLidClampLimit : BOOL;				// Lid positioner verticle limit switch
+	iBaseClampLimit : BOOL;				// Base positioner verticle limit switch
+	iLidClamped : BOOL;					// Lid Positier is clamped
+	iBaseClamped : BOOL;				// Base positioner is clamped
+	iAssemPartDetected : BOOL;			// Part detected in assemblers 'hand'
+	iAssemIsMovingX : BOOL;				// Assembler moving in the x-direction
+	iAssemIsMovingZ : BOOL;				// Assembler moving in the z-direction
 END_VAR
 VAR_OUTPUT
-	oLidConveyor : BOOL;
-	oBaseConveyor : BOOL;
-	oLidClamp : BOOL;
-	oBaseClamp : BOOL;
-	oLidPositionerRaise : BOOL;
-	oBasePositionerRaise : BOOL;
-	oAssemMoveX : BOOL;
-	oAssemMoveZ : BOOL;
+	oLidConveyor : BOOL;				// Lid conveyor motor control
+	oBaseConveyor : BOOL;				// Base conveyor motor control
+	oLidClamp : BOOL;					// Lid Positioner clamp control
+	oBaseClamp : BOOL;					// Base positioner clamp control
+	oLidPositionerRaise : BOOL;			// Lid positioner raise control
+	oBasePositionerRaise : BOOL;		// Base positioner raise control
+	oAssemMoveX : BOOL;					// Assembler move x-direction control
+	oAssemMoveZ : BOOL;					// Assembler move z-direction control
 	oAssemGrab : BOOL;
 END_VAR
 VAR
+	// FB Controllers
 	LidConveyor : FB_ConveyorController;
 	BaseConveyor : FB_ConveyorController;
-	SystemOn : BOOL;					// Local System enabled flag
-	State : STATE := IDLE;				// Initiate State to IDLE
+	LidPositioner : FB_Positioner;
+	BasePositioner : FB_Positioner;
+	Assembler : FB_TwoAxisPaP;
 	
+	SystemOn : BOOL;						// Local System enabled flag
+	E_State : E_States := E_States.Idle;	// Initiate State to IDLE
+	
+	// Falling triggers
 	F_LidAtEntry : F_TRIG;
 	F_BaseAtEntry : F_TRIG;
+	F_ExitSensor : F_TRIG;
 	
-	TurnLidConveyorOn : BOOL;
-	TurnBaseConveyorOn : BOOL;
-	test : BOOL;
+	// Internal flags
+	LidReady : BOOL;
+	BaseReady : BOOL;
+	LidConveyorOn : BOOL;
+	BaseConveyorOn : BOOL;
 END_VAR
 </Single>
             <Single Name="LineInfoPersistence" Type="string">6723a676-8ade-4dc5-813b-59fe30a1b06c_Decl_LineIds</Single>
           </Single>
         </Single>
-        <Single Name="UniqueIdGenerator" Type="string">107</Single>
+        <Single Name="UniqueIdGenerator" Type="string">323</Single>
         <Single Name="POULevel" Type="{8e575c5b-1d37-49c6-941b-5c0ec7874787}">Standard</Single>
         <List Name="ChildObjectGuids" Type="System.Collections.ArrayList" />
         <Single Name="AddAttributeSubsequent" Type="bool">False</Single>
@@ -14170,20 +14665,284 @@ END_VAR
     <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
       <Single Name="IsRoot" Type="bool">False</Single>
       <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
-        <Single Name="Guid" Type="System.Guid">1f63d8bc-c2fd-4769-83d2-680d196e2b04</Single>
+        <Single Name="Guid" Type="System.Guid">56589ae6-358a-4114-a976-0f0470acc24e</Single>
+        <Single Name="ParentGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
+        <Single Name="Name" Type="string">PersistentVars</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">261bd6e6-249c-4232-bb6f-84c2fbeef430</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638906921674175088</Single>
+      </Single>
+      <Single Name="Object" Type="{261bd6e6-249c-4232-bb6f-84c2fbeef430}" Method="IArchivable">
+        <Null Name="persvarlist" />
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">{attribute 'qualified_only'}
+VAR_GLOBAL PERSISTENT RETAIN
+	// Generated instance path of persistent variable
+	PLC_PRG.ProcessTimer.iPersistentCounterRunTime: UDINT;
+END_VAR</Single>
+            <Single Name="LineInfoPersistence" Type="string">56589ae6-358a-4114-a976-0f0470acc24e_Decl_LineIds</Single>
+          </Single>
+        </Single>
+        <Null Name="NetVarProperties" />
+        <Single Name="guidinit" Type="System.Guid">fca2a6eb-dfd2-45ae-ae83-5381da4a5aa9</Single>
+        <Single Name="guidcyclic" Type="System.Guid">7f3b2786-d09d-4629-a6a0-a4eca2e0cdd7</Single>
+        <Single Name="dymmattributecount" Type="int">0</Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">719cfe9c-f9d1-4610-9ea5-195262094e94</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">2d294257-1695-4fb7-af29-ebe22874e8c9</Single>
+        <Single Name="ParentGuid" Type="System.Guid">76e9af9e-74e0-465c-8b64-e641e0a12713</Single>
+        <Single Name="Name" Type="string">Clear</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">f8a58466-d7f6-439f-bbb8-d4600e41d099</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638901680317103050</Single>
+      </Single>
+      <Single Name="Object" Type="{f8a58466-d7f6-439f-bbb8-d4600e41d099}" Method="IArchivable">
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">iHead := 0;
+iTail := 0;
+bFull := FALSE;
+bEmpty := TRUE;
+iCount := 0;
+</Single>
+            <Single Name="LineInfoPersistence" Type="string">2d294257-1695-4fb7-af29-ebe22874e8c9_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Clears the queue
+// Resets iHead and iTail, bFull and iCount
+METHOD Clear : BOOL</Single>
+            <Single Name="LineInfoPersistence" Type="string">2d294257-1695-4fb7-af29-ebe22874e8c9_Decl_LineIds</Single>
+          </Single>
+        </Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">76e9af9e-74e0-465c-8b64-e641e0a12713</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+        <Single Type="string">FB_CircularQueue_Command</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">9dfd2c4c-100d-4e1f-898e-1a013e0f5c7e</Single>
+        <Single Name="ParentGuid" Type="System.Guid">76e9af9e-74e0-465c-8b64-e641e0a12713</Single>
+        <Single Name="Name" Type="string">Dequeue</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">f8a58466-d7f6-439f-bbb8-d4600e41d099</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638901682820643546</Single>
+      </Single>
+      <Single Name="Object" Type="{f8a58466-d7f6-439f-bbb8-d4600e41d099}" Method="IArchivable">
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">IF iTail = iHead THEN
+    // Queue is empty
+    Dequeue := E_Command.eNone;
+ELSE
+    Dequeue := aQueue[iHead];
+    iHead := (iHead + 1) MOD MaxSize;
+END_IF
+
+bFull := ((iTail + 1) MOD MaxSize = iHead);
+iCount := (iTail - iHead + MaxSize) MOD MaxSize;
+bEmpty := (iTail = iHead);</Single>
+            <Single Name="LineInfoPersistence" Type="string">9dfd2c4c-100d-4e1f-898e-1a013e0f5c7e_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Dequeue an item from the queue
+// Returns the item
+METHOD Dequeue : E_Command
+VAR
+	cmd : E_Command;
+END_VAR</Single>
+            <Single Name="LineInfoPersistence" Type="string">9dfd2c4c-100d-4e1f-898e-1a013e0f5c7e_Decl_LineIds</Single>
+          </Single>
+        </Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">76e9af9e-74e0-465c-8b64-e641e0a12713</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+        <Single Type="string">FB_CircularQueue_Command</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">6c342dab-e2c0-40d9-adff-7c661753617c</Single>
+        <Single Name="ParentGuid" Type="System.Guid">76e9af9e-74e0-465c-8b64-e641e0a12713</Single>
+        <Single Name="Name" Type="string">Enqueue</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">f8a58466-d7f6-439f-bbb8-d4600e41d099</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638901684172386804</Single>
+      </Single>
+      <Single Name="Object" Type="{f8a58466-d7f6-439f-bbb8-d4600e41d099}" Method="IArchivable">
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">nextTail := (iTail + 1) MOD MaxSize;
+
+IF nextTail = iHead THEN
+    // Queue is full
+    Enqueue := FALSE;
+ELSE
+    aQueue[iTail] := cmd;
+    iTail := nextTail;
+    Enqueue := TRUE;
+END_IF
+
+bFull := ((iTail + 1) MOD MaxSize = iHead);
+bEmpty := (iTail = iHead);
+iCount := (iTail - iHead + MaxSize) MOD MaxSize;</Single>
+            <Single Name="LineInfoPersistence" Type="string">6c342dab-e2c0-40d9-adff-7c661753617c_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Adds a command to the queue
+METHOD Enqueue : BOOL
+VAR_INPUT
+    cmd : E_Command;
+END_VAR
+VAR
+    nextTail : INT;
+END_VAR</Single>
+            <Single Name="LineInfoPersistence" Type="string">6c342dab-e2c0-40d9-adff-7c661753617c_Decl_LineIds</Single>
+          </Single>
+        </Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">76e9af9e-74e0-465c-8b64-e641e0a12713</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+        <Single Type="string">FB_CircularQueue_Command</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">6db558b9-b56e-43df-95e4-f0cff4638fb9</Single>
+        <Single Name="ParentGuid" Type="System.Guid">76e9af9e-74e0-465c-8b64-e641e0a12713</Single>
+        <Single Name="Name" Type="string">Peek</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">f8a58466-d7f6-439f-bbb8-d4600e41d099</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638901681588555734</Single>
+      </Single>
+      <Single Name="Object" Type="{f8a58466-d7f6-439f-bbb8-d4600e41d099}" Method="IArchivable">
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">IF iTail = iHead THEN
+    Peek := E_Command.eNone;
+ELSE
+    Peek := aQueue[iHead];
+END_IF</Single>
+            <Single Name="LineInfoPersistence" Type="string">6db558b9-b56e-43df-95e4-f0cff4638fb9_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Returns the first item of the queue without removing it
+METHOD Peek : E_Command</Single>
+            <Single Name="LineInfoPersistence" Type="string">6db558b9-b56e-43df-95e4-f0cff4638fb9_Decl_LineIds</Single>
+          </Single>
+        </Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">76e9af9e-74e0-465c-8b64-e641e0a12713</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+        <Single Type="string">FB_CircularQueue_Command</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">8bf98a3e-6f20-40df-ac28-58468393563c</Single>
         <Single Name="ParentGuid" Type="System.Guid">2e68f577-72d8-44e6-9b1c-7d7002b0784c</Single>
-        <Single Name="Name" Type="string">DoorOpened</Single>
+        <Single Name="Name" Type="string">bBusy</Single>
         <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
         <Single Name="TypeGuid" Type="System.Guid">5a3b8626-d3e9-4f37-98b5-66420063d91e</Single>
         <Array Name="EmbeddedTypeGuids" Type="System.Guid">
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638900090401526961</Single>
+        <Single Name="Timestamp" Type="long">638906182739372459</Single>
       </Single>
       <Single Name="Object" Type="{5a3b8626-d3e9-4f37-98b5-66420063d91e}" Method="IArchivable">
         <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">PROPERTY DoorOpened : BOOL</Single>
+            <Single Name="TextBlobForSerialisation" Type="string">PROPERTY bBusy : BOOL</Single>
+            <Single Name="LineInfoPersistence" Type="string">8bf98a3e-6f20-40df-ac28-58468393563c_Decl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="UniqueIdGenerator" Type="string">1</Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">2e68f577-72d8-44e6-9b1c-7d7002b0784c</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+        <Single Type="string">FB_MachineCenter</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">1f63d8bc-c2fd-4769-83d2-680d196e2b04</Single>
+        <Single Name="ParentGuid" Type="System.Guid">2e68f577-72d8-44e6-9b1c-7d7002b0784c</Single>
+        <Single Name="Name" Type="string">bDoorOpened</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">5a3b8626-d3e9-4f37-98b5-66420063d91e</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638906180812561756</Single>
+      </Single>
+      <Single Name="Object" Type="{5a3b8626-d3e9-4f37-98b5-66420063d91e}" Method="IArchivable">
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">PROPERTY bDoorOpened : BOOL</Single>
             <Single Name="LineInfoPersistence" Type="string">1f63d8bc-c2fd-4769-83d2-680d196e2b04_Decl_LineIds</Single>
           </Single>
         </Single>
@@ -14203,18 +14962,18 @@ END_VAR
       <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
         <Single Name="Guid" Type="System.Guid">c437291a-9414-441b-ac18-76e1508621dc</Single>
         <Single Name="ParentGuid" Type="System.Guid">2e68f577-72d8-44e6-9b1c-7d7002b0784c</Single>
-        <Single Name="Name" Type="string">Enabled</Single>
+        <Single Name="Name" Type="string">bEnable</Single>
         <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
         <Single Name="TypeGuid" Type="System.Guid">5a3b8626-d3e9-4f37-98b5-66420063d91e</Single>
         <Array Name="EmbeddedTypeGuids" Type="System.Guid">
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638900117253432796</Single>
+        <Single Name="Timestamp" Type="long">638906181712881291</Single>
       </Single>
       <Single Name="Object" Type="{5a3b8626-d3e9-4f37-98b5-66420063d91e}" Method="IArchivable">
         <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">PROPERTY Enabled : BOOL</Single>
+            <Single Name="TextBlobForSerialisation" Type="string">PROPERTY bEnable : BOOL</Single>
             <Single Name="LineInfoPersistence" Type="string">c437291a-9414-441b-ac18-76e1508621dc_Decl_LineIds</Single>
           </Single>
         </Single>
@@ -14234,50 +14993,19 @@ END_VAR
       <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
         <Single Name="Guid" Type="System.Guid">c19d2dd2-61ae-47be-bbb9-f19f6a322965</Single>
         <Single Name="ParentGuid" Type="System.Guid">2e68f577-72d8-44e6-9b1c-7d7002b0784c</Single>
-        <Single Name="Name" Type="string">Error</Single>
+        <Single Name="Name" Type="string">bError</Single>
         <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
         <Single Name="TypeGuid" Type="System.Guid">5a3b8626-d3e9-4f37-98b5-66420063d91e</Single>
         <Array Name="EmbeddedTypeGuids" Type="System.Guid">
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638900090286777586</Single>
+        <Single Name="Timestamp" Type="long">638906182559132844</Single>
       </Single>
       <Single Name="Object" Type="{5a3b8626-d3e9-4f37-98b5-66420063d91e}" Method="IArchivable">
         <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">PROPERTY Error : BOOL</Single>
+            <Single Name="TextBlobForSerialisation" Type="string">PROPERTY bError : BOOL</Single>
             <Single Name="LineInfoPersistence" Type="string">c19d2dd2-61ae-47be-bbb9-f19f6a322965_Decl_LineIds</Single>
-          </Single>
-        </Single>
-        <Single Name="UniqueIdGenerator" Type="string">1</Single>
-      </Single>
-      <Single Name="ParentSVNodeGuid" Type="System.Guid">2e68f577-72d8-44e6-9b1c-7d7002b0784c</Single>
-      <Array Name="Path" Type="string">
-        <Single Type="string">Device</Single>
-        <Single Type="string">PLC Logic</Single>
-        <Single Type="string">Application</Single>
-        <Single Type="string">FB_MachineCenter</Single>
-      </Array>
-      <Single Name="Index" Type="int">-1</Single>
-    </Single>
-    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
-      <Single Name="IsRoot" Type="bool">False</Single>
-      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
-        <Single Name="Guid" Type="System.Guid">8bf98a3e-6f20-40df-ac28-58468393563c</Single>
-        <Single Name="ParentGuid" Type="System.Guid">2e68f577-72d8-44e6-9b1c-7d7002b0784c</Single>
-        <Single Name="Name" Type="string">IsBusy</Single>
-        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
-        <Single Name="TypeGuid" Type="System.Guid">5a3b8626-d3e9-4f37-98b5-66420063d91e</Single>
-        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
-          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
-        </Array>
-        <Single Name="Timestamp" Type="long">638900089835906259</Single>
-      </Single>
-      <Single Name="Object" Type="{5a3b8626-d3e9-4f37-98b5-66420063d91e}" Method="IArchivable">
-        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
-          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">PROPERTY IsBusy : BOOL</Single>
-            <Single Name="LineInfoPersistence" Type="string">8bf98a3e-6f20-40df-ac28-58468393563c_Decl_LineIds</Single>
           </Single>
         </Single>
         <Single Name="UniqueIdGenerator" Type="string">1</Single>
@@ -14296,18 +15024,18 @@ END_VAR
       <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
         <Single Name="Guid" Type="System.Guid">ae9e97d3-b52e-4ca0-aec9-573a01ffff4f</Single>
         <Single Name="ParentGuid" Type="System.Guid">2e68f577-72d8-44e6-9b1c-7d7002b0784c</Single>
-        <Single Name="Name" Type="string">ProduceLids</Single>
+        <Single Name="Name" Type="string">bProduceLids</Single>
         <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
         <Single Name="TypeGuid" Type="System.Guid">5a3b8626-d3e9-4f37-98b5-66420063d91e</Single>
         <Array Name="EmbeddedTypeGuids" Type="System.Guid">
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638900121475550652</Single>
+        <Single Name="Timestamp" Type="long">638906183719230981</Single>
       </Single>
       <Single Name="Object" Type="{5a3b8626-d3e9-4f37-98b5-66420063d91e}" Method="IArchivable">
         <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">PROPERTY ProduceLids : BOOL</Single>
+            <Single Name="TextBlobForSerialisation" Type="string">PROPERTY bProduceLids : BOOL</Single>
             <Single Name="LineInfoPersistence" Type="string">ae9e97d3-b52e-4ca0-aec9-573a01ffff4f_Decl_LineIds</Single>
           </Single>
         </Single>
@@ -14356,6 +15084,160 @@ END_VAR
     <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
       <Single Name="IsRoot" Type="bool">False</Single>
       <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">74aa4979-6b1c-4c5f-9227-6552c2b23b12</Single>
+        <Single Name="ParentGuid" Type="System.Guid">f41a63ea-abc2-4b55-91ef-c224d519fe39</Single>
+        <Single Name="Name" Type="string">Clamp</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">f8a58466-d7f6-439f-bbb8-d4600e41d099</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638906116335567263</Single>
+      </Single>
+      <Single Name="Object" Type="{f8a58466-d7f6-439f-bbb8-d4600e41d099}" Method="IArchivable">
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">CommandQueue.Enqueue(E_Command.eClamp);</Single>
+            <Single Name="LineInfoPersistence" Type="string">74aa4979-6b1c-4c5f-9227-6552c2b23b12_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Activates the Positioners clamp
+METHOD Clamp : BOOL</Single>
+            <Single Name="LineInfoPersistence" Type="string">74aa4979-6b1c-4c5f-9227-6552c2b23b12_Decl_LineIds</Single>
+          </Single>
+        </Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">f41a63ea-abc2-4b55-91ef-c224d519fe39</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+        <Single Type="string">FB_Positioner</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">9b588858-0723-4d48-9e52-2450ec506d64</Single>
+        <Single Name="ParentGuid" Type="System.Guid">f41a63ea-abc2-4b55-91ef-c224d519fe39</Single>
+        <Single Name="Name" Type="string">Lift</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">f8a58466-d7f6-439f-bbb8-d4600e41d099</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638906116388735091</Single>
+      </Single>
+      <Single Name="Object" Type="{f8a58466-d7f6-439f-bbb8-d4600e41d099}" Method="IArchivable">
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">CommandQueue.Enqueue(E_Command.eRaise);</Single>
+            <Single Name="LineInfoPersistence" Type="string">9b588858-0723-4d48-9e52-2450ec506d64_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Lifts the positioner
+// Allows for a part on a conveyor to pass through
+METHOD Lift : BOOL</Single>
+            <Single Name="LineInfoPersistence" Type="string">9b588858-0723-4d48-9e52-2450ec506d64_Decl_LineIds</Single>
+          </Single>
+        </Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">f41a63ea-abc2-4b55-91ef-c224d519fe39</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+        <Single Type="string">FB_Positioner</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">f9233af5-c930-441a-9513-20ba8367f391</Single>
+        <Single Name="ParentGuid" Type="System.Guid">f41a63ea-abc2-4b55-91ef-c224d519fe39</Single>
+        <Single Name="Name" Type="string">Lower</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">f8a58466-d7f6-439f-bbb8-d4600e41d099</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638906116425597716</Single>
+      </Single>
+      <Single Name="Object" Type="{f8a58466-d7f6-439f-bbb8-d4600e41d099}" Method="IArchivable">
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">CommandQueue.Enqueue(E_Command.eLower);</Single>
+            <Single Name="LineInfoPersistence" Type="string">f9233af5-c930-441a-9513-20ba8367f391_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Lowers the positioner to the starting position
+METHOD Lower : BOOL</Single>
+            <Single Name="LineInfoPersistence" Type="string">f9233af5-c930-441a-9513-20ba8367f391_Decl_LineIds</Single>
+          </Single>
+        </Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">f41a63ea-abc2-4b55-91ef-c224d519fe39</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+        <Single Type="string">FB_Positioner</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">07f18fcd-4061-4b50-b9ec-62992e313c58</Single>
+        <Single Name="ParentGuid" Type="System.Guid">f41a63ea-abc2-4b55-91ef-c224d519fe39</Single>
+        <Single Name="Name" Type="string">Release</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">f8a58466-d7f6-439f-bbb8-d4600e41d099</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638906116457523269</Single>
+      </Single>
+      <Single Name="Object" Type="{f8a58466-d7f6-439f-bbb8-d4600e41d099}" Method="IArchivable">
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">CommandQueue.Enqueue(E_Command.eRelease);</Single>
+            <Single Name="LineInfoPersistence" Type="string">07f18fcd-4061-4b50-b9ec-62992e313c58_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Deactivates the positioners clamp
+METHOD Release : BOOL
+</Single>
+            <Single Name="LineInfoPersistence" Type="string">07f18fcd-4061-4b50-b9ec-62992e313c58_Decl_LineIds</Single>
+          </Single>
+        </Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">f41a63ea-abc2-4b55-91ef-c224d519fe39</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+        <Single Type="string">FB_Positioner</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
         <Single Name="Guid" Type="System.Guid">38c26d17-083d-4f73-8351-8b962f660abe</Single>
         <Single Name="ParentGuid" Type="System.Guid">623650f9-d912-474f-884a-9a953fb06f3b</Single>
         <Single Name="Name" Type="string">Execute</Single>
@@ -14365,13 +15247,13 @@ END_VAR
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638896519837860563</Single>
+        <Single Name="Timestamp" Type="long">638906167249546569</Single>
       </Single>
       <Single Name="Object" Type="{f8a58466-d7f6-439f-bbb8-d4600e41d099}" Method="IArchivable">
         <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">IF NOT isPushing AND iBackLimit THEN	// Only push if arm is in reset position
-	isPushing := TRUE;
+            <Single Name="TextBlobForSerialisation" Type="string">IF NOT PushRequest AND iBackLimit THEN	// Only push if arm is in reset position
+	PushRequest := TRUE;
 END_IF</Single>
             <Single Name="LineInfoPersistence" Type="string">38c26d17-083d-4f73-8351-8b962f660abe_Impl_LineIds</Single>
           </Single>
@@ -14396,6 +15278,262 @@ END_IF</Single>
     <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
       <Single Name="IsRoot" Type="bool">False</Single>
       <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">dffd0966-94ee-4e2f-8eaa-cbda72ea7de8</Single>
+        <Single Name="ParentGuid" Type="System.Guid">54764b11-656f-4e28-8e4a-0a7dbaa71458</Single>
+        <Single Name="Name" Type="string">IsMoving</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">f8a58466-d7f6-439f-bbb8-d4600e41d099</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638905201559082044</Single>
+      </Single>
+      <Single Name="Object" Type="{f8a58466-d7f6-439f-bbb8-d4600e41d099}" Method="IArchivable">
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">IF iMovingX OR iMovingZ THEN
+	IsMoving := TRUE;
+else
+	IsMoving := FALSE;
+END_IF
+</Single>
+            <Single Name="LineInfoPersistence" Type="string">dffd0966-94ee-4e2f-8eaa-cbda72ea7de8_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Returns TRUE if Assmebler is moving based on the command given
+METHOD IsMoving : BOOL
+VAR_INPUT
+	cmd : E_Command;
+END_VAR</Single>
+            <Single Name="LineInfoPersistence" Type="string">dffd0966-94ee-4e2f-8eaa-cbda72ea7de8_Decl_LineIds</Single>
+          </Single>
+        </Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">54764b11-656f-4e28-8e4a-0a7dbaa71458</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+        <Single Type="string">FB_TwoAxisPaP</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">ae0cb321-83fe-4c19-867e-21ec2c6c50b1</Single>
+        <Single Name="ParentGuid" Type="System.Guid">54764b11-656f-4e28-8e4a-0a7dbaa71458</Single>
+        <Single Name="Name" Type="string">MoveXNeg</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">f8a58466-d7f6-439f-bbb8-d4600e41d099</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638905179845024053</Single>
+      </Single>
+      <Single Name="Object" Type="{f8a58466-d7f6-439f-bbb8-d4600e41d099}" Method="IArchivable">
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">CommandQueue.Enqueue(E_Command.eMoveXNeg);</Single>
+            <Single Name="LineInfoPersistence" Type="string">ae0cb321-83fe-4c19-867e-21ec2c6c50b1_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Moves the assmebler arm to the reset position (x-direction)
+METHOD MoveXNeg : BOOL</Single>
+            <Single Name="LineInfoPersistence" Type="string">ae0cb321-83fe-4c19-867e-21ec2c6c50b1_Decl_LineIds</Single>
+          </Single>
+        </Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">54764b11-656f-4e28-8e4a-0a7dbaa71458</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+        <Single Type="string">FB_TwoAxisPaP</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">0157f370-6d6a-433f-a6a0-9f4c90904410</Single>
+        <Single Name="ParentGuid" Type="System.Guid">54764b11-656f-4e28-8e4a-0a7dbaa71458</Single>
+        <Single Name="Name" Type="string">MoveXPos</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">f8a58466-d7f6-439f-bbb8-d4600e41d099</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638905179905090554</Single>
+      </Single>
+      <Single Name="Object" Type="{f8a58466-d7f6-439f-bbb8-d4600e41d099}" Method="IArchivable">
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">CommandQueue.Enqueue(E_Command.eMoveXPos);</Single>
+            <Single Name="LineInfoPersistence" Type="string">0157f370-6d6a-433f-a6a0-9f4c90904410_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Moves the assmebler arm to the extended position (x-direction)
+METHOD MoveXPos : BOOL</Single>
+            <Single Name="LineInfoPersistence" Type="string">0157f370-6d6a-433f-a6a0-9f4c90904410_Decl_LineIds</Single>
+          </Single>
+        </Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">54764b11-656f-4e28-8e4a-0a7dbaa71458</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+        <Single Type="string">FB_TwoAxisPaP</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">d24b0a8a-1779-48a5-b969-c5ec78257aed</Single>
+        <Single Name="ParentGuid" Type="System.Guid">54764b11-656f-4e28-8e4a-0a7dbaa71458</Single>
+        <Single Name="Name" Type="string">PickUp</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">f8a58466-d7f6-439f-bbb8-d4600e41d099</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638930165500308139</Single>
+      </Single>
+      <Single Name="Object" Type="{f8a58466-d7f6-439f-bbb8-d4600e41d099}" Method="IArchivable">
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">CommandQueue.Enqueue(E_Command.eMoveZDown);
+CommandQueue.Enqueue(E_Command.eGrab);
+CommandQueue.Enqueue(E_Command.eMoveZUp);</Single>
+            <Single Name="LineInfoPersistence" Type="string">d24b0a8a-1779-48a5-b969-c5ec78257aed_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">METHOD PickUp : BOOL</Single>
+            <Single Name="LineInfoPersistence" Type="string">d24b0a8a-1779-48a5-b969-c5ec78257aed_Decl_LineIds</Single>
+          </Single>
+        </Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">54764b11-656f-4e28-8e4a-0a7dbaa71458</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+        <Single Type="string">FB_TwoAxisPaP</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">0727aa20-363d-47f0-942b-01fee590380e</Single>
+        <Single Name="ParentGuid" Type="System.Guid">54764b11-656f-4e28-8e4a-0a7dbaa71458</Single>
+        <Single Name="Name" Type="string">ProcessCommand</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">f8a58466-d7f6-439f-bbb8-d4600e41d099</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638905174271032026</Single>
+      </Single>
+      <Single Name="Object" Type="{f8a58466-d7f6-439f-bbb8-d4600e41d099}" Method="IArchivable">
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">// Turn on the relevent output motors
+CASE cmd OF
+	E_Command.eMoveXPos: oX := TRUE;
+	E_Command.eMoveXNeg: oX := FALSE;
+
+	E_Command.eMoveZDown: oZ := TRUE;
+	E_Command.eMoveZUp: oZ := FALSE;
+
+	E_Command.eGrab: oGrab := TRUE;
+	E_Command.eRelease: oGrab := FALSE;
+
+	E_Command.eNone: // Do nothing
+END_CASE</Single>
+            <Single Name="LineInfoPersistence" Type="string">0727aa20-363d-47f0-942b-01fee590380e_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">METHOD ProcessCommand : BOOL
+VAR_INPUT
+	cmd : E_Command;
+END_VAR
+</Single>
+            <Single Name="LineInfoPersistence" Type="string">0727aa20-363d-47f0-942b-01fee590380e_Decl_LineIds</Single>
+          </Single>
+        </Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">54764b11-656f-4e28-8e4a-0a7dbaa71458</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+        <Single Type="string">FB_TwoAxisPaP</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
+        <Single Name="Guid" Type="System.Guid">92104d3d-70b9-4f38-b2ea-649ec4512616</Single>
+        <Single Name="ParentGuid" Type="System.Guid">54764b11-656f-4e28-8e4a-0a7dbaa71458</Single>
+        <Single Name="Name" Type="string">PutDown</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">f8a58466-d7f6-439f-bbb8-d4600e41d099</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638905192016753264</Single>
+      </Single>
+      <Single Name="Object" Type="{f8a58466-d7f6-439f-bbb8-d4600e41d099}" Method="IArchivable">
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">CommandQueue.Enqueue(E_Command.eMoveZDown);
+CommandQueue.Enqueue(E_Command.eRelease);
+CommandQueue.Enqueue(E_Command.eMoveZUp);</Single>
+            <Single Name="LineInfoPersistence" Type="string">92104d3d-70b9-4f38-b2ea-649ec4512616_Impl_LineIds</Single>
+          </Single>
+        </Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">METHOD PutDown : BOOL
+VAR_INPUT
+END_VAR
+</Single>
+            <Single Name="LineInfoPersistence" Type="string">92104d3d-70b9-4f38-b2ea-649ec4512616_Decl_LineIds</Single>
+          </Single>
+        </Single>
+      </Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">54764b11-656f-4e28-8e4a-0a7dbaa71458</Single>
+      <Array Name="Path" Type="string">
+        <Single Type="string">Device</Single>
+        <Single Type="string">PLC Logic</Single>
+        <Single Type="string">Application</Single>
+        <Single Type="string">FB_TwoAxisPaP</Single>
+      </Array>
+      <Single Name="Index" Type="int">-1</Single>
+    </Single>
+    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
+      <Single Name="IsRoot" Type="bool">False</Single>
+      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
         <Single Name="Guid" Type="System.Guid">11c3b6b4-3c12-4f35-9861-7855d58480b8</Single>
         <Single Name="ParentGuid" Type="System.Guid">a268c88d-b6d8-4983-9e10-bdc5a1bc5ade</Single>
         <Single Name="Name" Type="string">ProcessObjectDetection</Single>
@@ -14405,19 +15543,13 @@ END_IF</Single>
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638899918560661205</Single>
+        <Single Name="Timestamp" Type="long">638906946603546286</Single>
       </Single>
       <Single Name="Object" Type="{f8a58466-d7f6-439f-bbb8-d4600e41d099}" Method="IArchivable">
         <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">// If object should be rejected, wait for it to be at the entrance of pusher before executing
-IF Reject AND iPusherEntrySensor THEN
-	Pusher.Execute();
-	Reject := FALSE;	// Reset Reject flag
-END_IF
-
-IF VisionSensor.isObjectDetected THEN
-	Object := VisionSensor.ObjectDetected;
+            <Single Name="TextBlobForSerialisation" Type="string">IF VisionSensor.bObjectDetected THEN
+	Object := VisionSensor.sObjectDetected;
 	// Check if object should be rejected
 	IF Object = 'metal raw material' OR Object = 'unknown' THEN
 		Reject := TRUE;
@@ -14506,7 +15638,7 @@ END_VAR
         </Dictionary>
         <Single Name="TypeGuid" Type="System.Guid">98a2708a-9b18-4f31-82ed-a1465b24fa2d</Single>
         <Null Name="EmbeddedTypeGuids" />
-        <Single Name="Timestamp" Type="long">638896109297452369</Single>
+        <Single Name="Timestamp" Type="long">638901704365909599</Single>
       </Single>
       <Single Name="Object" Type="{98a2708a-9b18-4f31-82ed-a1465b24fa2d}" Method="IArchivable">
         <Single Name="AllowEmpty" Type="bool">False</Single>
@@ -14558,75 +15690,39 @@ END_VAR
     <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
       <Single Name="IsRoot" Type="bool">False</Single>
       <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
-        <Single Name="Guid" Type="System.Guid">c2a01f33-38f0-45ff-8494-cff77e62a3b6</Single>
-        <Single Name="ParentGuid" Type="System.Guid">2719ddda-13fc-4795-9c3c-889d2db1f7e8</Single>
-        <Single Name="Name" Type="string">Test</Single>
-        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties">
-          <Entry>
-            <Key>
-              <Single Type="System.Guid">24568a24-c491-472c-a21f-ee5d33859fab</Single>
-            </Key>
-            <Value>
-              <Single Type="{24568a24-c491-472c-a21f-ee5d33859fab}" Method="IArchivable">
-                <Single Name="MemoryReserveForOnlineChange" Type="int">0</Single>
-                <Single Name="ExcludeFromBuild" Type="bool">True</Single>
-                <Single Name="External" Type="bool">False</Single>
-                <Single Name="EnableSystemCall" Type="bool">False</Single>
-                <Single Name="CompilerDefines" Type="string"></Single>
-                <Single Name="LinkAlways" Type="bool">False</Single>
-                <Array Name="Undefines" Type="string" />
-              </Single>
-            </Value>
-          </Entry>
-        </Dictionary>
-        <Single Name="TypeGuid" Type="System.Guid">98a2708a-9b18-4f31-82ed-a1465b24fa2d</Single>
-        <Null Name="EmbeddedTypeGuids" />
-        <Single Name="Timestamp" Type="long">638896109376979121</Single>
+        <Single Name="Guid" Type="System.Guid">de3a9ac2-e91f-4bfa-ab85-91d8a2e59732</Single>
+        <Single Name="ParentGuid" Type="System.Guid">8bf98a3e-6f20-40df-ac28-58468393563c</Single>
+        <Single Name="Name" Type="string">Get</Single>
+        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
+        <Single Name="TypeGuid" Type="System.Guid">792f2eb6-721e-4e64-ba20-bc98351056db</Single>
+        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
+          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
+          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
+        </Array>
+        <Single Name="Timestamp" Type="long">638906182739775770</Single>
       </Single>
-      <Single Name="Object" Type="{98a2708a-9b18-4f31-82ed-a1465b24fa2d}" Method="IArchivable">
-        <Single Name="AllowEmpty" Type="bool">False</Single>
-        <Single Name="Kindoftask" Type="{38cb1f21-e463-4240-9171-f74fb561a060}">Cyclic</Single>
-        <List Name="CustomParameters" Type="{3e5ba045-1fc5-40ec-9ce7-4b62ec8ccfdf}" />
-        <List Name="IntervalParameters" Type="{3e5ba045-1fc5-40ec-9ce7-4b62ec8ccfdf}" />
-        <List Name="EventParameters" Type="{3e5ba045-1fc5-40ec-9ce7-4b62ec8ccfdf}" />
-        <List Name="ExternalEventParameters" Type="{3e5ba045-1fc5-40ec-9ce7-4b62ec8ccfdf}" />
-        <List Name="FreewheelingParameters" Type="{3e5ba045-1fc5-40ec-9ce7-4b62ec8ccfdf}" />
-        <Single Name="Priority" Type="string">1</Single>
-        <Single Name="Watchdog" Type="{97c20fcf-2c50-4dbb-8faa-06ff4f1e4275}" Method="IArchivable">
-          <Single Name="Enabled" Type="bool">False</Single>
-          <Single Name="Time" Type="{68e48988-4399-454b-ae43-e500b779c242}" Method="IArchivable">
-            <Single Name="Time" Type="string"></Single>
-            <Single Name="Unit" Type="string">ms</Single>
+      <Single Name="Object" Type="{792f2eb6-721e-4e64-ba20-bc98351056db}" Method="IArchivable">
+        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string">bBusy := iBusy;</Single>
+            <Single Name="LineInfoPersistence" Type="string">de3a9ac2-e91f-4bfa-ab85-91d8a2e59732_Impl_LineIds</Single>
           </Single>
-          <Single Name="Sensitivity" Type="string">1</Single>
         </Single>
-        <Single Name="Interval" Type="{68e48988-4399-454b-ae43-e500b779c242}" Method="IArchivable">
-          <Single Name="Time" Type="string">t#20ms</Single>
-          <Single Name="Unit" Type="string">ms</Single>
-        </Single>
-        <Single Name="Event" Type="string"></Single>
-        <Single Name="ExternalEvent" Type="string"></Single>
-        <Single Name="TaskGuid" Type="System.Guid">5589d3f4-615a-42e0-a3d7-7cf50885ab95</Single>
-        <Single Name="EventPOUGuid" Type="System.Guid">86c607e8-3361-440a-9e42-af63e97cdd89</Single>
-        <List Name="PouList" Type="{33f568bb-4a2c-48cb-a762-34cca3066d03}">
-          <Single Type="{f194d1ef-7376-42ce-a729-4a5485a97a46}" Method="IArchivable">
-            <Single Name="Name" Type="string">PRG_Test</Single>
-            <Single Name="Comment" Type="string"></Single>
+        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
+          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
+            <Single Name="TextBlobForSerialisation" Type="string"></Single>
+            <Single Name="LineInfoPersistence" Type="string">de3a9ac2-e91f-4bfa-ab85-91d8a2e59732_Decl_LineIds</Single>
           </Single>
-        </List>
-        <Single Name="Implicit" Type="bool">False</Single>
-        <Single Name="WithinSPSTimeSlicing" Type="bool">True</Single>
-        <Single Name="Core" Type="int">-1</Single>
-        <Single Name="Core2" Type="int">-2</Single>
-        <Single Name="TaskGroup" Type="string">IEC-Tasks</Single>
-        <Single Name="SynchTask" Type="string"></Single>
+        </Single>
+        <Single Name="IsGet" Type="bool">True</Single>
       </Single>
-      <Single Name="ParentSVNodeGuid" Type="System.Guid">2719ddda-13fc-4795-9c3c-889d2db1f7e8</Single>
+      <Single Name="ParentSVNodeGuid" Type="System.Guid">8bf98a3e-6f20-40df-ac28-58468393563c</Single>
       <Array Name="Path" Type="string">
         <Single Type="string">Device</Single>
         <Single Type="string">PLC Logic</Single>
         <Single Type="string">Application</Single>
-        <Single Type="string">Task Configuration</Single>
+        <Single Type="string">FB_MachineCenter</Single>
+        <Single Type="string">bBusy</Single>
       </Array>
       <Single Name="Index" Type="int">-1</Single>
     </Single>
@@ -14642,12 +15738,12 @@ END_VAR
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638900128359615415</Single>
+        <Single Name="Timestamp" Type="long">638906180812828143</Single>
       </Single>
       <Single Name="Object" Type="{792f2eb6-721e-4e64-ba20-bc98351056db}" Method="IArchivable">
         <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">DoorOpened := iOpened;</Single>
+            <Single Name="TextBlobForSerialisation" Type="string">bDoorOpened := iOpened;</Single>
             <Single Name="LineInfoPersistence" Type="string">be9d0229-69db-4bb1-9b80-bf10bf581fd7_Impl_LineIds</Single>
           </Single>
         </Single>
@@ -14665,7 +15761,7 @@ END_VAR
         <Single Type="string">PLC Logic</Single>
         <Single Type="string">Application</Single>
         <Single Type="string">FB_MachineCenter</Single>
-        <Single Type="string">DoorOpened</Single>
+        <Single Type="string">bDoorOpened</Single>
       </Array>
       <Single Name="Index" Type="int">-1</Single>
     </Single>
@@ -14681,12 +15777,12 @@ END_VAR
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638900140643327816</Single>
+        <Single Name="Timestamp" Type="long">638906182130510739</Single>
       </Single>
       <Single Name="Object" Type="{792f2eb6-721e-4e64-ba20-bc98351056db}" Method="IArchivable">
         <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">Enabled := On;</Single>
+            <Single Name="TextBlobForSerialisation" Type="string">bEnable := bEnabled;</Single>
             <Single Name="LineInfoPersistence" Type="string">3035b5de-fddd-40f8-b9a2-b73c0734e969_Impl_LineIds</Single>
           </Single>
         </Single>
@@ -14704,7 +15800,7 @@ END_VAR
         <Single Type="string">PLC Logic</Single>
         <Single Type="string">Application</Single>
         <Single Type="string">FB_MachineCenter</Single>
-        <Single Type="string">Enabled</Single>
+        <Single Type="string">bEnable</Single>
       </Array>
       <Single Name="Index" Type="int">-1</Single>
     </Single>
@@ -14720,12 +15816,12 @@ END_VAR
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638900118166742249</Single>
+        <Single Name="Timestamp" Type="long">638906182020084246</Single>
       </Single>
       <Single Name="Object" Type="{792f2eb6-721e-4e64-ba20-bc98351056db}" Method="IArchivable">
         <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">On := Enabled;</Single>
+            <Single Name="TextBlobForSerialisation" Type="string">bEnabled := bEnable;</Single>
             <Single Name="LineInfoPersistence" Type="string">60b4ce15-f755-4f42-bc4f-d323a3faee0a_Impl_LineIds</Single>
           </Single>
         </Single>
@@ -14745,7 +15841,7 @@ END_VAR
         <Single Type="string">PLC Logic</Single>
         <Single Type="string">Application</Single>
         <Single Type="string">FB_MachineCenter</Single>
-        <Single Type="string">Enabled</Single>
+        <Single Type="string">bEnable</Single>
       </Array>
       <Single Name="Index" Type="int">-1</Single>
     </Single>
@@ -14761,12 +15857,12 @@ END_VAR
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638900128539551095</Single>
+        <Single Name="Timestamp" Type="long">638906182559596506</Single>
       </Single>
       <Single Name="Object" Type="{792f2eb6-721e-4e64-ba20-bc98351056db}" Method="IArchivable">
         <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">Error := iError;</Single>
+            <Single Name="TextBlobForSerialisation" Type="string">bError := iError;</Single>
             <Single Name="LineInfoPersistence" Type="string">f392e613-2242-4ef5-ad35-a98e7ca749b4_Impl_LineIds</Single>
           </Single>
         </Single>
@@ -14784,46 +15880,7 @@ END_VAR
         <Single Type="string">PLC Logic</Single>
         <Single Type="string">Application</Single>
         <Single Type="string">FB_MachineCenter</Single>
-        <Single Type="string">Error</Single>
-      </Array>
-      <Single Name="Index" Type="int">-1</Single>
-    </Single>
-    <Single Type="{6198ad31-4b98-445c-927f-3258a0e82fe3}" Method="IArchivable">
-      <Single Name="IsRoot" Type="bool">False</Single>
-      <Single Name="MetaObject" Type="{81297157-7ec9-45ce-845e-84cab2b88ade}" Method="IArchivable">
-        <Single Name="Guid" Type="System.Guid">de3a9ac2-e91f-4bfa-ab85-91d8a2e59732</Single>
-        <Single Name="ParentGuid" Type="System.Guid">8bf98a3e-6f20-40df-ac28-58468393563c</Single>
-        <Single Name="Name" Type="string">Get</Single>
-        <Dictionary Type="{2c41fa04-1834-41c1-816e-303c7aa2c05b}" Name="Properties" />
-        <Single Name="TypeGuid" Type="System.Guid">792f2eb6-721e-4e64-ba20-bc98351056db</Single>
-        <Array Name="EmbeddedTypeGuids" Type="System.Guid">
-          <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
-          <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
-        </Array>
-        <Single Name="Timestamp" Type="long">638900093958901648</Single>
-      </Single>
-      <Single Name="Object" Type="{792f2eb6-721e-4e64-ba20-bc98351056db}" Method="IArchivable">
-        <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
-          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">IsBusy := iBusy;</Single>
-            <Single Name="LineInfoPersistence" Type="string">de3a9ac2-e91f-4bfa-ab85-91d8a2e59732_Impl_LineIds</Single>
-          </Single>
-        </Single>
-        <Single Name="Interface" Type="{a9ed5b7e-75c5-4651-af16-d2c27e98cb94}" Method="IArchivable">
-          <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string"></Single>
-            <Single Name="LineInfoPersistence" Type="string">de3a9ac2-e91f-4bfa-ab85-91d8a2e59732_Decl_LineIds</Single>
-          </Single>
-        </Single>
-        <Single Name="IsGet" Type="bool">True</Single>
-      </Single>
-      <Single Name="ParentSVNodeGuid" Type="System.Guid">8bf98a3e-6f20-40df-ac28-58468393563c</Single>
-      <Array Name="Path" Type="string">
-        <Single Type="string">Device</Single>
-        <Single Type="string">PLC Logic</Single>
-        <Single Type="string">Application</Single>
-        <Single Type="string">FB_MachineCenter</Single>
-        <Single Type="string">IsBusy</Single>
+        <Single Type="string">bError</Single>
       </Array>
       <Single Name="Index" Type="int">-1</Single>
     </Single>
@@ -14839,12 +15896,12 @@ END_VAR
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638900129559944557</Single>
+        <Single Name="Timestamp" Type="long">638906183921158644</Single>
       </Single>
       <Single Name="Object" Type="{792f2eb6-721e-4e64-ba20-bc98351056db}" Method="IArchivable">
         <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">ProduceLids := Production;</Single>
+            <Single Name="TextBlobForSerialisation" Type="string">bProduceLids := bProduction;</Single>
             <Single Name="LineInfoPersistence" Type="string">0bbd5c69-4488-4f4d-997e-4753657602f0_Impl_LineIds</Single>
           </Single>
         </Single>
@@ -14862,7 +15919,7 @@ END_VAR
         <Single Type="string">PLC Logic</Single>
         <Single Type="string">Application</Single>
         <Single Type="string">FB_MachineCenter</Single>
-        <Single Type="string">ProduceLids</Single>
+        <Single Type="string">bProduceLids</Single>
       </Array>
       <Single Name="Index" Type="int">-1</Single>
     </Single>
@@ -14878,12 +15935,12 @@ END_VAR
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638900130316882064</Single>
+        <Single Name="Timestamp" Type="long">638906184001064954</Single>
       </Single>
       <Single Name="Object" Type="{792f2eb6-721e-4e64-ba20-bc98351056db}" Method="IArchivable">
         <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">Production := ProduceLids;</Single>
+            <Single Name="TextBlobForSerialisation" Type="string">bProduction := bProduceLids;</Single>
             <Single Name="LineInfoPersistence" Type="string">1d50d578-69e9-4689-9670-d8ea6aad9cef_Impl_LineIds</Single>
           </Single>
         </Single>
@@ -14901,7 +15958,7 @@ END_VAR
         <Single Type="string">PLC Logic</Single>
         <Single Type="string">Application</Single>
         <Single Type="string">FB_MachineCenter</Single>
-        <Single Type="string">ProduceLids</Single>
+        <Single Type="string">bProduceLids</Single>
       </Array>
       <Single Name="Index" Type="int">-1</Single>
     </Single>
@@ -14956,12 +16013,12 @@ END_VAR
           <Single Type="System.Guid">a9ed5b7e-75c5-4651-af16-d2c27e98cb94</Single>
           <Single Type="System.Guid">3b83b776-fb25-43b8-99f2-3c507c9143fc</Single>
         </Array>
-        <Single Name="Timestamp" Type="long">638900127198794415</Single>
+        <Single Name="Timestamp" Type="long">638906192499346967</Single>
       </Single>
       <Single Name="Object" Type="{792f2eb6-721e-4e64-ba20-bc98351056db}" Method="IArchivable">
         <Single Name="Implementation" Type="{3b83b776-fb25-43b8-99f2-3c507c9143fc}" Method="IArchivable">
           <Single Name="TextDocument" Type="{f3878285-8e4f-490b-bb1b-9acbb7eb04db}" Method="IArchivable">
-            <Single Name="TextBlobForSerialisation" Type="string">ReadyForPart := isReadyForPart;</Single>
+            <Single Name="TextBlobForSerialisation" Type="string">ReadyForPart := bReadyForPart;</Single>
             <Single Name="LineInfoPersistence" Type="string">e3fcb717-900a-467e-8690-7dd2bc7eba3e_Impl_LineIds</Single>
           </Single>
         </Single>
