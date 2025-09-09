@@ -1,25 +1,51 @@
 # Industry 4.0 Manufacturing Automation Portfolio Project
-This project demonstrates comprehensive automation engineering skills through a 3-station manufacturing cell simulation that bridges traditional PLC systems with modern Industry 4.0 technologies.
+Complete 3-stage manufacturing and assembly process automation using structured PLC programming with industrial communication protocols, emergency stop, and fault handling. The process manufactures raw materials into product bases, and assmebles them with product lids to create containers in FactoryIO. 
 
 ## Key Technologies
-- CODESYS PLC Programming
-- Factory IO Simulation
-- Ignition SCADA
-- ESP32 IoT Integration
-- Modbus, MQTT, Ethernet/IP Communication
+- CODESYS PLC Programming (structured text, function blocks, ladder logic)
+- Emergency stop and fault handling logic
+- Multi-stage process automation with state machine logic
+- FactoryIO Simulation
+- Modbus TCP communication (Client: FactoryIO, Server: CODESYS)
 
-## System Architecture
-<img width="628" height="181" alt="data flow architecture" src="https://github.com/user-attachments/assets/0486ecc9-a23a-4eea-92b1-15bb19bcfb24" />
+## Manufacturing Steps
+### Stage 1: Material Sorting & Quality Control
 
-## What This Demonstrates
-- **Traditional Automation:** Structured PLC programming, safety systems, real-time control
-- **Industry 4.0 Integration:** IoT sensors, cloud analytics, predictive maintenance
-- **Hybrid Communication:** Legacy Modbus + modern MQTT protocols
-- **Professional HMI:** Mobile-responsive interface with OEE monitoring
+- Conveyor system supplies mixed raw materials (blue plastic and metal components)
+- Vision sensor identifies material type with pneumatic pusher rejecting metal parts via off-chute
+- Only approved plastic materials advance to manufacturing
 
-  ## Career Relevance
-  Skills directly transfer to
-  - **Siemens:** TIA Portal, WinCC, SIMATIC
-  - **Rockwell:** RSLogix, FactoryTalk, Allen-Bradley
-  - **Schneider:** Unity Pro, Vijeo Citect
-  - **Industrial IoT:** AWS IoT, Azure IoT, ThingWorx
+### Stage 2: Base Manufacturing
+
+- Processes accepted raw materials into product bases using automated manufacturing equipment
+- Implements intelligent stage control - signals Stage 1 (idle→running) when ready to receive parts
+- Automatically transitions to "busy" state during active manufacturing cycle
+- Transfers finished bases via conveyor to final assembly
+
+### Stage 3: Assembly & Packaging
+
+- Dual-conveyor input system: manufactured bases + product lids (spawned for demonstration)
+- 2-axis pick-and-place robot with pneumatic positioning systems
+- Automated assembly of lids onto bases creating finished containers
+- IR sensors provide precise part detection and positioning feedback throughout process
+
+**Sensor Integration:** IR sensors strategically positioned to monitor part presence at critical stations (pusher zone, assembly positions, transfer points) enabling real-time process control.
+
+## Video Demonstration
+**Full process [ 1:45 ]**  
+Demonstrates the full 3-stage process. 
+
+https://drive.google.com/file/d/1jgmJhKKk6puQMtF79jDqM2R668uc4EmO/view?usp=sharing
+
+**Fault and E-Stop Handling [ 1:42 ]**  
+Injected a fault (raw material gets stuck at entry to Stage 2). After 20 seconds the controller recognises there is a fault, causing the entire process to halt and requires operator intervention to restart. 
+Initiated an emergency stop [ 1:05 ] and restart. 
+
+https://drive.google.com/file/d/1Wlif4s2rBeTBHrgsaJoMtnuUYSDvpSE7/view?usp=sharing
+
+## Planned Development Stages
+- [x] Phase 1: Core PLC automation and process control *(Current)*
+- [ ] Phase 2: SCADA system integration and data logging *(In Progress)*
+- [ ] Phase 3: IoT connectivity and cloud data analytics
+- [ ] Phase 4: Machine learning for predictive maintenance
+- [ ] Phase 5: Digital twin implementation
