@@ -15,7 +15,7 @@ This timeline documents key events, decisions, and design changes during the dev
 
 ## 31/07/25
 
-**Stage 1 **
+**Stage 1**
 
 * Added initial version of Stage 1 Controller
 * Added controllers for Conveyer, Vision Sensor, Pusher
@@ -95,3 +95,12 @@ This timeline documents key events, decisions, and design changes during the dev
 * Added a run time tracker to track time since last maintenance
 * Added fault handling for issues with Stage 1 causing Stage 2 not to operate normally
 * Added part counters for rejected and completed parts
+
+---
+
+## 27/08/25
+
+**Fault Reset and Demonstration**
+
+* Implemented operator logic to reset System Fault
+* Record demo videos

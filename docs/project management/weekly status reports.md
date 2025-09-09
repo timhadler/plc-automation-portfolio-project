@@ -55,3 +55,28 @@
 **Status:** Behind
 
 **Next Deadline:** Complete Phase 2 by 12/08/25
+
+## Week 3 (ending 17/08/25)
+
+**Current Phase:** 2 - PLC Simulation Integration
+
+### Progress
+
+* Completed Phase 2 - PLC Simulation Integration
+* Implemented circular buffer to queue commands for stations (Pick and Place station, Positioners)
+* Added eStop interlocks for each output controlling FB
+* Added fault handling (Stage 2)
+* Added part counting and time tracking
+
+### Challenges
+
+* Getting the Pick and Place station and Positioners to execute one command at a time - Solution: Circular buffer and internal state machine to control sequences of commands. 
+
+### Plans for next week
+
+* Setup GitHub repo for project demonstration of Phase 2
+* Plan timeline for Phase 3 - HMI Integration
+
+**Status:** Complete
+
+**Next Deadline:** TBD
